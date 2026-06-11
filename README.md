@@ -4,7 +4,7 @@ Marketing site for Grumpy Dog Software — websites, apps & honest tech help for
 
 ## Structure
 
-- `index.html` — the entire site. A single-page app with hash-based routing (`#home`, `#broodi`, `#nutriroots`, `#pethealth`, `#websites`, `#consulting`, `#contact`). No build step, no dependencies.
+- `index.html` — the entire site. A single-page app with hash-based routing (`#home`, `#broodi`, `#nutriroots`, `#pethealth`, `#services`, `#work`, `#contact`). Legacy `#websites` and `#consulting` links redirect to sections of `#services`. No build step, no dependencies.
 - `assets/` — logo and app artwork. `logo.png` (1024px) and `favicon.png` (256px) are derived from `logo.jpg`.
 - `CNAME` — custom domain for GitHub Pages.
 

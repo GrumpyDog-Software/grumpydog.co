@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grumpy Dog Software — Websites, Apps &amp; Tech Help in Rural Nova Scotia</title>
-<meta name="description" content="Family-run company in the Annapolis Valley building websites, mobile apps, and practical tools for farms, shops, trades, and local businesses across rural Nova Scotia.">
+<meta name="description" content="Female-owned software company in the Annapolis Valley building websites, mobile apps, and practical tools for farms, shops, trades, and local businesses across rural Nova Scotia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
@@ -158,13 +158,35 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .textlink::after{content:'→';color:var(--gold-deep);transition:transform .2s}
 .plate:hover .textlink::after{transform:translateX(5px)}
 
+/* selected work */
+.work-section{background:var(--paper-deep)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.work-card{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.work-card:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.work-visual{min-height:230px;padding:2rem;display:flex;align-items:center;justify-content:center;background:var(--paper-deep);position:relative;overflow:hidden}
+.work-visual::after{content:'';position:absolute;inset:1.25rem;border:1px dashed rgba(184,134,43,0.42);border-radius:8px}
+.work-visual img{position:relative;z-index:1;width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 15px 34px rgba(22,34,61,0.18)}
+.work-browser{position:relative;z-index:1;width:100%;max-width:310px;background:var(--navy-deep);border-radius:8px;box-shadow:0 18px 40px rgba(22,34,61,0.22);overflow:hidden}
+.work-browser-bar{height:25px;background:#fff;display:flex;align-items:center;gap:5px;padding:0 10px}
+.work-browser-bar i{display:block;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.work-browser-body{padding:1.4rem 1.2rem 1.5rem;color:#fff}
+.work-browser-body small{display:block;color:var(--gold);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;font-size:0.55rem}
+.work-browser-body strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.2;margin:0.55rem 0}
+.work-browser-body span{display:block;width:70%;height:5px;background:rgba(255,255,255,0.22);border-radius:99px}
+.work-body{padding:1.7rem 1.8rem 2rem;display:flex;flex-direction:column;flex:1}
+.work-body h3{font-size:1.12rem;margin:0.7rem 0 0.55rem}
+.work-body p{color:var(--ink-soft);font-size:0.9rem;margin-bottom:1.2rem;flex:1}
+
 /* pull quote */
 .pullquote{background:var(--paper-deep);padding:6rem 2rem}
-.pq-inner{max-width:780px;margin:0 auto;text-align:center}
+.pq-inner{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(250px,360px) 1fr;gap:4.5rem;align-items:center}
+.pq-photo{position:relative;padding:0.6rem;border:1.5px dashed rgba(184,134,43,0.55);border-radius:14px;background:var(--card);transform:rotate(-1.5deg);box-shadow:8px 8px 0 rgba(212,160,60,0.28)}
+.pq-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:9px}
+.pq-copy{text-align:left}
 .pq-inner .mark{font-family:var(--display);font-size:6.5rem;line-height:0.55;color:var(--gold);display:block;margin-bottom:1.4rem}
 .pq-inner blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,1.95rem);line-height:1.5;color:var(--ink)}
 .pq-inner cite{display:inline-flex;align-items:center;gap:0.9rem;margin-top:2rem;font-style:normal;font-size:0.7rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep)}
-.pq-inner cite::before,.pq-inner cite::after{content:'';width:34px;height:1px;background:var(--gold)}
+.pq-inner cite::before{content:'';width:34px;height:1px;background:var(--gold)}
 
 /* ---------- subpage hero ---------- */
 .page-hero{position:relative;background:var(--navy-deep);padding:5.5rem 2rem 4.5rem;overflow:hidden;border-bottom:3px solid var(--gold)}
@@ -227,6 +249,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .consult-cta{text-align:center;margin-top:3.5rem}
 .consult-cta .rate{font-size:1rem;color:var(--ink-soft);margin-bottom:1.6rem}
 .consult-cta .rate strong{font-family:var(--display);font-weight:400;color:var(--navy);font-size:1.15rem}
+.section-dark .consult-cta .rate{color:rgba(255,255,255,0.62)}
+.section-dark .consult-cta .rate strong{color:#fff}
 
 /* contact */
 .contact-section{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
@@ -278,7 +302,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 
 /* ---------- responsive ---------- */
 @media(max-width:1020px){
-  .cards-3,.plates,.price-grid,.consult-grid{grid-template-columns:1fr 1fr}
+  .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr 1fr}
   .aud-grid{grid-template-columns:repeat(2,1fr)}
   .screenshots-grid{grid-template-columns:repeat(5,190px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0.25rem 0 1.5rem;scrollbar-color:var(--gold) transparent}
   .screenshot-card{scroll-snap-align:start}
@@ -297,7 +321,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   .section{padding:4.5rem 1.5rem}
   .section-head{grid-template-columns:1fr;gap:1.2rem;align-items:start}
   .section-head .lede{justify-self:start}
-  .cards-3,.plates,.price-grid,.consult-grid{grid-template-columns:1fr}
+  .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr}
   .featured-app{grid-template-columns:1fr;gap:2.5rem}
   .featured-app-img .imgring{width:220px;height:220px}
   .screenshots-grid{grid-template-columns:repeat(5,72vw);margin-right:-1.5rem;padding-right:1.5rem}
@@ -305,6 +329,10 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   .footer-grid{grid-template-columns:1fr;gap:2.2rem}
   .footer-bottom div{flex-direction:column;text-align:center;padding:1.4rem 1rem}
   .pullquote{padding:4.5rem 1.5rem}
+  .pq-inner{grid-template-columns:1fr;gap:2.75rem}
+  .pq-photo{width:min(100%,340px);margin:0 auto}
+  .pq-copy{text-align:center}
+  .pq-inner cite{justify-content:center}
 }
 </style>
 </head>
@@ -327,8 +355,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <a href="#pethealth" data-page="pethealth"><img src="assets/pethealth.jpg" alt="">Pet Health RX</a>
       </div>
     </li>
-    <li><a href="#websites" data-page="websites">Websites</a></li>
-    <li><a href="#consulting" data-page="consulting">Consulting</a></li>
+    <li><a href="#services" data-page="services">Our Services</a></li>
+    <li><a href="#work" data-page="work">Our Work</a></li>
     <li><a href="#contact" data-page="contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </div></nav>
@@ -348,7 +376,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <div class="hero-text">
         <div class="eyebrow">Annapolis Valley · Nova Scotia</div>
         <h1>Websites, apps &amp; honest tech help for <em>rural Nova Scotia</em>.</h1>
-        <p class="hero-desc">We're a small, family-run company in the Annapolis Valley. We help farms, shops, trades, and local businesses get online and get organized — and we build a few apps of our own, too.</p>
+        <p class="hero-desc">We're a female-owned software company in the Annapolis Valley. Rooted in farm life ourselves, we build practical websites and tools for farms, shops, trades, and local businesses.</p>
         <div class="hero-cta">
           <a class="btn btn-gold" href="#services">What We Do</a>
           <a class="btn btn-ghost" href="#apps">See Our Apps</a>
@@ -369,7 +397,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     </div>
     <div class="ticker">
       <ul>
-        <li>Family-run &amp; local</li>
+        <li>Female-owned &amp; local</li>
+        <li>By farmers, for farmers</li>
         <li>Plain English, no jargon</li>
         <li>Apps built in-house</li>
         <li>Hosting handled for you</li>
@@ -384,7 +413,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <p class="lede">Three ways we help businesses outside the big city work smarter and reach more customers.</p>
     </div>
     <div class="cards-3">
-      <a class="card fade-in" href="#websites"><span class="num">01</span>
+      <a class="card fade-in" href="#services-websites"><span class="num">01</span>
         <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <h3>Websites</h3><p>A fast, professional website that tells people who you are, shows what you offer, and makes it easy to reach you. We handle the hosting and upkeep, so you never have to think about it.</p>
       </a>
@@ -392,7 +421,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3>Apps &amp; Custom Tools</h3><p>Purpose-built mobile and web tools shaped around how you actually work — bookings, orders, record keeping. No bloat, nothing you don't need.</p>
       </a>
-      <a class="card fade-in" href="#consulting"><span class="num">03</span>
+      <a class="card fade-in" href="#services-guidance"><span class="num">03</span>
         <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <h3>Guidance &amp; Training</h3><p>Not sure where to start? We'll look at how your business runs, cut through the sales pitches, and help you pick — or build — tools that fit. Plain English, no jargon.</p>
       </a>
@@ -437,10 +466,39 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     </div>
   </div></section>
 
+  <section class="section work-section on-light" id="work-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 04 — Selected Work</div><h2>Our Work</h2></div>
+      <p class="lede">Websites and products built around real operations, clear communication, and less time fighting with technology.</p>
+    </div>
+    <div class="work-grid">
+      <a class="work-card fade-in" href="#home">
+        <div class="work-visual">
+          <div class="work-browser">
+            <div class="work-browser-bar"><i></i><i></i><i></i></div>
+            <div class="work-browser-body"><small>Website</small><strong>Grumpy Dog Software</strong><span></span></div>
+          </div>
+        </div>
+        <div class="work-body"><span class="tag">Website Design &amp; Development</span><h3>Grumpy Dog Software</h3><p>A fast, responsive company website that brings services, products, pricing, and contact into one clear experience.</p><span class="textlink">View website</span></div>
+      </a>
+      <a class="work-card fade-in" href="#broodi">
+        <div class="work-visual"><img src="assets/broodi.jpg" alt="Broodi app"></div>
+        <div class="work-body"><span class="tag">Mobile Product</span><h3>Broodi</h3><p>An incubation companion shaped by hands-on poultry experience, with hatch planning, milestones, and reminders in one place.</p><span class="textlink">View project</span></div>
+      </a>
+      <a class="work-card fade-in" href="#nutriroots">
+        <div class="work-visual"><img src="assets/nutriroots.jpg" alt="NutriRoots app"></div>
+        <div class="work-body"><span class="tag">Mobile Product</span><h3>NutriRoots</h3><p>A practical plant-health platform for diagnosis, soil decisions, companion planting, and step-by-step remediation.</p><span class="textlink">View project</span></div>
+      </a>
+    </div>
+  </div></section>
+
   <div class="pullquote"><div class="pq-inner fade-in">
-    <span class="mark">“</span>
-    <blockquote>If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business.</blockquote>
-    <cite>Argos the Border Collie — Head of Morale</cite>
+    <div class="pq-photo"><img src="assets/argos-quote.webp" alt="Argos the Border Collie wearing his red bandana" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="pq-copy">
+      <span class="mark">“</span>
+      <blockquote>If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business.</blockquote>
+      <cite>Argos the Border Collie — Head of Morale</cite>
+    </div>
   </div></div>
 </div>
 
@@ -647,18 +705,18 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   </div></section>
 </div>
 
-<!-- ============ WEBSITES ============ -->
-<div class="page" id="page-websites">
+<!-- ============ SERVICES ============ -->
+<div class="page" id="page-services">
   <div class="page-hero">
     <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
       <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
     </svg>
-    <div class="ph-inner"><div class="eyebrow">Services — Websites</div><h1>Get Your Business Online</h1><p>Professional websites for farms, shops, trades, and everything in between — built and looked after by people just down the road.</p></div>
+    <div class="ph-inner"><div class="eyebrow">Websites · Custom Tools · Guidance</div><h1>Our Services</h1><p>Practical technology for rural businesses, from a professional website to custom tools and plain-spoken guidance.</p></div>
   </div>
-  <section class="section section-paper on-light"><div class="section-inner">
+  <section class="section section-paper on-light" id="services-websites"><div class="section-inner">
     <div class="section-head fade-in">
-      <div><div class="eyebrow">Plain Pricing</div><h2>Pick Your Package</h2></div>
+      <div><div class="eyebrow">Websites · Plain Pricing</div><h2>Get Your Business Online</h2></div>
       <p class="lede">Every site comes mobile-ready, fast, and built to last. We handle the hosting too.</p>
     </div>
     <div class="price-grid">
@@ -684,20 +742,9 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     </div>
     <p class="fineprint">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact">Let's talk.</a></p>
   </div></section>
-</div>
-
-<!-- ============ CONSULTING ============ -->
-<div class="page" id="page-consulting">
-  <div class="page-hero">
-    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
-      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
-    </svg>
-    <div class="ph-inner"><div class="eyebrow">Services — Guidance &amp; Consulting</div><h1>Guidance &amp; Consulting</h1><p>Plain-spoken help figuring out what tech your business actually needs — and what it doesn't.</p></div>
-  </div>
-  <section class="section section-paper on-light"><div class="section-inner">
+  <section class="section section-dark" id="services-guidance"><div class="section-inner">
     <div class="section-head fade-in">
-      <div><div class="eyebrow">How We Help</div><h2>We Speak Plain English, Not Jargon</h2></div>
+      <div><div class="eyebrow">Guidance &amp; Custom Tools</div><h2>Plain English, Not Jargon</h2></div>
       <p class="lede">Whether you're selling at a roadside stand or running crews across the county, getting organized doesn't have to be overwhelming.</p>
     </div>
     <div class="consult-grid">
@@ -709,7 +756,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Custom Builds</h3><p>When off-the-shelf doesn't cut it, we build tools tailored to your exact workflow.</p></div>
     </div>
     <div class="consult-cta fade-in">
-      <p class="rate">Consulting starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
+      <p class="rate">Guidance starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
       <a class="btn btn-gold" href="#contact">Book a Free Discovery Call</a>
     </div>
   </div></section>
@@ -755,15 +802,15 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <div>
         <b>GRUMPY DOG SOFTWARE</b>
         <span class="tag2">Herding code. Solving problems.</span>
-        <p>A family-run company building websites, apps, and practical tools for rural Nova Scotia — from the Annapolis Valley, with love and mild grumpiness.</p>
+        <p>A female-owned company building websites, apps, and practical tools for rural Nova Scotia. Rooted in the Annapolis Valley and built with a by-farmers, for-farmers perspective.</p>
       </div>
     </div>
     <div>
       <h5>Explore</h5>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#websites">Websites</a></li>
-        <li><a href="#consulting">Consulting</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#work">Our Work</a></li>
         <li><a href="#contact">Get in Touch</a></li>
       </ul>
     </div>
@@ -787,15 +834,20 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*90);observer.unobserve(entry.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-const PAGES=['home','broodi','nutriroots','pethealth','websites','consulting','contact'];
+const PAGES=['home','broodi','nutriroots','pethealth','services','contact'];
 function route(){
   let id=(location.hash||'#home').replace('#','');
+  let activeNav=id;
   let scrollTarget=null;
   if(id==='apps'){id='home';scrollTarget='apps-section'}
-  if(id==='services'){id='home';scrollTarget='services-section'}
-  if(!PAGES.includes(id))id='home';
+  if(id==='work'){id='home';scrollTarget='work-section'}
+  if(id==='websites'){id='services';activeNav='services';scrollTarget='services-websites'}
+  if(id==='consulting'){id='services';activeNav='services';scrollTarget='services-guidance'}
+  if(id==='services-websites'){id='services';activeNav='services';scrollTarget='services-websites'}
+  if(id==='services-guidance'){id='services';activeNav='services';scrollTarget='services-guidance'}
+  if(!PAGES.includes(id)){id='home';activeNav='home'}
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===activeNav));
   document.getElementById('navLinks').classList.remove('open');
   if(scrollTarget){setTimeout(()=>document.getElementById(scrollTarget).scrollIntoView({behavior:'smooth'}),80)}
   else{window.scrollTo({top:0})}
