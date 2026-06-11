@@ -5,10 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grumpy Dog Software — Websites, Apps &amp; Tech Help in Rural Nova Scotia</title>
 <meta name="description" content="Female-owned software company in the Annapolis Valley building websites, mobile apps, and practical tools for farms, shops, trades, and local businesses across rural Nova Scotia.">
+<meta name="author" content="Grumpy Dog Software">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0F1B33">
+<link rel="canonical" href="https://grumpydog.co/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="Grumpy Dog Software">
+<meta property="og:url" content="https://grumpydog.co/">
+<meta property="og:title" content="Grumpy Dog Software — Practical Tech for Rural Nova Scotia">
+<meta property="og:description" content="Female-owned, farm-rooted software company building websites, apps, and practical tools in the Annapolis Valley.">
+<meta property="og:image" content="https://grumpydog.co/assets/social-card.jpg">
+<meta property="og:image:secure_url" content="https://grumpydog.co/assets/social-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grumpy Dog Software — websites, apps, and honest tech help for rural Nova Scotia">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grumpy Dog Software — Practical Tech for Rural Nova Scotia">
+<meta name="twitter:description" content="Female-owned, farm-rooted software company building websites, apps, and practical tools in the Annapolis Valley.">
+<meta name="twitter:image" content="https://grumpydog.co/assets/social-card.jpg">
+<meta name="twitter:image:alt" content="Grumpy Dog Software — websites, apps, and honest tech help for rural Nova Scotia">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://grumpydog.co/#organization",
+      "name": "Grumpy Dog Software",
+      "url": "https://grumpydog.co/",
+      "logo": "https://grumpydog.co/assets/logo.png",
+      "image": "https://grumpydog.co/assets/social-card.jpg",
+      "description": "Female-owned, farm-rooted software company building websites, mobile apps, and practical tools for rural Nova Scotia.",
+      "email": "hello@grumpydog.co",
+      "founder": {
+        "@type": "Person",
+        "name": "Celina"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Nova Scotia"
+      },
+      "knowsAbout": [
+        "Website design and development",
+        "Mobile app development",
+        "Custom business software",
+        "Technology consulting"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://grumpydog.co/#website",
+      "url": "https://grumpydog.co/",
+      "name": "Grumpy Dog Software",
+      "publisher": {
+        "@id": "https://grumpydog.co/#organization"
+      },
+      "inLanguage": "en-CA"
+    }
+  ]
+}
+</script>
 <style>
 :root{
   --navy:#1B2A4A;
@@ -52,8 +119,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
 .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
 .dropdown{position:relative}
-.dropdown-toggle{display:flex;align-items:center;gap:5px}
-.dropdown-toggle::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.dropdown-toggle{display:inline-flex;align-items:center;gap:7px;vertical-align:middle}
+.dropdown-toggle::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transform-origin:center;flex-shrink:0}
 .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy-deep);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.5rem;min-width:230px;box-shadow:0 16px 40px rgba(0,0,0,0.4)}
 .dropdown:hover .dropdown-menu{display:block}
 .dropdown-menu a{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.75rem;border-radius:5px;letter-spacing:0.08em}
@@ -160,12 +227,16 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 
 /* selected work */
 .work-section{background:var(--paper-deep)}
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.work-grid{display:grid;gap:1.75rem}
 .work-card{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
 .work-card:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.work-card.featured-work{display:grid;grid-template-columns:1.35fr 0.65fr}
 .work-visual{min-height:230px;padding:2rem;display:flex;align-items:center;justify-content:center;background:var(--paper-deep);position:relative;overflow:hidden}
 .work-visual::after{content:'';position:absolute;inset:1.25rem;border:1px dashed rgba(184,134,43,0.42);border-radius:8px}
 .work-visual img{position:relative;z-index:1;width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 15px 34px rgba(22,34,61,0.18)}
+.work-visual.work-site{padding:0;align-items:stretch}
+.work-visual.work-site::after{display:none}
+.work-visual.work-site img{width:100%;height:100%;min-height:420px;border-radius:0;object-fit:cover;object-position:top;box-shadow:none}
 .work-browser{position:relative;z-index:1;width:100%;max-width:310px;background:var(--navy-deep);border-radius:8px;box-shadow:0 18px 40px rgba(22,34,61,0.22);overflow:hidden}
 .work-browser-bar{height:25px;background:#fff;display:flex;align-items:center;gap:5px;padding:0 10px}
 .work-browser-bar i{display:block;width:6px;height:6px;border-radius:50%;background:var(--gold)}
@@ -173,9 +244,9 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .work-browser-body small{display:block;color:var(--gold);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;font-size:0.55rem}
 .work-browser-body strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.2;margin:0.55rem 0}
 .work-browser-body span{display:block;width:70%;height:5px;background:rgba(255,255,255,0.22);border-radius:99px}
-.work-body{padding:1.7rem 1.8rem 2rem;display:flex;flex-direction:column;flex:1}
-.work-body h3{font-size:1.12rem;margin:0.7rem 0 0.55rem}
-.work-body p{color:var(--ink-soft);font-size:0.9rem;margin-bottom:1.2rem;flex:1}
+.work-body{padding:2.5rem 2.3rem;display:flex;flex-direction:column;justify-content:center}
+.work-body h3{font-size:1.35rem;margin:0.7rem 0 0.7rem}
+.work-body p{color:var(--ink-soft);font-size:0.95rem;margin-bottom:1.5rem}
 
 /* pull quote */
 .pullquote{background:var(--paper-deep);padding:6rem 2rem}
@@ -316,6 +387,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 @media(max-width:1020px){
   .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr 1fr}
   .staff-grid{grid-template-columns:1fr}
+  .work-card.featured-work{grid-template-columns:1fr}
+  .work-visual.work-site img{min-height:0;aspect-ratio:16/10}
   .aud-grid{grid-template-columns:repeat(2,1fr)}
   .screenshots-grid{grid-template-columns:repeat(5,190px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0.25rem 0 1.5rem;scrollbar-color:var(--gold) transparent}
   .screenshot-card{scroll-snap-align:start}
@@ -485,25 +558,12 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   <section class="section work-section on-light" id="work-section"><div class="section-inner">
     <div class="section-head fade-in">
       <div><div class="eyebrow">№ 04 — Selected Work</div><h2>Our Work</h2></div>
-      <p class="lede">Websites and products built around real operations, clear communication, and less time fighting with technology.</p>
+      <p class="lede">Customer websites built around real operations, clear communication, and a straightforward path from interest to action.</p>
     </div>
     <div class="work-grid">
-      <a class="work-card fade-in" href="#home">
-        <div class="work-visual">
-          <div class="work-browser">
-            <div class="work-browser-bar"><i></i><i></i><i></i></div>
-            <div class="work-browser-body"><small>Website</small><strong>Grumpy Dog Software</strong><span></span></div>
-          </div>
-        </div>
-        <div class="work-body"><span class="tag">Website Design &amp; Development</span><h3>Grumpy Dog Software</h3><p>A fast, responsive company website that brings services, products, pricing, and contact into one clear experience.</p><span class="textlink">View website</span></div>
-      </a>
-      <a class="work-card fade-in" href="#broodi">
-        <div class="work-visual"><img src="assets/broodi.jpg" alt="Broodi app"></div>
-        <div class="work-body"><span class="tag">Mobile Product</span><h3>Broodi</h3><p>An incubation companion shaped by hands-on poultry experience, with hatch planning, milestones, and reminders in one place.</p><span class="textlink">View project</span></div>
-      </a>
-      <a class="work-card fade-in" href="#nutriroots">
-        <div class="work-visual"><img src="assets/nutriroots.jpg" alt="NutriRoots app"></div>
-        <div class="work-body"><span class="tag">Mobile Product</span><h3>NutriRoots</h3><p>A practical plant-health platform for diagnosis, soil decisions, companion planting, and step-by-step remediation.</p><span class="textlink">View project</span></div>
+      <a class="work-card featured-work fade-in" href="https://macgregorvalleyfarm.com/" target="_blank" rel="noopener">
+        <div class="work-visual work-site"><img src="assets/macgregor-valley-farm.webp" alt="MacGregor Valley Farm heritage poultry website" width="1200" height="750" loading="lazy" decoding="async"></div>
+        <div class="work-body"><span class="tag">Customer Website</span><h3>MacGregor Valley Farm</h3><p>A responsive farm website that brings heritage poultry conservation, breed information, and current availability into one clear customer journey.</p><span class="textlink">Visit website</span></div>
       </a>
     </div>
   </div></section>
@@ -887,9 +947,27 @@ const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 const PAGES=['home','broodi','nutriroots','pethealth','services','staff','contact'];
+const PAGE_META={
+  home:['Grumpy Dog Software — Websites, Apps & Tech Help in Rural Nova Scotia','Female-owned software company in the Annapolis Valley building websites, apps, and practical tools for rural Nova Scotia.'],
+  apps:['Our Apps — Grumpy Dog Software','Explore practical apps built by Grumpy Dog Software for poultry, plant health, and pet care.'],
+  broodi:['Broodi — Incubator Hatching Companion','Plan poultry hatches, follow incubation milestones, and never miss candling, lockdown, or hatch day with Broodi.'],
+  nutriroots:['NutriRoots — Plant Health & Soil App','Assess plant and root health, diagnose disease, plan companion planting, and make informed fertilizer decisions with NutriRoots.'],
+  pethealth:['Pet Health RX Manager — Chronic & Wellness Care','Track medications, chronic conditions, vet visits, weight, and everyday wellness for the animals you love.'],
+  services:['Our Services — Grumpy Dog Software','Websites, custom tools, managed hosting, and plain-spoken technology guidance for rural businesses.'],
+  websites:['Website Services — Grumpy Dog Software','Fast, professional, managed websites for farms, shops, trades, and rural businesses across Nova Scotia.'],
+  consulting:['Technology Guidance — Grumpy Dog Software','Practical, plain-spoken technology guidance and custom tools shaped around how your business actually works.'],
+  'services-websites':['Website Services — Grumpy Dog Software','Fast, professional, managed websites for farms, shops, trades, and rural businesses across Nova Scotia.'],
+  'services-guidance':['Technology Guidance — Grumpy Dog Software','Practical, plain-spoken technology guidance and custom tools shaped around how your business actually works.'],
+  work:['Our Work — Grumpy Dog Software','See customer websites built by Grumpy Dog Software for rural businesses and working farms.'],
+  staff:['Our Staff — Grumpy Dog Software','Meet Celina and the canine leadership team behind Grumpy Dog Software.'],
+  contact:['Contact Grumpy Dog Software','Talk with Grumpy Dog Software about your website, app, custom tool, hosting, or technology project.']
+};
 function route(){
   let id=(location.hash||'#home').replace('#','');
   let activeNav=id;
+  const meta=PAGE_META[id]||PAGE_META.home;
+  document.title=meta[0];
+  document.querySelector('meta[name="description"]').content=meta[1];
   let scrollTarget=null;
   if(id==='apps'){id='home';scrollTarget='apps-section'}
   if(id==='work'){id='home';scrollTarget='work-section'}

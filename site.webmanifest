@@ -1,0 +1,21 @@
+{
+  "name": "Grumpy Dog Software",
+  "short_name": "Grumpy Dog",
+  "description": "Websites, apps, and honest tech help for rural Nova Scotia.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#F7F3E9",
+  "theme_color": "#0F1B33",
+  "icons": [
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
