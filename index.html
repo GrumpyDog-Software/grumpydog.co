@@ -215,6 +215,18 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .screenshot-frame img{display:block;width:100%;height:auto;border-radius:16px}
 .screenshot-card figcaption{padding:0.9rem 0.35rem 0;color:var(--ink-soft);font-size:0.78rem;text-align:center;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
 
+/* staff */
+.staff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem}
+.staff-card{display:grid;grid-template-columns:minmax(155px,0.78fr) 1.22fr;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.staff-card:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.staff-photo{min-height:320px;background:var(--paper-deep);overflow:hidden}
+.staff-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.staff-body{padding:2rem 1.8rem;display:flex;flex-direction:column;justify-content:center}
+.staff-body .tag{margin-bottom:1rem}
+.staff-body h2{font-size:1.35rem;margin-bottom:0.55rem}
+.staff-role{color:var(--gold-deep);font-size:0.73rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;line-height:1.5}
+.staff-body p{color:var(--ink-soft);font-size:0.92rem}
+
 /* pillars (dark) */
 .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.75rem}
 .pillar-card{background:rgba(255,255,255,0.04);border:1px solid var(--rule-dark);border-radius:10px;padding:2.1rem;transition:background .3s,transform .25s;position:relative;overflow:hidden}
@@ -303,9 +315,14 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 /* ---------- responsive ---------- */
 @media(max-width:1020px){
   .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr 1fr}
+  .staff-grid{grid-template-columns:1fr}
   .aud-grid{grid-template-columns:repeat(2,1fr)}
   .screenshots-grid{grid-template-columns:repeat(5,190px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0.25rem 0 1.5rem;scrollbar-color:var(--gold) transparent}
   .screenshot-card{scroll-snap-align:start}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:76px;left:0;right:0;background:var(--navy-deep);padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--rule-dark)}
+  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:0.75rem}
+  .hamburger{display:flex}
 }
 @media(max-width:768px){
   .hero-content{grid-template-columns:1fr;gap:3.5rem;padding:3.5rem 1.5rem 4.5rem}
@@ -314,10 +331,6 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   .ring-text{inset:-44px;width:calc(100% + 88px);height:calc(100% + 88px)}
   .hero-chip{width:54px;height:54px}
   .ticker ul{justify-content:flex-start;gap:0.8rem 1.6rem;padding:1rem 1.5rem}
-  .nav-links{display:none}
-  .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:76px;left:0;right:0;background:var(--navy-deep);padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--rule-dark)}
-  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:0.75rem}
-  .hamburger{display:flex}
   .section{padding:4.5rem 1.5rem}
   .section-head{grid-template-columns:1fr;gap:1.2rem;align-items:start}
   .section-head .lede{justify-self:start}
@@ -325,6 +338,8 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   .featured-app{grid-template-columns:1fr;gap:2.5rem}
   .featured-app-img .imgring{width:220px;height:220px}
   .screenshots-grid{grid-template-columns:repeat(5,72vw);margin-right:-1.5rem;padding-right:1.5rem}
+  .staff-card{grid-template-columns:1fr}
+  .staff-photo{min-height:0;aspect-ratio:4/5}
   .contact-section{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr;gap:2.2rem}
   .footer-bottom div{flex-direction:column;text-align:center;padding:1.4rem 1rem}
@@ -357,6 +372,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     </li>
     <li><a href="#services" data-page="services">Our Services</a></li>
     <li><a href="#work" data-page="work">Our Work</a></li>
+    <li><a href="#staff" data-page="staff">Our Staff</a></li>
     <li><a href="#contact" data-page="contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </div></nav>
@@ -497,7 +513,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     <div class="pq-copy">
       <span class="mark">“</span>
       <blockquote>If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business.</blockquote>
-      <cite>Argos the Border Collie — Head of Morale</cite>
+      <cite>Argos the Border Collie — Head of Project Management</cite>
     </div>
   </div></div>
 </div>
@@ -762,6 +778,41 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   </div></section>
 </div>
 
+<!-- ============ STAFF ============ -->
+<div class="page" id="page-staff">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">The People Behind the Work</div><h1>Our Staff</h1><p>A small, hands-on team with practical experience, clear priorities, and a suspiciously high ratio of dogs to humans.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Meet the Team</div><h2>Small Team. Serious Follow-Through.</h2></div>
+      <p class="lede">You work directly with the person responsible for your project, supported by an exceptionally attentive canine leadership team.</p>
+    </div>
+    <div class="staff-grid">
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="assets/celina-portrait.webp" alt="Celina, owner and operator of Grumpy Dog Software" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">The Human</span><h2>Celina</h2><div class="staff-role">Owner &amp; Operator</div><p>Celina leads every client relationship and project from first conversation through launch and ongoing support. She combines practical farm experience with a clear-eyed approach to technology, building websites and tools that solve real problems without unnecessary complexity.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="assets/argos-quote.webp" alt="Argos, Head of Project Management" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">Operations</span><h2>Argos</h2><div class="staff-role">Head of Project Management</div><p>Argos keeps a close eye on schedules, priorities, and anyone who appears to be standing still for too long. His management style is focused, direct, and strongly in favour of regular outdoor status meetings.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="assets/luna-portrait.webp" alt="Luna, Head of Morale and Cuteness" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">People &amp; Culture</span><h2>Luna</h2><div class="staff-role">Head of Morale &amp; Cuteness</div><p>Luna makes sure the workday stays balanced, spirits remain high, and no good idea goes uncelebrated. She brings curiosity, enthusiasm, and a well-timed reminder that every difficult problem benefits from a short break.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="assets/max-portrait.webp" alt="Max, Head of Security" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">Security</span><h2>Max</h2><div class="staff-role">Head of Security — Cyber &amp; Otherwise</div><p>Max oversees perimeter checks, unexpected visitors, and anything that looks even slightly unusual. His approach to security is proactive, thorough, and backed by an impressive bark-first escalation policy.</p></div>
+      </article>
+    </div>
+  </div></section>
+</div>
+
 <!-- ============ CONTACT ============ -->
 <div class="page" id="page-contact">
   <div class="page-hero">
@@ -811,6 +862,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Our Services</a></li>
         <li><a href="#work">Our Work</a></li>
+        <li><a href="#staff">Our Staff</a></li>
         <li><a href="#contact">Get in Touch</a></li>
       </ul>
     </div>
@@ -834,7 +886,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*90);observer.unobserve(entry.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-const PAGES=['home','broodi','nutriroots','pethealth','services','contact'];
+const PAGES=['home','broodi','nutriroots','pethealth','services','staff','contact'];
 function route(){
   let id=(location.hash||'#home').replace('#','');
   let activeNav=id;
