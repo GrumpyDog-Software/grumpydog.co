@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grumpy Dog Software — Websites, Apps &amp; Tech Help in Rural Nova Scotia</title>
+<meta name="description" content="Family-run company in the Annapolis Valley building websites, mobile apps, and practical tools for farms, shops, trades, and local businesses across rural Nova Scotia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+:root{--navy:#1B2A4A;--navy-deep:#0F1B33;--white:#FFFFFF;--off-white:#F4F6FA;--cream:#E8ECF4;--accent:#D4A03C;--accent-hover:#E8B44E;--text:#1B2A4A;--text-muted:#5A6A8A;--border:#D0D8E8;--shadow:rgba(27,42,74,0.12);--shadow-strong:rgba(27,42,74,0.25)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacing:-0.02em}
+.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,27,51,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--white)}
+.nav-logo img{width:42px;height:42px;border-radius:50%;background:var(--white);box-shadow:0 0 0 2px rgba(212,160,60,0.5)}
+.nav-logo span{font-family:'Archivo Black',sans-serif;font-size:1.05rem;letter-spacing:0.02em}
+.nav-links{display:flex;gap:0.15rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;padding:0.5rem 0.75rem;font-size:0.85rem;font-weight:500;border-radius:8px;transition:all 0.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.1)}
+.nav-cta{background:var(--accent)!important;color:var(--navy-deep)!important;font-weight:700!important}
+.nav-cta:hover{background:var(--accent-hover)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px}
+.dropdown{position:relative}
+.dropdown-toggle{display:flex;align-items:center;gap:4px}
+.dropdown-toggle::after{content:'';width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:2px}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy-deep);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:0.5rem;min-width:220px;box-shadow:0 12px 32px rgba(0,0,0,0.3)}
+.dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.75rem;border-radius:6px;font-size:0.85rem}
+.dropdown-menu img{width:28px;height:28px;border-radius:6px;object-fit:contain;background:var(--white)}
+.page{display:none;min-height:100vh;padding-top:72px}
+.page.active{display:block}
+.hero{position:relative;min-height:calc(100vh - 72px);display:flex;align-items:center;background:var(--navy-deep);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(44,62,107,0.6) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(212,160,60,0.08) 0%,transparent 50%)}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center}
+.hero-text{z-index:1}
+.hero-byline{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:var(--white);margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-desc{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:2.5rem;max-width:540px}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s}
+.btn-primary{background:var(--accent);color:var(--navy-deep)}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,160,60,0.3)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.25)}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05)}
+.btn-sm{padding:0.6rem 1.5rem;font-size:0.85rem}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:1;min-height:380px}
+.hero-badge{width:300px;height:300px;border-radius:50%;overflow:hidden;background:var(--white);box-shadow:0 0 0 8px rgba(212,160,60,0.25),0 0 0 1px rgba(255,255,255,0.15),0 24px 64px rgba(0,0,0,0.45)}
+.hero-badge img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.hero-chip{position:absolute;width:74px;height:74px;border-radius:50%;overflow:hidden;background:var(--white);box-shadow:0 0 0 3px rgba(255,255,255,0.12),0 12px 28px rgba(0,0,0,0.4);animation:float 6s ease-in-out infinite}
+.hero-chip img{width:100%;height:100%;object-fit:cover;transform:scale(1.05)}
+.chip-1{top:6%;right:8%;animation-delay:0s}
+.chip-2{bottom:10%;right:2%;animation-delay:1.6s}
+.chip-3{bottom:2%;left:12%;animation-delay:3.2s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.section{padding:6rem 2rem}
+.section-dark{background:var(--navy-deep);color:var(--white)}
+.section-alt{background:var(--off-white)}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-header h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem}
+.section-header p{font-size:1.1rem;color:var(--text-muted);max-width:640px;margin:0 auto}
+.section-dark .section-header p{color:rgba(255,255,255,0.6)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2.5rem;transition:all 0.3s;text-decoration:none;color:inherit;display:block}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px var(--shadow);border-color:var(--accent)}
+.service-icon{width:56px;height:56px;background:var(--navy-deep);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--accent)}
+.service-icon .icon{width:26px;height:26px}
+.service-card h3{font-size:1.2rem;margin-bottom:0.75rem}
+.service-card p{color:var(--text-muted);font-size:0.95rem}
+.apps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
+.app-card{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;text-decoration:none;color:inherit;display:block}
+.app-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px var(--shadow)}
+.app-card-img{height:200px;display:flex;align-items:center;justify-content:center;padding:1.5rem;border-bottom:1px solid var(--cream)}
+.app-card-img img{height:150px;width:150px;object-fit:contain;background:var(--white);border-radius:50%;box-shadow:0 8px 24px var(--shadow)}
+.app-card-body{padding:1.5rem 2rem 2rem}
+.app-card-body .tag{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.app-card-body h3{font-size:1.3rem;margin-bottom:0.5rem}
+.app-card-body p{color:var(--text-muted);font-size:0.9rem;margin-bottom:1.25rem}
+.app-card-body .btn{pointer-events:none}
+.featured-app{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.featured-app-img{display:flex;justify-content:center}
+.featured-app-img img{width:280px;max-width:100%;border-radius:32px;border:1px solid var(--border);box-shadow:0 12px 40px var(--shadow);background:var(--white);padding:1rem}
+.featured-app-text h2{font-size:2rem;margin-bottom:0.5rem}
+.featured-app-text .app-subtitle{color:var(--accent);font-weight:700;font-size:0.9rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
+.featured-app-text>p{color:var(--text-muted);margin-bottom:1.5rem;font-size:1.05rem}
+.feature-list{list-style:none;margin-bottom:2rem}
+.feature-list li{padding:0.4rem 0;color:var(--text-muted);display:flex;align-items:flex-start;gap:0.75rem;font-size:0.95rem}
+.feature-list li::before{content:'✓';color:var(--accent);font-weight:700;font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem}
+.pillar-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;transition:all 0.3s}
+.pillar-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px)}
+.pillar-card h3{color:var(--white);font-size:1.1rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
+.pillar-card h3 .icon{color:var(--accent);width:20px;height:20px}
+.pillar-card p{color:rgba(255,255,255,0.6);font-size:0.9rem}
+.pillar-card ul{list-style:none;margin-top:0.75rem}
+.pillar-card ul li{color:rgba(255,255,255,0.5);font-size:0.85rem;padding:0.25rem 0;display:flex;align-items:flex-start;gap:0.5rem}
+.pillar-card ul li::before{content:'→';color:var(--accent);flex-shrink:0}
+.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.audience-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.75rem;text-align:center;transition:all 0.3s}
+.audience-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px);border-color:rgba(212,160,60,0.4)}
+.audience-icon{display:flex;justify-content:center;margin-bottom:0.9rem;color:var(--accent)}
+.audience-icon .icon{width:30px;height:30px;stroke-width:1.75}
+.audience-card h4{color:var(--white);font-size:0.95rem;margin-bottom:0.4rem}
+.audience-card p{color:rgba(255,255,255,0.5);font-size:0.8rem}
+.quote-bar{background:var(--navy);padding:3.5rem 2rem;text-align:center}
+.quote-bar blockquote{max-width:700px;margin:0 auto;font-size:1.4rem;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.6}
+.quote-bar cite{display:block;margin-top:1rem;font-style:normal;font-size:0.9rem;color:var(--accent);font-weight:700}
+.page-hero{background:var(--navy-deep);padding:5rem 2rem 4rem;text-align:center}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1rem}
+.page-hero p{font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:600px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
+.pricing-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center;transition:all 0.3s;position:relative}
+.pricing-card.featured{border-color:var(--accent);transform:scale(1.03)}
+.pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--navy-deep);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;padding:0.3rem 1.2rem;border-radius:20px}
+.pricing-card:hover{box-shadow:0 16px 48px var(--shadow)}
+.pricing-card h3{font-size:1.3rem;margin-bottom:0.5rem}
+.pricing-sub{color:var(--text-muted);font-size:0.9rem}
+.pricing-price{font-family:'Archivo Black',sans-serif;font-size:2.5rem;color:var(--navy);margin:1rem 0}
+.pricing-price small{font-size:0.4em;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400}
+.pricing-features{list-style:none;text-align:left;margin:1.5rem 0 2rem}
+.pricing-features li{padding:0.5rem 0;font-size:0.9rem;color:var(--text-muted);border-bottom:1px solid var(--cream);display:flex;align-items:center;gap:0.5rem}
+.pricing-features li::before{content:'→';color:var(--accent);font-weight:700}
+.consulting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.consulting-card{background:var(--white);border-radius:16px;padding:2.5rem;border:1px solid var(--border);transition:all 0.3s}
+.consulting-card:hover{box-shadow:0 12px 36px var(--shadow);transform:translateY(-4px)}
+.consulting-card h3{font-size:1.15rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
+.consulting-card h3 .icon{color:var(--accent)}
+.consulting-card p{color:var(--text-muted);font-size:0.95rem}
+.contact-section{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info h3{font-size:1.4rem;margin-bottom:1rem}
+.contact-info p{color:var(--text-muted);margin-bottom:2rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--cream);color:var(--text-muted)}
+.contact-detail .icon{color:var(--accent);width:20px;height:20px}
+.contact-detail a{color:var(--navy);font-weight:500;text-decoration:none}
+.contact-detail a:hover{color:var(--accent)}
+.contact-form{background:var(--off-white);padding:2.5rem;border-radius:16px}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-weight:700;font-size:0.85rem;margin-bottom:0.4rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:0.75rem 1rem;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.95rem;background:var(--white);transition:border-color 0.2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--navy)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-note{font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.75rem}
+.footer{background:var(--navy-deep);color:rgba(255,255,255,0.5);padding:3rem 2rem;font-size:0.85rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{display:flex;align-items:center;gap:0.6rem}
+.footer-brand img{width:28px;height:28px;border-radius:50%;background:var(--white)}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.dark-card{background:rgba(255,255,255,0.05)!important;border-color:rgba(255,255,255,0.1)!important}
+.dark-card h3{color:var(--white)}
+.dark-card p{color:rgba(255,255,255,0.6)}
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;text-align:center;gap:3rem;padding:3rem 1.5rem}
+  .hero-desc{margin:0 auto 2.5rem}
+  .hero-buttons{justify-content:center}
+  .hero-visual{order:-1;min-height:auto}
+  .hero-badge{width:200px;height:200px}
+  .hero-chip{width:54px;height:54px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--navy-deep);padding:1rem;border-top:1px solid rgba(255,255,255,0.08)}
+  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:1rem}
+  .hamburger{display:flex}
+  .featured-app{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .feature-list{text-align:left}
+  .contact-section{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .section{padding:4rem 1.5rem}
+  .audience-grid{grid-template-columns:repeat(2,1fr)}
+  .apps-grid{grid-template-columns:1fr}
+  .pillars-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-inner">
+  <a class="nav-logo" href="#home">
+    <img src="assets/logo.jpg" alt="Grumpy Dog Software"><span>GRUMPY DOG</span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active" data-page="home">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" href="#apps" data-page="apps">Our Apps</a>
+      <div class="dropdown-menu">
+        <a href="#broodi" data-page="broodi"><img src="assets/broodi.jpg" alt="">Broodi</a>
+        <a href="#nutriroots" data-page="nutriroots"><img src="assets/nutriroots.jpg" alt="">NutriRoots</a>
+        <a href="#pethealth" data-page="pethealth"><img src="assets/pethealth.jpg" alt="">Pet Health RX</a>
+      </div>
+    </li>
+    <li><a href="#websites" data-page="websites">Websites</a></li>
+    <li><a href="#consulting" data-page="consulting">Consulting</a></li>
+    <li><a href="#contact" data-page="contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</div></nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <section class="hero"><div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-byline">Annapolis Valley · Nova Scotia</div>
+        <h1>Websites, apps &amp; honest tech help for <em>rural Nova Scotia</em>.</h1>
+        <p class="hero-desc">We're a small, family-run company in the Annapolis Valley. We help farms, shops, trades, and local businesses get online and get organized — and we build a few apps of our own, too.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#services">What We Do</a>
+          <a class="btn btn-outline" href="#apps">See Our Apps</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-badge"><img src="assets/logo.jpg" alt="Grumpy Dog Software logo"></div>
+        <div class="hero-chip chip-1"><img src="assets/broodi.jpg" alt="Broodi app"></div>
+        <div class="hero-chip chip-2"><img src="assets/nutriroots.jpg" alt="NutriRoots app"></div>
+        <div class="hero-chip chip-3"><img src="assets/pethealth.jpg" alt="Pet Health RX app"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services-section"><div class="section-inner">
+    <div class="section-header fade-in"><h2>What We Do</h2><p>Three ways we help businesses outside the big city work smarter and reach more customers.</p></div>
+    <div class="services-grid">
+      <a class="service-card fade-in" href="#websites">
+        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Websites</h3><p>A fast, professional website that tells people who you are, shows what you offer, and makes it easy to reach you. We handle the hosting and upkeep, so you never have to think about it.</p>
+      </a>
+      <a class="service-card fade-in" href="#apps">
+        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Apps &amp; Custom Tools</h3><p>Purpose-built mobile and web tools shaped around how you actually work — bookings, orders, record keeping. No bloat, nothing you don't need.</p>
+      </a>
+      <a class="service-card fade-in" href="#consulting">
+        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <h3>Guidance &amp; Training</h3><p>Not sure where to start? We'll look at how your business runs, cut through the sales pitches, and help you pick — or build — tools that fit. Plain English, no jargon.</p>
+      </a>
+    </div>
+  </div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-header fade-in"><h2>Who We Help</h2><p>If you run it, grow it, make it, fix it, or serve it — we can help you do it with less paperwork and more reach.</p></div>
+    <div class="audience-grid fade-in">
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9C12 5.5 9.5 3 5 3c0 4.5 2.5 7 7 6z"/><path d="M12 12c0-3.5 2.5-6 7-6 0 4.5-2.5 7-7 6z"/></svg></div><h4>Farms &amp; Growers</h4><p>Crops, livestock, dairy, poultry — any scale</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Trades &amp; Contractors</h4><p>Builders, electricians, plumbers, landscapers</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><h4>Shops &amp; Restaurants</h4><p>Cafés, retail, farm-to-table, food trucks</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h4>Markets &amp; Farm Stands</h4><p>Roadside stands, farmers markets, CSAs</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h4>Inns &amp; Tourism</h4><p>B&amp;Bs, cottages, experiences, attractions</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h4>Makers &amp; Producers</h4><p>Wineries, cideries, preserves, baked goods</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Co-ops &amp; Community</h4><p>Food hubs, non-profits, local organizations</p></div>
+      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="8.5" r="1.7"/><circle cx="10.2" cy="5.3" r="1.7"/><circle cx="13.8" cy="5.3" r="1.7"/><circle cx="18" cy="8.5" r="1.7"/><path d="M12 10.5c-3.2 0-5.8 2.6-5.8 5.3 0 1.9 1.4 3.2 3.2 3.2.9 0 1.7-.4 2.6-.4s1.7.4 2.6.4c1.8 0 3.2-1.3 3.2-3.2 0-2.7-2.6-5.3-5.8-5.3z"/></svg></div><h4>Pet &amp; Animal Owners</h4><p>Health tracking for the animals you love</p></div>
+    </div>
+  </div></section>
+
+  <section class="section section-alt" id="apps-section"><div class="section-inner">
+    <div class="section-header fade-in"><h2>Our Apps</h2><p>We don't just build for other people. These are our own products — born from problems we wanted solved ourselves.</p></div>
+    <div class="apps-grid fade-in">
+      <a class="app-card" href="#broodi">
+        <div class="app-card-img"><img src="assets/broodi.jpg" alt="Broodi"></div>
+        <div class="app-card-body"><div class="tag">Poultry &amp; Hatching</div><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+      </a>
+      <a class="app-card" href="#nutriroots">
+        <div class="app-card-img"><img src="assets/nutriroots.jpg" alt="NutriRoots"></div>
+        <div class="app-card-body"><div class="tag">Plant Health &amp; Soil</div><h3>NutriRoots</h3><p>Assess plant and root health, diagnose diseases, plan companion planting, and get precise fertilizer recommendations — all in one app.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+      </a>
+      <a class="app-card" href="#pethealth">
+        <div class="app-card-img"><img src="assets/pethealth.jpg" alt="Pet Health RX"></div>
+        <div class="app-card-body"><div class="tag">Chronic &amp; Wellness Care</div><h3>Pet Health RX Manager</h3><p>Manage chronic conditions like epilepsy, diabetes, and obesity alongside everyday wellness — medications, vet visits, and health logs in one place.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+      </a>
+    </div>
+  </div></section>
+
+  <div class="quote-bar"><blockquote>"If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business."</blockquote><cite>— Argos the Border Collie, Head of Morale</cite></div>
+</div>
+
+<!-- BROODI -->
+<div class="page" id="page-broodi">
+  <div class="page-hero"><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone.</p></div>
+  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><img src="assets/broodi.jpg" alt="Broodi"></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Poultry &amp; Hatching</div>
+      <h2>Hatching Made Simple</h2>
+      <p>Whether you're hatching chickens, ducks, quail, or turkeys, Broodi calculates your exact hatch date and keeps you on track with key milestones throughout incubation.</p>
+      <ul class="feature-list">
+        <li>Support for chickens, ducks, turkeys, quail, geese, and more</li>
+        <li>Automatic hatch date calculation from set date</li>
+        <li>Candling reminders and lockdown alerts</li>
+        <li>Track multiple batches simultaneously</li>
+        <li>Works offline — perfect for the coop</li>
+        <li>Clean, easy interface designed for busy hands</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Ask About Broodi →</a>
+    </div>
+  </div></div></section>
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-header fade-in"><h2>How It Works</h2><p>Three steps. That's it.</p></div>
+    <div class="services-grid">
+      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-8 0-5-3-12-7-12S5 9 5 14c0 5 3 8 7 8z"/></svg></div><h3>1. Pick Your Species</h3><p>Select from a wide range of poultry — each with accurate incubation periods baked in.</p></div>
+      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>2. Set Your Date</h3><p>Enter when you set the eggs and Broodi does the math. Hatch day, candling dates, lockdown — mapped out.</p></div>
+      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>3. Hatch Day</h3><p>Get reminders at every milestone and know exactly when to expect pipping. No more calendar math.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- NUTRIROOTS -->
+<div class="page" id="page-nutriroots">
+  <div class="page-hero"><h1>NutriRoots</h1><p>Nurturing roots. Improving yields. A complete plant health, disease diagnosis, companion planting, and fertilizer management platform.</p></div>
+  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><img src="assets/nutriroots.jpg" alt="NutriRoots"></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Plant Health &amp; Soil Science</div>
+      <h2>Your Whole Garden in One App</h2>
+      <p>NutriRoots is a mobile-first app that helps gardeners and growers assess root and overall plant health, diagnose diseases, plan companion planting, evaluate fertilizer options, and get step-by-step remediation — all tailored to your species, soil, climate, and growing system.</p>
+      <ul class="feature-list">
+        <li>Root and above-ground health assessment with photo upload</li>
+        <li>Disease diagnosis with confidence levels and treatment plans</li>
+        <li>Evidence-based companion planting with spatial layouts</li>
+        <li>Precise fertilizer dosing — N-P-K, micronutrients, and calculators</li>
+        <li>Tailored to container, raised bed, or in-ground systems</li>
+        <li>Unified report: root issues, diseases, companions, and fertilizer plan</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Ask About NutriRoots →</a>
+    </div>
+  </div></div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-header fade-in"><h2>Core Capabilities</h2><p>Four powerful engines working together to keep your plants thriving.</p></div>
+    <div class="pillars-grid fade-in">
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Disease Detection</h3>
+        <p>Identify what's wrong — fast — and know exactly what to do about it.</p>
+        <ul>
+          <li>Symptom checklist for leaf, stem, root, and fruit issues</li>
+          <li>Photo upload for visual diagnosis</li>
+          <li>Rule-based engine covering fungal, bacterial, viral, and pest problems</li>
+          <li>Treatment options: cultural, biological, and approved organic controls</li>
+          <li>Quarantine and disposal guidance to limit spread</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Companion Planting</h3>
+        <p>Know what to plant together — and what to keep apart.</p>
+        <ul>
+          <li>Evidence-based pairings and avoidance lists</li>
+          <li>Functional groups: nitrogen-fixers, trap crops, pollinator attractors</li>
+          <li>Spatial layouts tailored to root architecture</li>
+          <li>Succession planting and seasonal timing guidance</li>
+          <li>Ready-to-use intercropping templates</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 9V3"/></svg>Fertilizer Guidance</h3>
+        <p>The right nutrients, in the right amount, at the right time.</p>
+        <ul>
+          <li>Fertilizer chooser matched to crop, growth stage, and soil tests</li>
+          <li>N-P-K recommendations with micronutrient considerations</li>
+          <li>Warnings for over/under-application risks</li>
+          <li>Organic vs synthetic trade-off guidance</li>
+          <li>Calculators: mixing, grams per m², per pot, and drip/fertigation</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>Unified Reports</h3>
+        <p>One assessment, one report — everything you need to act.</p>
+        <ul>
+          <li>Combined root issues, disease findings, and companion recommendations</li>
+          <li>Fertilizer plan with dosages and timing</li>
+          <li>Prioritized actions: low-effort cultural fixes first, then targeted inputs</li>
+          <li>Prompts for when to seek lab confirmation or professional help</li>
+          <li>Regional pesticide and legal restriction warnings</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- PET HEALTH RX -->
+<div class="page" id="page-pethealth">
+  <div class="page-hero"><h1>Pet Health RX Manager</h1><p>More than a health tracker — a chronic disease management companion for the animals you love.</p></div>
+  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><img src="assets/pethealth.jpg" alt="Pet Health RX Manager"></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Chronic &amp; Wellness Care</div>
+      <h2>Health Management Built for Real Life</h2>
+      <p>Pet Health RX Manager goes beyond basic wellness tracking. It's designed for pet owners managing chronic conditions — epilepsy, diabetes, obesity, and more — with the tools to track medications, monitor patterns, log episodes, and keep your vet in the loop.</p>
+      <ul class="feature-list">
+        <li>Chronic disease dashboards — seizure logs, blood glucose tracking, weight plans</li>
+        <li>Medication schedules with dosage tracking and refill reminders</li>
+        <li>Vet visit history, notes, and upcoming appointment alerts</li>
+        <li>Episode and symptom logging with patterns and trends over time</li>
+        <li>Multi-pet support — dogs, cats, and other companion animals</li>
+        <li>Exportable health reports to share with your veterinarian</li>
+        <li>Vaccination records and preventive care schedules</li>
+        <li>Weight and nutrition tracking for obesity management</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Ask About Pet Health RX →</a>
+    </div>
+  </div></div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-header fade-in"><h2>Built for Chronic Care</h2><p>When your pet has an ongoing condition, you need more than a calendar — you need a system.</p></div>
+    <div class="pillars-grid fade-in">
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Epilepsy Management</h3>
+        <p>Track seizure frequency, duration, severity, and triggers. See patterns over time and share detailed logs with your vet to fine-tune treatment.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>Diabetes Tracking</h3>
+        <p>Log blood glucose readings, insulin doses, meals, and activity. Monitor trends to help keep levels stable between vet visits.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="16"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/></svg>Obesity &amp; Weight</h3>
+        <p>Set target weights, track progress, log meals and exercise. Get a clear picture of whether the plan is working — or needs adjusting.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M10.5 20.5L3.5 13.5a4.95 4.95 0 1 1 7-7l7 7a4.95 4.95 0 1 1-7 7z"/><path d="M8.5 8.5l7 7"/></svg>Medication Manager</h3>
+        <p>Never miss a dose. Track multiple medications across multiple pets with schedules, dosage history, and refill alerts.</p>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- WEBSITES -->
+<div class="page" id="page-websites">
+  <div class="page-hero"><h1>Get Your Business Online</h1><p>Professional websites for farms, shops, trades, and everything in between — built and looked after by people just down the road.</p></div>
+  <section class="section"><div class="section-inner">
+    <div class="section-header fade-in"><h2>Pick Your Package</h2><p>Every site comes mobile-ready, fast, and built to last. We handle the hosting too.</p></div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
+        <h3>Starter</h3><p class="pricing-sub">Perfect for getting online</p>
+        <div class="pricing-price">$999<small> one-time</small></div>
+        <ul class="pricing-features"><li>Single-page website</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
+        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+      </div>
+      <div class="pricing-card featured fade-in">
+        <h3>Professional</h3><p class="pricing-sub">For growing operations</p>
+        <div class="pricing-price">$2,499<small> one-time</small></div>
+        <ul class="pricing-features"><li>Up to 5 pages</li><li>Custom design &amp; branding</li><li>Photo gallery</li><li>Blog / news section</li><li>Social media integration</li><li>Visitor stats dashboard</li></ul>
+        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <h3>Market Pro</h3><p class="pricing-sub">The full setup</p>
+        <div class="pricing-price">$4,999<small> one-time</small></div>
+        <ul class="pricing-features"><li>Unlimited pages</li><li>Online store / ordering</li><li>Booking / scheduling</li><li>Custom integrations</li><li>Priority support</li><li>1 year hosting included</li></ul>
+        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.9rem">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact" style="color:var(--accent);font-weight:700">Let's talk.</a></p>
+  </div></section>
+</div>
+
+<!-- CONSULTING -->
+<div class="page" id="page-consulting">
+  <div class="page-hero"><h1>Guidance &amp; Consulting</h1><p>Plain-spoken help figuring out what tech your business actually needs — and what it doesn't.</p></div>
+  <section class="section"><div class="section-inner">
+    <div class="section-header fade-in"><h2>We Speak Plain English, Not Jargon</h2><p>Whether you're selling at a roadside stand or running crews across the county, getting organized doesn't have to be overwhelming.</p></div>
+    <div class="consulting-grid">
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Where to Start</h3><p>We look at your whole operation and point out where the right tools save time, money, and headaches. No upselling — sometimes the answer is "you don't need anything."</p></div>
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Selling Online</h3><p>Sell direct to customers, take pre-orders for market day, or set up bookings and sign-ups. We build the right system for how you actually sell.</p></div>
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Records That Keep Themselves</h3><p>From herd records to job logs to market sales — move from notebooks and scattered spreadsheets to systems that grow with you.</p></div>
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>Picking the Right Tools</h3><p>The market is noisy and every vendor promises the moon. We cut through the pitches and help you pick tools that fit — or build custom ones.</p></div>
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Training &amp; Onboarding</h3><p>Already have tools but nobody uses them? We train you and your team so the investment actually pays off.</p></div>
+      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Custom Builds</h3><p>When off-the-shelf doesn't cut it, we build tools tailored to your exact workflow.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="fade-in">
+      <p style="color:var(--text-muted);margin-bottom:1.5rem;font-size:1.05rem">Consulting starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
+      <a class="btn btn-primary" href="#contact">Book a Free Discovery Call →</a>
+    </div>
+  </div></section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="page-hero"><h1>Get in Touch</h1><p>We promise we're friendlier than we look. Mostly.</p></div>
+  <section class="section"><div class="section-inner"><div class="contact-section fade-in">
+    <div class="contact-info">
+      <h3>Let's Build Something Together</h3>
+      <p>Whether you need an app for your farm, a website for your shop, or just want to figure out where to start — drop us a line. We'll get back to you faster than a border collie on a breakaway sheep.</p>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:hello@grumpydog.co">hello@grumpydog.co</a></div>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Annapolis Valley, Nova Scotia</div>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri, 9am–5pm Atlantic</div>
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--off-white);border-radius:12px">
+        <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--text)">Free 30-minute discovery call</strong> — Tell us about your business and we'll tell you honestly whether we can help. No pressure, no pitch deck, no nonsense.</p>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="sendMessage(event)">
+      <input type="hidden" name="access_key" value="fdba5c65-9818-40c1-bab6-d456299a4836">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <div class="form-group"><label for="f-name">Your Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
+      <div class="form-group"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@yourbusiness.com" required></div>
+      <div class="form-group"><label for="f-interest">What are you interested in?</label>
+        <select id="f-interest" name="interest"><option>A Website</option><option>An App or Custom Tool</option><option>Guidance &amp; Consulting</option><option>Broodi</option><option>NutriRoots</option><option>Pet Health RX Manager</option><option>Hosting &amp; Maintenance</option><option>Just Browsing / Other</option></select>
+      </div>
+      <div class="form-group"><label for="f-message">Tell us about your project</label><textarea id="f-message" name="message" placeholder="What do you do, and what's the biggest headache we could take off your plate?" required></textarea></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" type="submit">Send Message →</button>
+      <p class="form-note" id="formStatus">Prefer email? Write us directly at <a href="mailto:hello@grumpydog.co" style="color:var(--accent);font-weight:700">hello@grumpydog.co</a>.</p>
+    </form>
+  </div></div></section>
+</div>
+
+<footer class="footer"><div class="footer-inner">
+  <span class="footer-brand"><img src="assets/logo.jpg" alt="">© 2026 Grumpy Dog Software · Annapolis Valley, Nova Scotia</span>
+  <span>Herding Code. Solving Problems.</span>
+</div></footer>
+
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*100);observer.unobserve(entry.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+const PAGES=['home','broodi','nutriroots','pethealth','websites','consulting','contact'];
+function route(){
+  let id=(location.hash||'#home').replace('#','');
+  let scrollTarget=null;
+  if(id==='apps'){id='home';scrollTarget='apps-section'}
+  if(id==='services'){id='home';scrollTarget='services-section'}
+  if(!PAGES.includes(id))id='home';
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===id));
+  document.getElementById('navLinks').classList.remove('open');
+  if(scrollTarget){setTimeout(()=>document.getElementById(scrollTarget).scrollIntoView({behavior:'smooth'}),80)}
+  else{window.scrollTo({top:0})}
+  document.querySelectorAll('#page-'+id+' .fade-in').forEach(el=>{el.classList.remove('visible');observer.observe(el)});
+}
+window.addEventListener('hashchange',route);
+route();
+
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+
+async function sendMessage(e){
+  e.preventDefault();
+  const f=e.target;
+  const btn=f.querySelector('button[type="submit"]');
+  const status=document.getElementById('formStatus');
+  const payload=Object.fromEntries(new FormData(f));
+  payload.subject='[grumpydog.co] '+payload.interest+' — '+payload.name;
+  payload.from_name='grumpydog.co contact form';
+  const origLabel=btn.textContent;
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    const data=await res.json();
+    if(!data.success)throw new Error(data.message||'Submission failed');
+    f.reset();
+    status.innerHTML='<strong style="color:#2E7D32">Message sent!</strong> We\'ll get back to you within a business day.';
+  }catch(err){
+    const mail='mailto:hello@grumpydog.co?subject='+encodeURIComponent(payload.subject)+'&body='+encodeURIComponent(payload.message+'\n\n— '+payload.name+' ('+payload.email+')');
+    status.innerHTML='Hmm, that didn\'t go through. <a href="'+mail+'" style="color:var(--accent);font-weight:700">Send it by email instead →</a>';
+  }finally{
+    btn.disabled=false;btn.textContent=origLabel;
+  }
+}
+</script>
+</body></html>
