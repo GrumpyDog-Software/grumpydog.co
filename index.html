@@ -6,185 +6,302 @@
 <title>Grumpy Dog Software — Websites, Apps &amp; Tech Help in Rural Nova Scotia</title>
 <meta name="description" content="Family-run company in the Annapolis Valley building websites, mobile apps, and practical tools for farms, shops, trades, and local businesses across rural Nova Scotia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <style>
-:root{--navy:#1B2A4A;--navy-deep:#0F1B33;--white:#FFFFFF;--off-white:#F4F6FA;--cream:#E8ECF4;--accent:#D4A03C;--accent-hover:#E8B44E;--text:#1B2A4A;--text-muted:#5A6A8A;--border:#D0D8E8;--shadow:rgba(27,42,74,0.12);--shadow-strong:rgba(27,42,74,0.25)}
+:root{
+  --navy:#1B2A4A;
+  --navy-deep:#0F1B33;
+  --ink:#16223D;
+  --ink-soft:#52608A;
+  --paper:#F7F3E9;
+  --paper-deep:#EFE8D6;
+  --card:#FFFDF7;
+  --gold:#D4A03C;
+  --gold-deep:#B8862B;
+  --gold-soft:rgba(212,160,60,0.14);
+  --rule:rgba(22,34,61,0.14);
+  --rule-dark:rgba(255,255,255,0.12);
+  --display:'Archivo Black',sans-serif;
+  --body:'DM Sans',sans-serif;
+  --serif:'Fraunces',serif;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
-h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacing:-0.02em}
-.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,27,51,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--white)}
-.nav-logo img{width:42px;height:42px;border-radius:50%;background:var(--white);box-shadow:0 0 0 2px rgba(212,160,60,0.5)}
-.nav-logo span{font-family:'Archivo Black',sans-serif;font-size:1.05rem;letter-spacing:0.02em}
-.nav-links{display:flex;gap:0.15rem;list-style:none;align-items:center}
-.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;padding:0.5rem 0.75rem;font-size:0.85rem;font-weight:500;border-radius:8px;transition:all 0.2s;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.1)}
-.nav-cta{background:var(--accent)!important;color:var(--navy-deep)!important;font-weight:700!important}
-.nav-cta:hover{background:var(--accent-hover)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;font-weight:400}
+::selection{background:var(--gold);color:var(--navy-deep)}
+.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ---------- grain ---------- */
+.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:0.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,27,51,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,160,60,0.28)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav-logo{display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:#fff}
+.nav-logo img{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--gold)}
+.nav-logo b{font-family:var(--display);font-weight:400;font-size:0.95rem;letter-spacing:0.06em;display:block;line-height:1.1}
+.nav-logo small{display:block;font-family:var(--body);font-size:0.58rem;font-weight:700;letter-spacing:0.34em;color:var(--gold);text-transform:uppercase;line-height:1.4}
+.nav-links{display:flex;gap:0.25rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;padding:0.55rem 0.85rem;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:4px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-cta{background:var(--gold)!important;color:var(--navy-deep)!important;margin-left:0.5rem}
+.nav-cta:hover{background:#E8B44E!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
 .dropdown{position:relative}
-.dropdown-toggle{display:flex;align-items:center;gap:4px}
-.dropdown-toggle::after{content:'';width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:2px}
-.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy-deep);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:0.5rem;min-width:220px;box-shadow:0 12px 32px rgba(0,0,0,0.3)}
+.dropdown-toggle{display:flex;align-items:center;gap:5px}
+.dropdown-toggle::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy-deep);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.5rem;min-width:230px;box-shadow:0 16px 40px rgba(0,0,0,0.4)}
 .dropdown:hover .dropdown-menu{display:block}
-.dropdown-menu a{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.75rem;border-radius:6px;font-size:0.85rem}
-.dropdown-menu img{width:28px;height:28px;border-radius:6px;object-fit:contain;background:var(--white)}
-.page{display:none;min-height:100vh;padding-top:72px}
+.dropdown-menu a{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.75rem;border-radius:5px;letter-spacing:0.08em}
+.dropdown-menu img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#fff}
+
+/* ---------- pages ---------- */
+.page{display:none;min-height:100vh;padding-top:76px}
 .page.active{display:block}
-.hero{position:relative;min-height:calc(100vh - 72px);display:flex;align-items:center;background:var(--navy-deep);overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(44,62,107,0.6) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(212,160,60,0.08) 0%,transparent 50%)}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px}
-.hero-content{position:relative;max-width:1200px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center}
-.hero-text{z-index:1}
-.hero-byline{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
-.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);color:var(--white);margin-bottom:1.5rem}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero-desc{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:2.5rem;max-width:540px}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s}
-.btn-primary{background:var(--accent);color:var(--navy-deep)}
-.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,160,60,0.3)}
-.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.25)}
-.btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05)}
-.btn-sm{padding:0.6rem 1.5rem;font-size:0.85rem}
-.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;z-index:1;min-height:380px}
-.hero-badge{width:300px;height:300px;border-radius:50%;overflow:hidden;background:var(--white);box-shadow:0 0 0 8px rgba(212,160,60,0.25),0 0 0 1px rgba(255,255,255,0.15),0 24px 64px rgba(0,0,0,0.45)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:calc(100vh - 76px);display:flex;flex-direction:column;justify-content:center;background:var(--navy-deep);overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 40%,rgba(212,160,60,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 15% 80%,rgba(44,62,107,0.55) 0%,transparent 65%);pointer-events:none}
+.contours{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:1240px;width:100%;margin:0 auto;padding:4rem 2rem 5rem;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;align-items:center;flex:1}
+.eyebrow{display:flex;align-items:center;gap:0.9rem;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:'';width:42px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-text .eyebrow{margin-bottom:1.75rem;animation:rise .7s .05s ease both}
+.hero h1{font-size:clamp(2.5rem,4.8vw,3.9rem);color:#fff;margin-bottom:1.6rem;animation:rise .7s .15s ease both}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--gold);letter-spacing:0}
+.hero-desc{font-size:1.08rem;color:rgba(255,255,255,0.68);margin-bottom:2.6rem;max-width:33rem;animation:rise .7s .25s ease both}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;animation:rise .7s .35s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.95rem 1.9rem;border-radius:6px;font-family:var(--body);font-weight:700;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s,border-color .18s,color .18s}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:4px 4px 0 rgba(0,0,0,0.28)}
+.btn-gold:hover{background:#E8B44E;transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,0.28)}
+.btn-gold:active{transform:translate(0,0);box-shadow:2px 2px 0 rgba(0,0,0,0.28)}
+.on-light .btn-gold{box-shadow:4px 4px 0 rgba(22,34,61,0.22)}
+.on-light .btn-gold:hover{box-shadow:6px 6px 0 rgba(22,34,61,0.22)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-block{width:100%;justify-content:center}
+
+/* hero visual: badge + rotating ring */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:430px;animation:bloom .9s .3s cubic-bezier(.2,.8,.3,1.15) both}
+@keyframes bloom{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
+.badge-wrap{position:relative;width:330px;height:330px}
+.badge-wrap::before{content:'';position:absolute;inset:-17px;border:1px dashed rgba(212,160,60,0.5);border-radius:50%}
+.hero-badge{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 0 0 6px rgba(212,160,60,0.18),0 30px 70px rgba(0,0,0,0.5)}
 .hero-badge img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
-.hero-chip{position:absolute;width:74px;height:74px;border-radius:50%;overflow:hidden;background:var(--white);box-shadow:0 0 0 3px rgba(255,255,255,0.12),0 12px 28px rgba(0,0,0,0.4);animation:float 6s ease-in-out infinite}
-.hero-chip img{width:100%;height:100%;object-fit:cover;transform:scale(1.05)}
-.chip-1{top:6%;right:8%;animation-delay:0s}
-.chip-2{bottom:10%;right:2%;animation-delay:1.6s}
-.chip-3{bottom:2%;left:12%;animation-delay:3.2s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.section{padding:6rem 2rem}
-.section-dark{background:var(--navy-deep);color:var(--white)}
-.section-alt{background:var(--off-white)}
-.section-inner{max-width:1200px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:4rem}
-.section-header h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem}
-.section-header p{font-size:1.1rem;color:var(--text-muted);max-width:640px;margin:0 auto}
-.section-dark .section-header p{color:rgba(255,255,255,0.6)}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
-.service-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2.5rem;transition:all 0.3s;text-decoration:none;color:inherit;display:block}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px var(--shadow);border-color:var(--accent)}
-.service-icon{width:56px;height:56px;background:var(--navy-deep);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--accent)}
-.service-icon .icon{width:26px;height:26px}
-.service-card h3{font-size:1.2rem;margin-bottom:0.75rem}
-.service-card p{color:var(--text-muted);font-size:0.95rem}
-.apps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
-.app-card{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;text-decoration:none;color:inherit;display:block}
-.app-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px var(--shadow)}
-.app-card-img{height:200px;display:flex;align-items:center;justify-content:center;padding:1.5rem;border-bottom:1px solid var(--cream)}
-.app-card-img img{height:150px;width:150px;object-fit:contain;background:var(--white);border-radius:50%;box-shadow:0 8px 24px var(--shadow)}
-.app-card-body{padding:1.5rem 2rem 2rem}
-.app-card-body .tag{font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.app-card-body h3{font-size:1.3rem;margin-bottom:0.5rem}
-.app-card-body p{color:var(--text-muted);font-size:0.9rem;margin-bottom:1.25rem}
-.app-card-body .btn{pointer-events:none}
-.featured-app{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ring-text{position:absolute;inset:-58px;width:calc(100% + 116px);height:calc(100% + 116px);animation:spin 48s linear infinite}
+.ring-text text{font-family:var(--body);font-weight:700;font-size:10.5px;letter-spacing:3.4px;fill:rgba(212,160,60,0.75);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-chip{position:absolute;width:72px;height:72px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,0.18),0 14px 30px rgba(0,0,0,0.45);animation:float 7s ease-in-out infinite}
+.hero-chip img{width:100%;height:100%;object-fit:cover}
+.chip-1{top:-2%;right:1%;animation-delay:0s}
+.chip-2{bottom:4%;right:-7%;animation-delay:2.3s}
+.chip-3{bottom:-5%;left:6%;animation-delay:4.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ticker strip */
+.ticker{position:relative;z-index:1;border-top:1px solid var(--rule-dark);background:rgba(255,255,255,0.025)}
+.ticker ul{max-width:1240px;margin:0 auto;padding:1.1rem 2rem;list-style:none;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.ticker li{font-size:0.68rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.7rem}
+.ticker li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* ---------- sections ---------- */
+.section{padding:6.5rem 2rem}
+.section-dark{background:var(--navy-deep);color:#fff}
+.section-paper{background:var(--paper)}
+.section-inner{max-width:1240px;margin:0 auto}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:end;margin-bottom:3.75rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.section-dark .section-head{border-color:var(--rule-dark)}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:1.1rem}
+.section-head .lede{font-size:1.05rem;color:var(--ink-soft);max-width:34rem;justify-self:end;align-self:end}
+.section-dark .lede{color:rgba(255,255,255,0.62)}
+
+/* service / consulting cards */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.consult-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:2.4rem 2.2rem;text-decoration:none;color:inherit;display:block;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card::before{content:'';position:absolute;top:0;left:0;height:3px;width:0;background:var(--gold);transition:width .35s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(22,34,61,0.12);border-color:rgba(212,160,60,0.5)}
+.card:hover::before{width:100%}
+.card .num{position:absolute;top:1.1rem;right:1.4rem;font-family:var(--display);font-size:2.6rem;color:rgba(22,34,61,0.06);line-height:1}
+.stamp{width:60px;height:60px;border:1.5px dashed var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);margin-bottom:1.6rem;background:var(--gold-soft)}
+.stamp .icon{width:25px;height:25px}
+.card h3{font-size:1.15rem;margin-bottom:0.8rem}
+.card p{color:var(--ink-soft);font-size:0.95rem}
+
+/* audience (dark) */
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem 2rem}
+.aud-card{padding-top:1.5rem;border-top:1px solid var(--rule-dark);transition:border-color .3s}
+.aud-card:hover{border-top-color:var(--gold)}
+.aud-card .icon{width:28px;height:28px;color:var(--gold);margin-bottom:0.9rem;stroke-width:1.6}
+.aud-card h4{color:#fff;font-size:0.92rem;margin-bottom:0.35rem;letter-spacing:0.01em}
+.aud-card p{color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.6}
+
+/* app plates */
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.plate{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.plate:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.plate-img{padding:2.4rem 2rem 1.9rem;display:flex;justify-content:center;background:linear-gradient(180deg,var(--paper-deep),rgba(239,232,214,0))}
+.imgring{display:block;width:150px;height:150px;border-radius:50%;padding:7px;border:1.5px dashed rgba(184,134,43,0.55);background:#fff}
+.imgring img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.plate-body{padding:0 2.1rem 2.3rem;display:flex;flex-direction:column;flex:1}
+.tag{align-self:flex-start;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-deep);border:1px solid rgba(184,134,43,0.45);border-radius:99px;padding:0.25rem 0.85rem;margin-bottom:1.1rem}
+.plate h3{font-size:1.25rem;margin-bottom:0.6rem}
+.plate p{color:var(--ink-soft);font-size:0.92rem;margin-bottom:1.4rem;flex:1}
+.textlink{font-size:0.74rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:0.5rem}
+.textlink::after{content:'→';color:var(--gold-deep);transition:transform .2s}
+.plate:hover .textlink::after{transform:translateX(5px)}
+
+/* pull quote */
+.pullquote{background:var(--paper-deep);padding:6rem 2rem}
+.pq-inner{max-width:780px;margin:0 auto;text-align:center}
+.pq-inner .mark{font-family:var(--display);font-size:6.5rem;line-height:0.55;color:var(--gold);display:block;margin-bottom:1.4rem}
+.pq-inner blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,1.95rem);line-height:1.5;color:var(--ink)}
+.pq-inner cite{display:inline-flex;align-items:center;gap:0.9rem;margin-top:2rem;font-style:normal;font-size:0.7rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep)}
+.pq-inner cite::before,.pq-inner cite::after{content:'';width:34px;height:1px;background:var(--gold)}
+
+/* ---------- subpage hero ---------- */
+.page-hero{position:relative;background:var(--navy-deep);padding:5.5rem 2rem 4.5rem;overflow:hidden;border-bottom:3px solid var(--gold)}
+.page-hero .ph-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto}
+.page-hero h1{font-size:clamp(2.1rem,4vw,3.1rem);color:#fff;margin:1.2rem 0 1rem}
+.page-hero p{font-size:1.08rem;color:rgba(255,255,255,0.64);max-width:40rem}
+
+/* featured app */
+.featured-app{display:grid;grid-template-columns:0.85fr 1.15fr;gap:4.5rem;align-items:center}
 .featured-app-img{display:flex;justify-content:center}
-.featured-app-img img{width:280px;max-width:100%;border-radius:32px;border:1px solid var(--border);box-shadow:0 12px 40px var(--shadow);background:var(--white);padding:1rem}
-.featured-app-text h2{font-size:2rem;margin-bottom:0.5rem}
-.featured-app-text .app-subtitle{color:var(--accent);font-weight:700;font-size:0.9rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
-.featured-app-text>p{color:var(--text-muted);margin-bottom:1.5rem;font-size:1.05rem}
-.feature-list{list-style:none;margin-bottom:2rem}
-.feature-list li{padding:0.4rem 0;color:var(--text-muted);display:flex;align-items:flex-start;gap:0.75rem;font-size:0.95rem}
-.feature-list li::before{content:'✓';color:var(--accent);font-weight:700;font-size:1.1rem;flex-shrink:0;margin-top:2px}
-.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem}
-.pillar-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;transition:all 0.3s}
-.pillar-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px)}
-.pillar-card h3{color:var(--white);font-size:1.1rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
-.pillar-card h3 .icon{color:var(--accent);width:20px;height:20px}
+.featured-app-img .imgring{width:300px;height:300px;max-width:100%;padding:10px;box-shadow:0 24px 60px rgba(22,34,61,0.16)}
+.featured-app-text h2{font-size:2rem;margin:0.9rem 0 0.5rem}
+.featured-app-text .app-subtitle{font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep)}
+.featured-app-text>p{color:var(--ink-soft);margin:1rem 0 1.5rem;font-size:1.02rem}
+.feature-list{list-style:none;margin-bottom:2.2rem}
+.feature-list li{padding:0.45rem 0;color:var(--ink-soft);display:flex;align-items:flex-start;gap:0.8rem;font-size:0.95rem;border-bottom:1px dashed var(--rule)}
+.feature-list li::before{content:'✓';color:var(--gold-deep);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* pillars (dark) */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.75rem}
+.pillar-card{background:rgba(255,255,255,0.04);border:1px solid var(--rule-dark);border-radius:10px;padding:2.1rem;transition:background .3s,transform .25s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;height:3px;width:0;background:var(--gold);transition:width .35s}
+.pillar-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px)}
+.pillar-card:hover::before{width:100%}
+.pillar-card h3{color:#fff;font-size:1.02rem;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.65rem}
+.pillar-card h3 .icon{color:var(--gold);width:20px;height:20px}
 .pillar-card p{color:rgba(255,255,255,0.6);font-size:0.9rem}
-.pillar-card ul{list-style:none;margin-top:0.75rem}
-.pillar-card ul li{color:rgba(255,255,255,0.5);font-size:0.85rem;padding:0.25rem 0;display:flex;align-items:flex-start;gap:0.5rem}
-.pillar-card ul li::before{content:'→';color:var(--accent);flex-shrink:0}
-.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
-.audience-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.75rem;text-align:center;transition:all 0.3s}
-.audience-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px);border-color:rgba(212,160,60,0.4)}
-.audience-icon{display:flex;justify-content:center;margin-bottom:0.9rem;color:var(--accent)}
-.audience-icon .icon{width:30px;height:30px;stroke-width:1.75}
-.audience-card h4{color:var(--white);font-size:0.95rem;margin-bottom:0.4rem}
-.audience-card p{color:rgba(255,255,255,0.5);font-size:0.8rem}
-.quote-bar{background:var(--navy);padding:3.5rem 2rem;text-align:center}
-.quote-bar blockquote{max-width:700px;margin:0 auto;font-size:1.4rem;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.6}
-.quote-bar cite{display:block;margin-top:1rem;font-style:normal;font-size:0.9rem;color:var(--accent);font-weight:700}
-.page-hero{background:var(--navy-deep);padding:5rem 2rem 4rem;text-align:center}
-.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1rem}
-.page-hero p{font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:600px;margin:0 auto}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
-.pricing-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center;transition:all 0.3s;position:relative}
-.pricing-card.featured{border-color:var(--accent);transform:scale(1.03)}
-.pricing-card.featured::before{content:'MOST POPULAR';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--navy-deep);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;padding:0.3rem 1.2rem;border-radius:20px}
-.pricing-card:hover{box-shadow:0 16px 48px var(--shadow)}
-.pricing-card h3{font-size:1.3rem;margin-bottom:0.5rem}
-.pricing-sub{color:var(--text-muted);font-size:0.9rem}
-.pricing-price{font-family:'Archivo Black',sans-serif;font-size:2.5rem;color:var(--navy);margin:1rem 0}
-.pricing-price small{font-size:0.4em;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400}
-.pricing-features{list-style:none;text-align:left;margin:1.5rem 0 2rem}
-.pricing-features li{padding:0.5rem 0;font-size:0.9rem;color:var(--text-muted);border-bottom:1px solid var(--cream);display:flex;align-items:center;gap:0.5rem}
-.pricing-features li::before{content:'→';color:var(--accent);font-weight:700}
-.consulting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
-.consulting-card{background:var(--white);border-radius:16px;padding:2.5rem;border:1px solid var(--border);transition:all 0.3s}
-.consulting-card:hover{box-shadow:0 12px 36px var(--shadow);transform:translateY(-4px)}
-.consulting-card h3{font-size:1.15rem;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.6rem}
-.consulting-card h3 .icon{color:var(--accent)}
-.consulting-card p{color:var(--text-muted);font-size:0.95rem}
-.contact-section{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.contact-info h3{font-size:1.4rem;margin-bottom:1rem}
-.contact-info p{color:var(--text-muted);margin-bottom:2rem}
-.contact-detail{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--cream);color:var(--text-muted)}
-.contact-detail .icon{color:var(--accent);width:20px;height:20px}
-.contact-detail a{color:var(--navy);font-weight:500;text-decoration:none}
-.contact-detail a:hover{color:var(--accent)}
-.contact-form{background:var(--off-white);padding:2.5rem;border-radius:16px}
-.form-group{margin-bottom:1.25rem}
-.form-group label{display:block;font-weight:700;font-size:0.85rem;margin-bottom:0.4rem}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:0.75rem 1rem;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.95rem;background:var(--white);transition:border-color 0.2s}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--navy)}
-.form-group textarea{resize:vertical;min-height:120px}
-.form-note{font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:0.75rem}
-.footer{background:var(--navy-deep);color:rgba(255,255,255,0.5);padding:3rem 2rem;font-size:0.85rem}
-.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-brand{display:flex;align-items:center;gap:0.6rem}
-.footer-brand img{width:28px;height:28px;border-radius:50%;background:var(--white)}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.dark-card{background:rgba(255,255,255,0.05)!important;border-color:rgba(255,255,255,0.1)!important}
-.dark-card h3{color:var(--white)}
-.dark-card p{color:rgba(255,255,255,0.6)}
+.pillar-card ul{list-style:none;margin-top:0.85rem}
+.pillar-card ul li{color:rgba(255,255,255,0.52);font-size:0.85rem;padding:0.28rem 0;display:flex;align-items:flex-start;gap:0.55rem}
+.pillar-card ul li::before{content:'→';color:var(--gold);flex-shrink:0}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:stretch}
+.price-card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:2.6rem 2.3rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(22,34,61,0.12)}
+.price-card.featured{border:2px solid var(--navy);box-shadow:7px 7px 0 var(--gold)}
+.price-card.featured:hover{box-shadow:9px 9px 0 var(--gold),0 18px 44px rgba(22,34,61,0.10)}
+.price-stamp{position:absolute;top:-15px;right:1.6rem;background:var(--navy);color:var(--gold);font-family:var(--display);font-size:0.62rem;letter-spacing:0.2em;padding:0.45rem 1.1rem;border-radius:4px;transform:rotate(2deg)}
+.price-card h3{font-size:1.2rem}
+.price-sub{color:var(--ink-soft);font-size:0.88rem;margin:0.3rem 0 1.2rem}
+.price{font-family:var(--display);font-size:2.7rem;color:var(--navy);line-height:1;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
+.price small{font-family:var(--body);font-weight:500;font-size:0.85rem;color:var(--ink-soft);letter-spacing:0}
+.price-features{list-style:none;margin:1.4rem 0 2rem;flex:1}
+.price-features li{padding:0.5rem 0;font-size:0.92rem;color:var(--ink-soft);display:flex;align-items:flex-start;gap:0.6rem;border-bottom:1px dashed var(--rule)}
+.price-features li::before{content:'→';color:var(--gold-deep);font-weight:700;flex-shrink:0}
+.fineprint{text-align:center;margin-top:2.6rem;color:var(--ink-soft);font-size:0.9rem}
+.fineprint a{color:var(--gold-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--gold)}
+
+/* consulting cta */
+.consult-cta{text-align:center;margin-top:3.5rem}
+.consult-cta .rate{font-size:1rem;color:var(--ink-soft);margin-bottom:1.6rem}
+.consult-cta .rate strong{font-family:var(--display);font-weight:400;color:var(--navy);font-size:1.15rem}
+
+/* contact */
+.contact-section{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.contact-info h3{font-size:1.5rem;margin-bottom:1rem}
+.contact-info>p{color:var(--ink-soft);margin-bottom:2.2rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;padding:1.05rem 0;border-bottom:1px dashed var(--rule);color:var(--ink-soft);font-size:0.97rem}
+.contact-detail .icon{color:var(--gold-deep);width:20px;height:20px}
+.contact-detail a{color:var(--navy);font-weight:700;text-decoration:none}
+.contact-detail a:hover{color:var(--gold-deep)}
+.callout{margin-top:2.2rem;padding:1.6rem;background:var(--gold-soft);border:1px dashed rgba(184,134,43,0.5);border-radius:10px;font-size:0.92rem;color:var(--ink-soft)}
+.callout strong{color:var(--ink)}
+.contact-form{background:var(--card);border:1px solid var(--rule);padding:2.6rem;border-radius:10px;box-shadow:7px 7px 0 rgba(212,160,60,0.3)}
+.form-group{margin-bottom:1.3rem}
+.form-group label{display:block;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.5rem;color:var(--ink)}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:0.85rem 1rem;border:1.5px solid var(--rule);border-radius:6px;font-family:var(--body);font-size:0.95rem;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.form-group textarea{resize:vertical;min-height:130px}
+.contact-form .btn-gold{box-shadow:4px 4px 0 rgba(22,34,61,0.22)}
+.contact-form .btn-gold:hover{box-shadow:6px 6px 0 rgba(22,34,61,0.22)}
+.form-note{font-size:0.82rem;color:var(--ink-soft);text-align:center;margin-top:0.9rem}
+.form-note a{color:var(--gold-deep);font-weight:700;text-decoration:none}
+
+/* ---------- footer ---------- */
+.footer{background:var(--navy-deep);color:rgba(255,255,255,0.55);padding:4.5rem 2rem 0;position:relative;overflow:hidden;border-top:3px solid var(--gold)}
+.footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:3rem;position:relative;z-index:1}
+.footer-brand{display:flex;align-items:flex-start;gap:1.1rem}
+.footer-brand img{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--gold);flex-shrink:0}
+.footer-brand b{font-family:var(--display);font-weight:400;color:#fff;font-size:1rem;letter-spacing:0.04em;display:block}
+.footer-brand .tag2{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:0.95rem;display:block;margin:0.3rem 0 0.6rem}
+.footer-brand p{font-size:0.85rem;line-height:1.7}
+.footer h5{font-family:var(--body);font-size:0.66rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.footer ul{list-style:none}
+.footer ul li{padding:0.3rem 0}
+.footer ul a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;transition:color .2s}
+.footer ul a:hover{color:var(--gold)}
+.footer-word{font-family:var(--display);font-size:clamp(3.5rem,9.5vw,8.5rem);line-height:0.85;color:rgba(255,255,255,0.035);text-align:center;white-space:nowrap;user-select:none;pointer-events:none;letter-spacing:0.02em}
+.footer-bottom{border-top:1px solid var(--rule-dark);position:relative;z-index:1}
+.footer-bottom div{max-width:1240px;margin:0 auto;padding:1.4rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;font-size:0.78rem;letter-spacing:0.04em}
+
+/* fade-in on scroll */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fade-in{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .cards-3,.plates,.price-grid,.consult-grid{grid-template-columns:1fr 1fr}
+  .aud-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:768px){
-  .hero-content{grid-template-columns:1fr;text-align:center;gap:3rem;padding:3rem 1.5rem}
-  .hero-desc{margin:0 auto 2.5rem}
-  .hero-buttons{justify-content:center}
-  .hero-visual{order:-1;min-height:auto}
-  .hero-badge{width:200px;height:200px}
+  .hero-content{grid-template-columns:1fr;gap:3.5rem;padding:3.5rem 1.5rem 4.5rem}
+  .hero-visual{min-height:auto;order:-1}
+  .badge-wrap{width:215px;height:215px}
+  .ring-text{inset:-44px;width:calc(100% + 88px);height:calc(100% + 88px)}
   .hero-chip{width:54px;height:54px}
+  .ticker ul{justify-content:flex-start;gap:0.8rem 1.6rem;padding:1rem 1.5rem}
   .nav-links{display:none}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--navy-deep);padding:1rem;border-top:1px solid rgba(255,255,255,0.08)}
-  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:1rem}
+  .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:76px;left:0;right:0;background:var(--navy-deep);padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--rule-dark)}
+  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:0.75rem}
   .hamburger{display:flex}
-  .featured-app{grid-template-columns:1fr;text-align:center;gap:2rem}
-  .feature-list{text-align:left}
+  .section{padding:4.5rem 1.5rem}
+  .section-head{grid-template-columns:1fr;gap:1.2rem;align-items:start}
+  .section-head .lede{justify-self:start}
+  .cards-3,.plates,.price-grid,.consult-grid{grid-template-columns:1fr}
+  .featured-app{grid-template-columns:1fr;gap:2.5rem}
+  .featured-app-img .imgring{width:220px;height:220px}
   .contact-section{grid-template-columns:1fr}
-  .footer-inner{flex-direction:column;text-align:center}
-  .section{padding:4rem 1.5rem}
-  .audience-grid{grid-template-columns:repeat(2,1fr)}
-  .apps-grid{grid-template-columns:1fr}
-  .pillars-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2.2rem}
+  .footer-bottom div{flex-direction:column;text-align:center;padding:1.4rem 1rem}
+  .pullquote{padding:4.5rem 1.5rem}
 }
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
 <nav class="nav"><div class="nav-inner">
   <a class="nav-logo" href="#home">
-    <img src="assets/logo.jpg" alt="Grumpy Dog Software"><span>GRUMPY DOG</span>
+    <img src="assets/logo.jpg" alt="Grumpy Dog Software">
+    <span><b>GRUMPY DOG</b><small>Software</small></span>
   </a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
@@ -203,86 +320,128 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
   </ul>
 </div></nav>
 
-<!-- HOME -->
+<!-- ============ HOME ============ -->
 <div class="page active" id="page-home">
-  <section class="hero"><div class="hero-grid-bg"></div>
+  <section class="hero">
+    <svg class="contours" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,640 C240,560 420,700 720,620 C1020,540 1200,660 1480,580" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,690 C260,610 460,750 740,670 C1040,590 1220,710 1480,640" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1.3"/>
+      <path d="M-40,740 C280,665 480,795 760,720 C1060,645 1240,760 1480,700" fill="none" stroke="rgba(212,160,60,0.16)" stroke-width="1.3" stroke-dasharray="6 7"/>
+      <path d="M-40,790 C300,720 500,840 780,775 C1080,705 1260,810 1480,760" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.3"/>
+      <path d="M-40,120 C260,180 460,60 760,115 C1060,170 1240,80 1480,130" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.3"/>
+      <path d="M-40,70 C280,125 480,15 780,65 C1080,115 1260,35 1480,80" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1.3"/>
+    </svg>
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-byline">Annapolis Valley · Nova Scotia</div>
+        <div class="eyebrow">Annapolis Valley · Nova Scotia</div>
         <h1>Websites, apps &amp; honest tech help for <em>rural Nova Scotia</em>.</h1>
         <p class="hero-desc">We're a small, family-run company in the Annapolis Valley. We help farms, shops, trades, and local businesses get online and get organized — and we build a few apps of our own, too.</p>
-        <div class="hero-buttons">
-          <a class="btn btn-primary" href="#services">What We Do</a>
-          <a class="btn btn-outline" href="#apps">See Our Apps</a>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#services">What We Do</a>
+          <a class="btn btn-ghost" href="#apps">See Our Apps</a>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-badge"><img src="assets/logo.jpg" alt="Grumpy Dog Software logo"></div>
-        <div class="hero-chip chip-1"><img src="assets/broodi.jpg" alt="Broodi app"></div>
-        <div class="hero-chip chip-2"><img src="assets/nutriroots.jpg" alt="NutriRoots app"></div>
-        <div class="hero-chip chip-3"><img src="assets/pethealth.jpg" alt="Pet Health RX app"></div>
+        <div class="badge-wrap">
+          <svg class="ring-text" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="ringpath" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs>
+            <text><textPath href="#ringpath">Herding code · Solving problems · Grumpy Dog Software · Annapolis Valley · </textPath></text>
+          </svg>
+          <div class="hero-badge"><img src="assets/logo.jpg" alt="Grumpy Dog Software logo"></div>
+          <div class="hero-chip chip-1"><img src="assets/broodi.jpg" alt="Broodi app"></div>
+          <div class="hero-chip chip-2"><img src="assets/nutriroots.jpg" alt="NutriRoots app"></div>
+          <div class="hero-chip chip-3"><img src="assets/pethealth.jpg" alt="Pet Health RX app"></div>
+        </div>
       </div>
+    </div>
+    <div class="ticker">
+      <ul>
+        <li>Family-run &amp; local</li>
+        <li>Plain English, no jargon</li>
+        <li>Apps built in-house</li>
+        <li>Hosting handled for you</li>
+        <li>One grumpy border collie</li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" id="services-section"><div class="section-inner">
-    <div class="section-header fade-in"><h2>What We Do</h2><p>Three ways we help businesses outside the big city work smarter and reach more customers.</p></div>
-    <div class="services-grid">
-      <a class="service-card fade-in" href="#websites">
-        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+  <section class="section section-paper on-light" id="services-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 01 — Services</div><h2>What We Do</h2></div>
+      <p class="lede">Three ways we help businesses outside the big city work smarter and reach more customers.</p>
+    </div>
+    <div class="cards-3">
+      <a class="card fade-in" href="#websites"><span class="num">01</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <h3>Websites</h3><p>A fast, professional website that tells people who you are, shows what you offer, and makes it easy to reach you. We handle the hosting and upkeep, so you never have to think about it.</p>
       </a>
-      <a class="service-card fade-in" href="#apps">
-        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <a class="card fade-in" href="#apps"><span class="num">02</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3>Apps &amp; Custom Tools</h3><p>Purpose-built mobile and web tools shaped around how you actually work — bookings, orders, record keeping. No bloat, nothing you don't need.</p>
       </a>
-      <a class="service-card fade-in" href="#consulting">
-        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+      <a class="card fade-in" href="#consulting"><span class="num">03</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <h3>Guidance &amp; Training</h3><p>Not sure where to start? We'll look at how your business runs, cut through the sales pitches, and help you pick — or build — tools that fit. Plain English, no jargon.</p>
       </a>
     </div>
   </div></section>
 
   <section class="section section-dark"><div class="section-inner">
-    <div class="section-header fade-in"><h2>Who We Help</h2><p>If you run it, grow it, make it, fix it, or serve it — we can help you do it with less paperwork and more reach.</p></div>
-    <div class="audience-grid fade-in">
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9C12 5.5 9.5 3 5 3c0 4.5 2.5 7 7 6z"/><path d="M12 12c0-3.5 2.5-6 7-6 0 4.5-2.5 7-7 6z"/></svg></div><h4>Farms &amp; Growers</h4><p>Crops, livestock, dairy, poultry — any scale</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Trades &amp; Contractors</h4><p>Builders, electricians, plumbers, landscapers</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><h4>Shops &amp; Restaurants</h4><p>Cafés, retail, farm-to-table, food trucks</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h4>Markets &amp; Farm Stands</h4><p>Roadside stands, farmers markets, CSAs</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h4>Inns &amp; Tourism</h4><p>B&amp;Bs, cottages, experiences, attractions</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h4>Makers &amp; Producers</h4><p>Wineries, cideries, preserves, baked goods</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Co-ops &amp; Community</h4><p>Food hubs, non-profits, local organizations</p></div>
-      <div class="audience-card"><div class="audience-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="8.5" r="1.7"/><circle cx="10.2" cy="5.3" r="1.7"/><circle cx="13.8" cy="5.3" r="1.7"/><circle cx="18" cy="8.5" r="1.7"/><path d="M12 10.5c-3.2 0-5.8 2.6-5.8 5.3 0 1.9 1.4 3.2 3.2 3.2.9 0 1.7-.4 2.6-.4s1.7.4 2.6.4c1.8 0 3.2-1.3 3.2-3.2 0-2.7-2.6-5.3-5.8-5.3z"/></svg></div><h4>Pet &amp; Animal Owners</h4><p>Health tracking for the animals you love</p></div>
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 02 — Neighbours</div><h2>Who We Help</h2></div>
+      <p class="lede">If you run it, grow it, make it, fix it, or serve it — we can help you do it with less paperwork and more reach.</p>
+    </div>
+    <div class="aud-grid fade-in">
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9C12 5.5 9.5 3 5 3c0 4.5 2.5 7 7 6z"/><path d="M12 12c0-3.5 2.5-6 7-6 0 4.5-2.5 7-7 6z"/></svg><h4>Farms &amp; Growers</h4><p>Crops, livestock, dairy, poultry — any scale</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><h4>Trades &amp; Contractors</h4><p>Builders, electricians, plumbers, landscapers</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><h4>Shops &amp; Restaurants</h4><p>Cafés, retail, farm-to-table, food trucks</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><h4>Markets &amp; Farm Stands</h4><p>Roadside stands, farmers markets, CSAs</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><h4>Inns &amp; Tourism</h4><p>B&amp;Bs, cottages, experiences, attractions</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><h4>Makers &amp; Producers</h4><p>Wineries, cideries, preserves, baked goods</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h4>Co-ops &amp; Community</h4><p>Food hubs, non-profits, local organizations</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="8.5" r="1.7"/><circle cx="10.2" cy="5.3" r="1.7"/><circle cx="13.8" cy="5.3" r="1.7"/><circle cx="18" cy="8.5" r="1.7"/><path d="M12 10.5c-3.2 0-5.8 2.6-5.8 5.3 0 1.9 1.4 3.2 3.2 3.2.9 0 1.7-.4 2.6-.4s1.7.4 2.6.4c1.8 0 3.2-1.3 3.2-3.2 0-2.7-2.6-5.3-5.8-5.3z"/></svg><h4>Pet &amp; Animal Owners</h4><p>Health tracking for the animals you love</p></div>
     </div>
   </div></section>
 
-  <section class="section section-alt" id="apps-section"><div class="section-inner">
-    <div class="section-header fade-in"><h2>Our Apps</h2><p>We don't just build for other people. These are our own products — born from problems we wanted solved ourselves.</p></div>
-    <div class="apps-grid fade-in">
-      <a class="app-card" href="#broodi">
-        <div class="app-card-img"><img src="assets/broodi.jpg" alt="Broodi"></div>
-        <div class="app-card-body"><div class="tag">Poultry &amp; Hatching</div><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+  <section class="section section-paper on-light" id="apps-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 03 — Built In-House</div><h2>Our Apps</h2></div>
+      <p class="lede">We don't just build for other people. These are our own products — born from problems we wanted solved ourselves.</p>
+    </div>
+    <div class="plates">
+      <a class="plate fade-in" href="#broodi">
+        <div class="plate-img"><span class="imgring"><img src="assets/broodi.jpg" alt="Broodi"></span></div>
+        <div class="plate-body"><span class="tag">Poultry &amp; Hatching</span><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="textlink">Learn more</span></div>
       </a>
-      <a class="app-card" href="#nutriroots">
-        <div class="app-card-img"><img src="assets/nutriroots.jpg" alt="NutriRoots"></div>
-        <div class="app-card-body"><div class="tag">Plant Health &amp; Soil</div><h3>NutriRoots</h3><p>Assess plant and root health, diagnose diseases, plan companion planting, and get precise fertilizer recommendations — all in one app.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+      <a class="plate fade-in" href="#nutriroots">
+        <div class="plate-img"><span class="imgring"><img src="assets/nutriroots.jpg" alt="NutriRoots"></span></div>
+        <div class="plate-body"><span class="tag">Plant Health &amp; Soil</span><h3>NutriRoots</h3><p>Assess plant and root health, diagnose diseases, plan companion planting, and get precise fertilizer recommendations — all in one app.</p><span class="textlink">Learn more</span></div>
       </a>
-      <a class="app-card" href="#pethealth">
-        <div class="app-card-img"><img src="assets/pethealth.jpg" alt="Pet Health RX"></div>
-        <div class="app-card-body"><div class="tag">Chronic &amp; Wellness Care</div><h3>Pet Health RX Manager</h3><p>Manage chronic conditions like epilepsy, diabetes, and obesity alongside everyday wellness — medications, vet visits, and health logs in one place.</p><span class="btn btn-primary btn-sm">Learn More →</span></div>
+      <a class="plate fade-in" href="#pethealth">
+        <div class="plate-img"><span class="imgring"><img src="assets/pethealth.jpg" alt="Pet Health RX"></span></div>
+        <div class="plate-body"><span class="tag">Chronic &amp; Wellness Care</span><h3>Pet Health RX Manager</h3><p>Manage chronic conditions like epilepsy, diabetes, and obesity alongside everyday wellness — medications, vet visits, and health logs in one place.</p><span class="textlink">Learn more</span></div>
       </a>
     </div>
   </div></section>
 
-  <div class="quote-bar"><blockquote>"If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business."</blockquote><cite>— Argos the Border Collie, Head of Morale</cite></div>
+  <div class="pullquote"><div class="pq-inner fade-in">
+    <span class="mark">“</span>
+    <blockquote>If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business.</blockquote>
+    <cite>Argos the Border Collie — Head of Morale</cite>
+  </div></div>
 </div>
 
-<!-- BROODI -->
+<!-- ============ BROODI ============ -->
 <div class="page" id="page-broodi">
-  <div class="page-hero"><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone.</p></div>
-  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
-    <div class="featured-app-img"><img src="assets/broodi.jpg" alt="Broodi"></div>
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Poultry &amp; Hatching</div><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="assets/broodi.jpg" alt="Broodi"></span></div>
     <div class="featured-app-text">
       <div class="app-subtitle">Poultry &amp; Hatching</div>
       <h2>Hatching Made Simple</h2>
@@ -295,24 +454,33 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
         <li>Works offline — perfect for the coop</li>
         <li>Clean, easy interface designed for busy hands</li>
       </ul>
-      <a class="btn btn-primary" href="#contact">Ask About Broodi →</a>
+      <a class="btn btn-gold" href="#contact">Ask About Broodi</a>
     </div>
   </div></div></section>
   <section class="section section-dark"><div class="section-inner">
-    <div class="section-header fade-in"><h2>How It Works</h2><p>Three steps. That's it.</p></div>
-    <div class="services-grid">
-      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-8 0-5-3-12-7-12S5 9 5 14c0 5 3 8 7 8z"/></svg></div><h3>1. Pick Your Species</h3><p>Select from a wide range of poultry — each with accurate incubation periods baked in.</p></div>
-      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>2. Set Your Date</h3><p>Enter when you set the eggs and Broodi does the math. Hatch day, candling dates, lockdown — mapped out.</p></div>
-      <div class="service-card dark-card fade-in"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>3. Hatch Day</h3><p>Get reminders at every milestone and know exactly when to expect pipping. No more calendar math.</p></div>
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">From Set to Hatch</div><h2>How It Works</h2></div>
+      <p class="lede">Three steps. That's it.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-8 0-5-3-12-7-12S5 9 5 14c0 5 3 8 7 8z"/></svg>1. Pick Your Species</h3><p>Select from a wide range of poultry — each with accurate incubation periods baked in.</p></div>
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2. Set Your Date</h3><p>Enter when you set the eggs and Broodi does the math. Hatch day, candling dates, lockdown — mapped out.</p></div>
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>3. Hatch Day</h3><p>Get reminders at every milestone and know exactly when to expect pipping. No more calendar math.</p></div>
     </div>
   </div></section>
 </div>
 
-<!-- NUTRIROOTS -->
+<!-- ============ NUTRIROOTS ============ -->
 <div class="page" id="page-nutriroots">
-  <div class="page-hero"><h1>NutriRoots</h1><p>Nurturing roots. Improving yields. A complete plant health, disease diagnosis, companion planting, and fertilizer management platform.</p></div>
-  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
-    <div class="featured-app-img"><img src="assets/nutriroots.jpg" alt="NutriRoots"></div>
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Plant Health &amp; Soil</div><h1>NutriRoots</h1><p>Nurturing roots. Improving yields. A complete plant health, disease diagnosis, companion planting, and fertilizer management platform.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="assets/nutriroots.jpg" alt="NutriRoots"></span></div>
     <div class="featured-app-text">
       <div class="app-subtitle">Plant Health &amp; Soil Science</div>
       <h2>Your Whole Garden in One App</h2>
@@ -325,12 +493,15 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
         <li>Tailored to container, raised bed, or in-ground systems</li>
         <li>Unified report: root issues, diseases, companions, and fertilizer plan</li>
       </ul>
-      <a class="btn btn-primary" href="#contact">Ask About NutriRoots →</a>
+      <a class="btn btn-gold" href="#contact">Ask About NutriRoots</a>
     </div>
   </div></div></section>
 
   <section class="section section-dark"><div class="section-inner">
-    <div class="section-header fade-in"><h2>Core Capabilities</h2><p>Four powerful engines working together to keep your plants thriving.</p></div>
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Under the Hood</div><h2>Core Capabilities</h2></div>
+      <p class="lede">Four powerful engines working together to keep your plants thriving.</p>
+    </div>
     <div class="pillars-grid fade-in">
       <div class="pillar-card">
         <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Disease Detection</h3>
@@ -380,11 +551,17 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
   </div></section>
 </div>
 
-<!-- PET HEALTH RX -->
+<!-- ============ PET HEALTH RX ============ -->
 <div class="page" id="page-pethealth">
-  <div class="page-hero"><h1>Pet Health RX Manager</h1><p>More than a health tracker — a chronic disease management companion for the animals you love.</p></div>
-  <section class="section"><div class="section-inner"><div class="featured-app fade-in">
-    <div class="featured-app-img"><img src="assets/pethealth.jpg" alt="Pet Health RX Manager"></div>
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Chronic &amp; Wellness Care</div><h1>Pet Health RX Manager</h1><p>More than a health tracker — a chronic disease management companion for the animals you love.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="assets/pethealth.jpg" alt="Pet Health RX Manager"></span></div>
     <div class="featured-app-text">
       <div class="app-subtitle">Chronic &amp; Wellness Care</div>
       <h2>Health Management Built for Real Life</h2>
@@ -399,12 +576,15 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
         <li>Vaccination records and preventive care schedules</li>
         <li>Weight and nutrition tracking for obesity management</li>
       </ul>
-      <a class="btn btn-primary" href="#contact">Ask About Pet Health RX →</a>
+      <a class="btn btn-gold" href="#contact">Ask About Pet Health RX</a>
     </div>
   </div></div></section>
 
   <section class="section section-dark"><div class="section-inner">
-    <div class="section-header fade-in"><h2>Built for Chronic Care</h2><p>When your pet has an ongoing condition, you need more than a calendar — you need a system.</p></div>
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">When It's More Than a Checkup</div><h2>Built for Chronic Care</h2></div>
+      <p class="lede">When your pet has an ongoing condition, you need more than a calendar — you need a system.</p>
+    </div>
     <div class="pillars-grid fade-in">
       <div class="pillar-card">
         <h3><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Epilepsy Management</h3>
@@ -426,68 +606,91 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
   </div></section>
 </div>
 
-<!-- WEBSITES -->
+<!-- ============ WEBSITES ============ -->
 <div class="page" id="page-websites">
-  <div class="page-hero"><h1>Get Your Business Online</h1><p>Professional websites for farms, shops, trades, and everything in between — built and looked after by people just down the road.</p></div>
-  <section class="section"><div class="section-inner">
-    <div class="section-header fade-in"><h2>Pick Your Package</h2><p>Every site comes mobile-ready, fast, and built to last. We handle the hosting too.</p></div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in">
-        <h3>Starter</h3><p class="pricing-sub">Perfect for getting online</p>
-        <div class="pricing-price">$999<small> one-time</small></div>
-        <ul class="pricing-features"><li>Single-page website</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
-        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Services — Websites</div><h1>Get Your Business Online</h1><p>Professional websites for farms, shops, trades, and everything in between — built and looked after by people just down the road.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Plain Pricing</div><h2>Pick Your Package</h2></div>
+      <p class="lede">Every site comes mobile-ready, fast, and built to last. We handle the hosting too.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card fade-in">
+        <h3>Starter</h3><p class="price-sub">Perfect for getting online</p>
+        <div class="price">$999<small> one-time</small></div>
+        <ul class="price-features"><li>Single-page website</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
       </div>
-      <div class="pricing-card featured fade-in">
-        <h3>Professional</h3><p class="pricing-sub">For growing operations</p>
-        <div class="pricing-price">$2,499<small> one-time</small></div>
-        <ul class="pricing-features"><li>Up to 5 pages</li><li>Custom design &amp; branding</li><li>Photo gallery</li><li>Blog / news section</li><li>Social media integration</li><li>Visitor stats dashboard</li></ul>
-        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+      <div class="price-card featured fade-in">
+        <span class="price-stamp">MOST POPULAR</span>
+        <h3>Professional</h3><p class="price-sub">For growing operations</p>
+        <div class="price">$2,499<small> one-time</small></div>
+        <ul class="price-features"><li>Up to 5 pages</li><li>Custom design &amp; branding</li><li>Photo gallery</li><li>Blog / news section</li><li>Social media integration</li><li>Visitor stats dashboard</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
       </div>
-      <div class="pricing-card fade-in">
-        <h3>Market Pro</h3><p class="pricing-sub">The full setup</p>
-        <div class="pricing-price">$4,999<small> one-time</small></div>
-        <ul class="pricing-features"><li>Unlimited pages</li><li>Online store / ordering</li><li>Booking / scheduling</li><li>Custom integrations</li><li>Priority support</li><li>1 year hosting included</li></ul>
-        <a class="btn btn-primary" style="width:100%;justify-content:center" href="#contact">Get Started</a>
+      <div class="price-card fade-in">
+        <h3>Market Pro</h3><p class="price-sub">The full setup</p>
+        <div class="price">$4,999<small> one-time</small></div>
+        <ul class="price-features"><li>Unlimited pages</li><li>Online store / ordering</li><li>Booking / scheduling</li><li>Custom integrations</li><li>Priority support</li><li>1 year hosting included</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
       </div>
     </div>
-    <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:0.9rem">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact" style="color:var(--accent);font-weight:700">Let's talk.</a></p>
+    <p class="fineprint">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact">Let's talk.</a></p>
   </div></section>
 </div>
 
-<!-- CONSULTING -->
+<!-- ============ CONSULTING ============ -->
 <div class="page" id="page-consulting">
-  <div class="page-hero"><h1>Guidance &amp; Consulting</h1><p>Plain-spoken help figuring out what tech your business actually needs — and what it doesn't.</p></div>
-  <section class="section"><div class="section-inner">
-    <div class="section-header fade-in"><h2>We Speak Plain English, Not Jargon</h2><p>Whether you're selling at a roadside stand or running crews across the county, getting organized doesn't have to be overwhelming.</p></div>
-    <div class="consulting-grid">
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Where to Start</h3><p>We look at your whole operation and point out where the right tools save time, money, and headaches. No upselling — sometimes the answer is "you don't need anything."</p></div>
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Selling Online</h3><p>Sell direct to customers, take pre-orders for market day, or set up bookings and sign-ups. We build the right system for how you actually sell.</p></div>
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Records That Keep Themselves</h3><p>From herd records to job logs to market sales — move from notebooks and scattered spreadsheets to systems that grow with you.</p></div>
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>Picking the Right Tools</h3><p>The market is noisy and every vendor promises the moon. We cut through the pitches and help you pick tools that fit — or build custom ones.</p></div>
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>Training &amp; Onboarding</h3><p>Already have tools but nobody uses them? We train you and your team so the investment actually pays off.</p></div>
-      <div class="consulting-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Custom Builds</h3><p>When off-the-shelf doesn't cut it, we build tools tailored to your exact workflow.</p></div>
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Services — Guidance &amp; Consulting</div><h1>Guidance &amp; Consulting</h1><p>Plain-spoken help figuring out what tech your business actually needs — and what it doesn't.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">How We Help</div><h2>We Speak Plain English, Not Jargon</h2></div>
+      <p class="lede">Whether you're selling at a roadside stand or running crews across the county, getting organized doesn't have to be overwhelming.</p>
     </div>
-    <div style="text-align:center;margin-top:3rem" class="fade-in">
-      <p style="color:var(--text-muted);margin-bottom:1.5rem;font-size:1.05rem">Consulting starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
-      <a class="btn btn-primary" href="#contact">Book a Free Discovery Call →</a>
+    <div class="consult-grid">
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3>Where to Start</h3><p>We look at your whole operation and point out where the right tools save time, money, and headaches. No upselling — sometimes the answer is "you don't need anything."</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h3>Selling Online</h3><p>Sell direct to customers, take pre-orders for market day, or set up bookings and sign-ups. We build the right system for how you actually sell.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Records That Keep Themselves</h3><p>From herd records to job logs to market sales — move from notebooks and scattered spreadsheets to systems that grow with you.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div><h3>Picking the Right Tools</h3><p>The market is noisy and every vendor promises the moon. We cut through the pitches and help you pick tools that fit — or build custom ones.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><h3>Training &amp; Onboarding</h3><p>Already have tools but nobody uses them? We train you and your team so the investment actually pays off.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Custom Builds</h3><p>When off-the-shelf doesn't cut it, we build tools tailored to your exact workflow.</p></div>
+    </div>
+    <div class="consult-cta fade-in">
+      <p class="rate">Consulting starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
+      <a class="btn btn-gold" href="#contact">Book a Free Discovery Call</a>
     </div>
   </div></section>
 </div>
 
-<!-- CONTACT -->
+<!-- ============ CONTACT ============ -->
 <div class="page" id="page-contact">
-  <div class="page-hero"><h1>Get in Touch</h1><p>We promise we're friendlier than we look. Mostly.</p></div>
-  <section class="section"><div class="section-inner"><div class="contact-section fade-in">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Say Hello</div><h1>Get in Touch</h1><p>We promise we're friendlier than we look. Mostly.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="contact-section fade-in">
     <div class="contact-info">
       <h3>Let's Build Something Together</h3>
       <p>Whether you need an app for your farm, a website for your shop, or just want to figure out where to start — drop us a line. We'll get back to you faster than a border collie on a breakaway sheep.</p>
       <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:hello@grumpydog.co">hello@grumpydog.co</a></div>
       <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Annapolis Valley, Nova Scotia</div>
       <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri, 9am–5pm Atlantic</div>
-      <div style="margin-top:2rem;padding:1.5rem;background:var(--off-white);border-radius:12px">
-        <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--text)">Free 30-minute discovery call</strong> — Tell us about your business and we'll tell you honestly whether we can help. No pressure, no pitch deck, no nonsense.</p>
-      </div>
+      <div class="callout"><strong>Free 30-minute discovery call</strong> — Tell us about your business and we'll tell you honestly whether we can help. No pressure, no pitch deck, no nonsense.</div>
     </div>
     <form class="contact-form" onsubmit="sendMessage(event)">
       <input type="hidden" name="access_key" value="fdba5c65-9818-40c1-bab6-d456299a4836">
@@ -498,19 +701,49 @@ h1,h2,h3,h4{font-family:'Archivo Black',sans-serif;line-height:1.2;letter-spacin
         <select id="f-interest" name="interest"><option>A Website</option><option>An App or Custom Tool</option><option>Guidance &amp; Consulting</option><option>Broodi</option><option>NutriRoots</option><option>Pet Health RX Manager</option><option>Hosting &amp; Maintenance</option><option>Just Browsing / Other</option></select>
       </div>
       <div class="form-group"><label for="f-message">Tell us about your project</label><textarea id="f-message" name="message" placeholder="What do you do, and what's the biggest headache we could take off your plate?" required></textarea></div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center" type="submit">Send Message →</button>
-      <p class="form-note" id="formStatus">Prefer email? Write us directly at <a href="mailto:hello@grumpydog.co" style="color:var(--accent);font-weight:700">hello@grumpydog.co</a>.</p>
+      <button class="btn btn-gold btn-block" type="submit">Send Message</button>
+      <p class="form-note" id="formStatus">Prefer email? Write us directly at <a href="mailto:hello@grumpydog.co">hello@grumpydog.co</a>.</p>
     </form>
   </div></div></section>
 </div>
 
-<footer class="footer"><div class="footer-inner">
-  <span class="footer-brand"><img src="assets/logo.jpg" alt="">© 2026 Grumpy Dog Software · Annapolis Valley, Nova Scotia</span>
-  <span>Herding Code. Solving Problems.</span>
-</div></footer>
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.jpg" alt="">
+      <div>
+        <b>GRUMPY DOG SOFTWARE</b>
+        <span class="tag2">Herding code. Solving problems.</span>
+        <p>A family-run company building websites, apps, and practical tools for rural Nova Scotia — from the Annapolis Valley, with love and mild grumpiness.</p>
+      </div>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#websites">Websites</a></li>
+        <li><a href="#consulting">Consulting</a></li>
+        <li><a href="#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Our Apps</h5>
+      <ul>
+        <li><a href="#broodi">Broodi</a></li>
+        <li><a href="#nutriroots">NutriRoots</a></li>
+        <li><a href="#pethealth">Pet Health RX Manager</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-word" aria-hidden="true">GRUMPY DOG</div>
+  <div class="footer-bottom"><div>
+    <span>© 2026 Grumpy Dog Software · Annapolis Valley, Nova Scotia</span>
+    <span>Made in the Valley</span>
+  </div></div>
+</footer>
 
 <script>
-const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*100);observer.unobserve(entry.target)}})},{threshold:0.1});
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*90);observer.unobserve(entry.target)}})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 const PAGES=['home','broodi','nutriroots','pethealth','websites','consulting','contact'];
@@ -550,7 +783,7 @@ async function sendMessage(e){
     status.innerHTML='<strong style="color:#2E7D32">Message sent!</strong> We\'ll get back to you within a business day.';
   }catch(err){
     const mail='mailto:hello@grumpydog.co?subject='+encodeURIComponent(payload.subject)+'&body='+encodeURIComponent(payload.message+'\n\n— '+payload.name+' ('+payload.email+')');
-    status.innerHTML='Hmm, that didn\'t go through. <a href="'+mail+'" style="color:var(--accent);font-weight:700">Send it by email instead →</a>';
+    status.innerHTML='Hmm, that didn\'t go through. <a href="'+mail+'">Send it by email instead →</a>';
   }finally{
     btn.disabled=false;btn.textContent=origLabel;
   }
