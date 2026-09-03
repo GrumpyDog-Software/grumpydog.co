@@ -61,6 +61,9 @@
         "Mobile app development",
         "Custom business software",
         "Technology consulting"
+      ],
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=5879958692714284513"
       ]
     },
     {
@@ -72,6 +75,36 @@
         "@id": "https://grumpydog.co/#organization"
       },
       "inLanguage": "en-CA"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://grumpydog.co/#broodi",
+      "name": "Broodi",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Android",
+      "description": "Incubator hatching companion for backyard and small-flock keepers. Set your species and set date, and Broodi calculates hatch day and reminds you about candling and lockdown.",
+      "url": "https://play.google.com/store/apps/details?id=app.broodi",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=app.broodi",
+      "installUrl": "https://play.google.com/store/apps/details?id=app.broodi",
+      "image": "https://grumpydog.co/assets/broodi.jpg",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free plan"
+        },
+        {
+          "@type": "Offer",
+          "name": "Broodi Pro",
+          "price": "7.99",
+          "priceCurrency": "USD",
+          "category": "In-app purchase"
+        }
+      ],
+      "publisher": {
+        "@id": "https://grumpydog.co/#organization"
+      }
     }
   ]
 }
@@ -154,6 +187,14 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 .btn-block{width:100%;justify-content:center}
+.app-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.3rem}
+.gp-badge{display:inline-flex;height:56px;border-radius:9px;transition:transform .18s,filter .18s}
+.gp-badge img{height:100%;width:auto;display:block}
+.gp-badge:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.gp-badge:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hero-ctas .gp-badge{height:52px}
+.avail{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;color:#1c7d4d;margin-bottom:1rem}
+.avail::before{content:'';width:8px;height:8px;border-radius:50%;background:#22a35f;box-shadow:0 0 0 3px rgba(34,163,95,0.18)}
 
 /* hero visual: badge + rotating ring */
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:430px;animation:bloom .9s .3s cubic-bezier(.2,.8,.3,1.15) both}
@@ -542,7 +583,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     <div class="plates">
       <a class="plate fade-in" href="#broodi">
         <div class="plate-img"><span class="imgring"><img src="assets/broodi.jpg" alt="Broodi"></span></div>
-        <div class="plate-body"><span class="tag">Poultry &amp; Hatching</span><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="textlink">Learn more</span></div>
+        <div class="plate-body"><span class="tag">Poultry &amp; Hatching</span><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="avail">Live on Google Play</span><span class="textlink">Learn more</span></div>
       </a>
       <a class="plate fade-in" href="#nutriroots">
         <div class="plate-img"><span class="imgring"><img src="assets/nutriroots.jpg" alt="NutriRoots"></span></div>
@@ -585,7 +626,12 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
       <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
     </svg>
-    <div class="ph-inner"><div class="eyebrow">Our Apps — Poultry &amp; Hatching</div><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone.</p></div>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Poultry &amp; Hatching</div><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone. Free to download on Google Play.</p>
+    <div class="hero-ctas" style="margin-top:1.6rem">
+      <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+        <img src="assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+      </a>
+    </div></div>
   </div>
   <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
     <div class="featured-app-img"><span class="imgring"><img src="assets/broodi.jpg" alt="Broodi"></span></div>
@@ -601,7 +647,12 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <li>Works offline — perfect for the coop</li>
         <li>Clean, easy interface designed for busy hands</li>
       </ul>
-      <a class="btn btn-gold" href="#contact">Ask About Broodi</a>
+      <div class="app-ctas">
+        <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+          <img src="assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+        </a>
+        <a class="btn btn-gold" href="#contact">Ask About Broodi</a>
+      </div>
     </div>
   </div></div></section>
   <section class="section screenshots-section"><div class="section-inner">
@@ -641,6 +692,11 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-8 0-5-3-12-7-12S5 9 5 14c0 5 3 8 7 8z"/></svg>1. Pick Your Species</h3><p>Select from a wide range of poultry — each with accurate incubation periods baked in.</p></div>
       <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2. Set Your Date</h3><p>Enter when you set the eggs and Broodi does the math. Hatch day, candling dates, lockdown — mapped out.</p></div>
       <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>3. Hatch Day</h3><p>Get reminders at every milestone and know exactly when to expect pipping. No more calendar math.</p></div>
+    </div>
+    <div class="app-ctas fade-in" style="justify-content:center;margin-top:2.6rem">
+      <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+        <img src="assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+      </a>
     </div>
   </div></section>
 </div>
@@ -932,6 +988,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <li><a href="#broodi">Broodi</a></li>
         <li><a href="#nutriroots">NutriRoots</a></li>
         <li><a href="#pethealth">Pet Health RX Manager</a></li>
+        <li><a href="https://play.google.com/store/apps/dev?id=5879958692714284513" target="_blank" rel="noopener">Our apps on Google Play</a></li>
       </ul>
     </div>
   </div>
