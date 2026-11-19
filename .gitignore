@@ -1,3 +1,5 @@
 # Legacy paper-mache prototype, superseded by index.html — kept locally only
 grumpy-dog-software.html
 .claude/
+# Browser automation scratch files
+.playwright-mcp/
