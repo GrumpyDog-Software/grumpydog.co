@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henny's Preserves - website concept</title>
+<meta name="description" content="Website concept for Henny's Preserves of Centreville, Nova Scotia: handcrafted pepper jellies, mustards, salsa and drizzles, made in small batches by two former chefs.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FCEFDC">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Henny's Preserves - website concept">
+<meta property="og:description" content="A preview of a first website for Henny's Preserves of Centreville, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/hennys-preserves/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FCEFDC;
+  --cream-deep:#F3E0C4;
+  --brown:#3A2A1F;
+  --brown-soft:#6A5646;
+  --jelly:#7C2A1F;
+  --mustard:#D29A1E;
+  --salsa:#55701F;
+  --drizzle:#8E2F2A;
+  --blue:#4A6A82;
+  --rule:rgba(58,42,31,.25);
+  --serif:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --cond:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:70rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--brown);font:400 1.0625rem/1.7 var(--serif)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.6rem,6.6vw,4.75rem);letter-spacing:-.015em}
+h2{font-size:clamp(2rem,4.4vw,3rem);letter-spacing:-.01em}
+h3{font-size:1.5rem;line-height:1.2}
+p{margin:0}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:.07em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--brown);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:.65rem 1.5rem;
+  font:600 1.125rem/1.1 var(--cond);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:.2rem;
+  border:2px solid var(--brown);background:var(--brown);color:var(--cream);cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--brown)}
+.btn--line{background:transparent;color:var(--brown)}
+.btn--line:hover{background:var(--brown);color:var(--cream)}
+.btn--cream{background:var(--cream);border-color:var(--cream);color:var(--brown)}
+.btn--cream:hover{background:transparent;color:#fff;border-color:#fff}
+
+/* header */
+.top{position:relative;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:0}
+.brand{margin-right:auto;flex:none;display:block}
+.brand img{width:7.5rem;height:7.5rem;mix-blend-mode:multiply}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+.nav a{font:600 1.125rem/1 var(--cond);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding-block:.6rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--jelly)}
+.menu-btn{display:none}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.2fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(2.5rem,6vw,5rem)}
+.hero .lede{font-size:1.25rem;line-height:1.55;margin-top:1.5rem;max-width:31rem}
+.hero .stamp{margin-top:1.25rem;font-style:italic;color:var(--brown-soft)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-pic img{width:100%;aspect-ratio:1/1;object-fit:cover;border:.5rem solid #fff;box-shadow:0 1px 0 var(--rule)}
+
+/* the four lines, after their banner */
+.lines-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 3rem;margin-bottom:clamp(1.75rem,3.5vw,2.5rem)}
+.lines-head p{max-width:27rem}
+.lines{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.line{color:#fff;padding:1.75rem 1.5rem 1.9rem}
+.line--jelly{background:var(--jelly)}
+.line--mustard{background:var(--mustard);color:var(--brown)}
+.line--salsa{background:var(--salsa)}
+.line--drizzle{background:var(--drizzle)}
+.line h3{font:600 clamp(2rem,3.6vw,2.75rem)/.95 var(--cond);letter-spacing:.03em;text-transform:uppercase}
+.line .tag{font:600 1.0625rem/1.25 var(--cond);letter-spacing:.06em;text-transform:uppercase;margin-top:.7rem;opacity:.92}
+.line ul{margin:1.4rem 0 0;padding:1.1rem 0 0;list-style:none;border-top:1px solid currentColor}
+.line li{padding:.22rem 0;font-size:1.0625rem;line-height:1.4}
+.line li small{font-size:.875rem;font-style:italic;opacity:.9}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center;margin-top:clamp(2.5rem,5vw,4rem)}
+.prices img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.prices p{margin-top:1rem;max-width:30rem}
+.price-list{margin:1.5rem 0 0;padding:0;list-style:none;border-top:2px solid var(--brown);max-width:26rem}
+.price-list li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.price-list b{font-weight:700}
+.products{padding-bottom:clamp(4rem,8vw,6rem)}
+
+/* where */
+.where{background:var(--blue);color:#fff;padding-block:clamp(4rem,8vw,6rem)}
+.where .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.where figure{margin:0}
+.where figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border:.5rem solid #fff}
+.stand{margin-top:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,.4)}
+.stand p{margin-top:.6rem;max-width:32rem}
+.stand .btn{margin-top:1.1rem}
+.markets{margin:1.75rem 0 0;padding:0;list-style:none}
+.markets li{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.markets .day{font:600 1.125rem/1.3 var(--cond);letter-spacing:.05em;text-transform:uppercase}
+.markets small{display:block;font-size:.9375rem;opacity:.9}
+.where .note{margin-top:1.5rem;font-style:italic;max-width:32rem}
+.where .note a{font-style:normal;font-weight:700;display:inline-block;padding-block:.6rem}
+
+/* about */
+.about{padding-block:clamp(4rem,8vw,6.5rem)}
+.about .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.about p{margin-top:1.2rem;max-width:35rem}
+.about .big{font-size:clamp(1.35rem,2.4vw,1.625rem);line-height:1.45}
+.said{border-left:3px solid var(--mustard);padding-left:1.5rem}
+.said blockquote{margin:0 0 1.75rem}
+.said blockquote p{margin:0;font-style:italic;font-size:1.1875rem;line-height:1.5}
+.said cite{display:block;font-style:normal;font-size:.9375rem;color:var(--brown-soft);margin-top:.5rem}
+
+/* contact */
+.contact{background:var(--brown);color:var(--cream);padding-block:clamp(4rem,8vw,6rem)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.c-lines{margin:1.75rem 0 0;padding:0;list-style:none;display:grid;gap:1.3rem}
+.c-lines small{display:block;font:600 1rem/1.3 var(--cond);letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.c-lines a{display:inline-block;padding-block:.55rem;font-size:1.25rem;overflow-wrap:anywhere}
+.c-lines a.sm{font-size:1.0625rem;margin-right:1.25rem}
+form{background:var(--cream);color:var(--brown);padding:clamp(1.5rem,3vw,2.25rem)}
+form > p{margin:.4rem 0 1rem;color:var(--brown-soft)}
+label{display:block;font:600 1rem/1.3 var(--cond);letter-spacing:.05em;text-transform:uppercase;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--brown);border-radius:.2rem;padding:.65rem .85rem}
+textarea{min-height:7rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--cream-deep);border-left:4px solid var(--mustard);font-size:1rem}
+.form-note[hidden]{display:none}
+.foot{background:var(--brown);color:var(--cream);border-top:1px solid rgba(252,239,220,.25);padding-block:1.75rem;font-size:1rem;text-align:center;font-style:italic}
+
+@media (max-width:64rem){
+  .lines{grid-template-columns:1fr 1fr}
+}
+@media (max-width:60rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--cream);border-bottom:3px solid var(--brown);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:1rem 0;border-bottom:1px solid var(--rule);font-size:1.25rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:600 1.125rem/1 var(--cond);letter-spacing:.05em;text-transform:uppercase;
+    background:transparent;color:var(--brown);border:2px solid var(--brown);border-radius:.2rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .where .wrap,.about .wrap,.contact .wrap,.prices{grid-template-columns:1fr}
+  .where figure{max-width:24rem}
+}
+@media (max-width:46rem){
+  body{font-size:1rem}
+  .brand img{width:5.75rem;height:5.75rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .lede{font-size:1.125rem}
+  .hero-actions,.hero-actions .btn{width:100%}
+  .lines{grid-template-columns:1fr}
+  .markets li{grid-template-columns:5.75rem 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Henny's Preserves, home">
+      <img src="assets/logo.png" alt="Henny's Handcrafted Preserves" width="400" height="400">
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#products">What we make</a>
+      <a href="#where">Where to buy</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>Hand crafted. Chef curated.</h1>
+        <p class="lede">Pepper jellies, mustards, salsa and drizzles from Centreville, Nova Scotia, made by two former chefs with ingredients from farms around our community.</p>
+        <p class="stamp">Small batch. Made with care. Big flavor.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#products">See the flavours</a>
+          <a class="btn btn--line" href="#where">Where to buy</a>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <img src="assets/jars.webp" alt="Jars of Henny's Cranberry Pepper Jelly and Cranberry Mustard stacked on a wooden board" width="1000" height="1000" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products" aria-labelledby="products-h">
+    <div class="wrap">
+      <div class="lines-head">
+        <h2 id="products-h">What we make</h2>
+        <p>Perfect for cheese boards, grilled meats, sandwiches, appetizers and more.</p>
+      </div>
+      <div class="lines">
+        <article class="line line--jelly">
+          <h3>Pepper jelly</h3>
+          <p class="tag">Sweet. Spicy. Irresistible.</p>
+          <ul><li>Red Pepper</li><li>Cranberry Pepper</li><li>Pineapple Pepper</li><li>Mango Habanero</li><li>Thai Pepper</li></ul>
+        </article>
+        <article class="line line--mustard">
+          <h3>Mustard</h3>
+          <p class="tag">Bold. Tangy. Perfectly crafted.</p>
+          <ul><li>Charcuterie</li><li>Sriracha</li><li>Honey Dijon</li><li>Horseradish</li><li>Stoneground</li><li>Cranberry <small>a holiday favourite</small></li></ul>
+        </article>
+        <article class="line line--salsa">
+          <h3>Salsa</h3>
+          <p class="tag">Fresh. Zesty. Full of flavor.</p>
+          <ul><li>Smoked Salsa</li></ul>
+        </article>
+        <article class="line line--drizzle">
+          <h3>Drizzle</h3>
+          <p class="tag">Bold. Flavorful. The perfect finish.</p>
+          <ul><li>Smoky Chipotle</li><li>Sweet Heat</li><li>Raging Red</li></ul>
+        </article>
+      </div>
+
+      <div class="prices">
+        <img src="assets/market-table.webp" alt="Henny's market table: stacked jars of pepper jelly and mustard, smoked salsa, and boxed gift packs with Made in Nova Scotia stickers" width="1300" height="975" loading="lazy">
+        <div>
+          <h3>Gift packs, and a sample before you choose</h3>
+          <p>Everyone's favourite gift boxes and bags, built from the jars you see here. At our market table you can always try a sample first.</p>
+          <ul class="price-list">
+            <li><span>Mustard, jelly or drizzle</span><b>$10 each</b></li>
+            <li><span>Any three</span><b>$25</b></li>
+            <li><span>Gift packs</span><b>$15 and $25</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="where on-dark" id="where" aria-labelledby="where-h">
+    <div class="wrap">
+      <figure>
+        <img src="assets/blue-farm-stand.webp" alt="Henny's little blue farm stand under an autumn tree, shelves stocked with jars, pumpkins on hay bales beside it" width="820" height="1000" loading="lazy">
+      </figure>
+      <div>
+        <h2 id="where-h">Where to buy</h2>
+        <div class="stand">
+          <h3>The little blue farm stand</h3>
+          <p>2226 Highway 359, Centreville, Kings County. Come by for your favourite pepper jellies, mustard and salsa. We post on Facebook and Instagram on the days it is open.</p>
+          <a class="btn btn--cream" href="https://www.google.com/maps/search/?api=1&amp;query=2226+Highway+359%2C+Centreville%2C+Nova+Scotia" rel="noopener">Directions to the farm stand</a>
+        </div>
+        <ul class="markets" aria-label="Markets">
+          <li><span class="day">Saturday</span><span>Wolfville Farmers' Market<small>8:30 am to 1 pm, 24 Elm Avenue, Wolfville</small></span></li>
+          <li><span class="day">Saturday</span><span>Halifax Brewery Market<small>8 am to 1 pm, Lower Water Street, Halifax</small></span></li>
+          <li><span class="day">Thursday</span><span>Lunenburg Farmers' Market<small>8 am to noon, Lunenburg</small></span></li>
+          <li><span class="day">Wednesday</span><span>Kentville Farmers Market<small>10 am to 1:30 pm, Kentville, some weeks</small></span></li>
+          <li><span class="day">Summer</span><span>Kingston Farmers Market and Chester Farmers' and Artisans Market<small>June to early October</small></span></li>
+        </ul>
+        <p class="note">We are not at every market every week. Check <a href="https://www.instagram.com/hennys_preserves/" rel="noopener">Instagram</a> or <a href="https://www.facebook.com/hennys.preserves" rel="noopener">Facebook</a> for where we are set up this week.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Two chefs and a lot of jars</h2>
+        <p class="big">We are Melanie and Gary Hennessey. We hail from many years of kitchen working experience as chefs, and now find our passion in making and selling these unique products.</p>
+        <p>We source as many ingredients locally as possible, using many farms around our community, from fresh produce to local dry ingredients and vinegars.</p>
+        <p>We pride ourselves on having rustic products jam packed with fresh ingredients and flavor. Something for everyone at your table.</p>
+      </div>
+      <div class="said">
+        <blockquote>
+          <p>THAT SALSA is extra FIRE!!!</p>
+          <cite>Victoria, on Facebook, September 2026</cite>
+        </blockquote>
+        <blockquote>
+          <p>I need more of your Pineapple Ginger Drizzle! It is amazing!!</p>
+          <cite>Kailey, on Facebook, October 2026</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact on-dark" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">Get in touch</h2>
+        <ul class="c-lines">
+          <li><small>Email</small><a href="mailto:hennyspreserves@gmail.com">hennyspreserves@gmail.com</a></li>
+          <li><small>This week's markets and farm stand days</small>
+            <a class="sm" href="https://www.instagram.com/hennys_preserves/" rel="noopener">Instagram</a>
+            <a class="sm" href="https://www.facebook.com/hennys.preserves" rel="noopener">Facebook</a>
+          </li>
+          <li><small>Farm stand</small>2226 Highway 359, Centreville, Kings County, Nova Scotia</li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Ask about an order or a gift pack</h3>
+        <p>Tell us what you are after and we will get back to you.</p>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-email">Your email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
+        <label for="f-msg">Your message</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Henny's Preserves.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">Thank you for supporting local!</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#241A13;
+    --gd-ribbon-fg:#FCEFDC;
+    --gd-ribbon-accent:#E7B84A;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(252,239,220,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Henny's Preserves by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
