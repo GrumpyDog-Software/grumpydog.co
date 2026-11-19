@@ -374,6 +374,13 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .price-features{list-style:none;margin:1.4rem 0 2rem;flex:1}
 .price-features li{padding:0.5rem 0;font-size:0.92rem;color:var(--ink-soft);display:flex;align-items:flex-start;gap:0.6rem;border-bottom:1px dashed var(--rule)}
 .price-features li::before{content:'→';color:var(--gold-deep);font-weight:700;flex-shrink:0}
+.rate-table{max-width:40rem;margin:3.5rem auto 0;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:2rem 2.3rem}
+.rate-table h3{font-size:1.2rem;margin-bottom:1rem}
+.rate-table dl{margin:0}
+.rate-table dl div{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.rate-table dt{color:var(--ink-soft)}
+.rate-table dd{margin:0;font-weight:700;color:var(--navy);white-space:nowrap}
+.rate-table p{margin-top:1rem;font-size:.9rem;color:var(--ink-soft)}
 .fineprint{text-align:center;margin-top:2.6rem;color:var(--ink-soft);font-size:0.9rem}
 .fineprint a{color:var(--gold-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--gold)}
 
@@ -869,6 +876,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     <div class="ph-inner"><div class="eyebrow">Websites · Custom Tools · Guidance</div><h1>Our Services</h1><p>Practical technology for rural businesses, from a professional website to custom tools and plain-spoken guidance.</p></div>
   </div>
 <!-- @include websites-pricing -->
+<!-- @include extra-pricing -->
 <!-- @include guidance -->
 </div>
 <!-- @endpart -->
@@ -883,7 +891,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
       <div class="price-card fade-in">
         <h3>Starter</h3><p class="price-sub">Perfect for getting online</p>
         <div class="price">$999<small> one-time</small></div>
-        <ul class="price-features"><li>Single-page website</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
+        <ul class="price-features"><li>Up to 3 pages</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
         <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
       </div>
       <div class="price-card featured fade-in">
@@ -900,7 +908,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
       </div>
     </div>
-    <p class="fineprint">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact">Let's talk.</a></p>
+    <p class="fineprint">All packages include managed hosting starting at $19/month after the first year. Sites with online ordering or booking usually run $3,500 to $6,000, depending on what they need to do. Need something custom? <a href="#contact">Let's talk.</a></p>
   </div></section>
 <!-- @endpart -->
 
@@ -925,6 +933,45 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
   </div></section>
 <!-- @endpart -->
 
+<!-- @part extra-pricing -->
+  <section class="section section-paper on-light" id="services-more"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Care · Fixes · Hands-On Help</div><h2>After Launch, and Everything Else</h2></div>
+      <p class="lede">Plain prices for keeping a site healthy, fixing an old one, and getting help when you need it.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card fade-in">
+        <h3>Website Review</h3><p class="price-sub">For a site that needs fixing or a refresh</p>
+        <div class="price">$300<small> to $400</small></div>
+        <ul class="price-features"><li>We look over your current site and tell you plainly what needs fixing</li><li>Small fixes quoted after the review, or billed hourly</li><li>A full refresh is priced as a Starter or Professional package, $999 to $2,499</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Ask for a Review</a>
+      </div>
+      <div class="price-card featured fade-in">
+        <h3>Care Plan</h3><p class="price-sub">We look after it, you run your business</p>
+        <div class="price">$49<small> to $79 / month</small></div>
+        <ul class="price-features"><li>Managed hosting</li><li>Regular backups</li><li>A small allowance of changes each month</li><li>Most sites fit the $59 plan</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
+      </div>
+      <div class="price-card fade-in">
+        <h3>Custom Tools &amp; Apps</h3><p class="price-sub">Built around how you actually work</p>
+        <div class="price">From $5,000</div>
+        <ul class="price-features"><li>Quoted after a free discovery call</li><li>$5,000 is the starting point for a small custom tool</li><li>You see the quote before any work begins</li></ul>
+        <a class="btn btn-gold btn-block" href="/contact?topic=discovery-call#contact-form">Book a Free Discovery Call</a>
+      </div>
+    </div>
+    <div class="rate-table fade-in">
+      <h3>Hourly Help</h3>
+      <dl>
+        <div><dt>Guidance and planning</dt><dd>$150 / hour</dd></div>
+        <div><dt>Hands-on tech help, remote</dt><dd>$125 / hour</dd></div>
+        <div><dt>Hands-on tech help, on site</dt><dd>$150 / hour</dd></div>
+        <div><dt>Hosting only, no care plan</dt><dd>$19 / month</dd></div>
+      </dl>
+      <p>Hands-on help has a 1-hour minimum.</p>
+    </div>
+  </div></section>
+<!-- @endpart -->
+
 <!-- @part pricing -->
 <div class="page" id="page-pricing">
   <div class="page-hero">
@@ -935,6 +982,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
     <div class="ph-inner"><div class="eyebrow">Websites · Hosting · Guidance</div><h1>Pricing</h1><p>Plain prices for websites, managed hosting, and guidance. No surprises.</p></div>
   </div>
 <!-- @include websites-pricing -->
+<!-- @include extra-pricing -->
   <section class="section section-dark"><div class="section-inner">
     <div class="section-head fade-in">
       <div><div class="eyebrow">Guidance &amp; Custom Tools</div><h2>Plain English, Not Jargon</h2></div>
