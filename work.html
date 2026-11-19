@@ -36,6 +36,25 @@
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="manifest" href="/site.webmanifest">
+<script>
+window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}},has:function(t,r){return"q"===r}})}();
+window.op('init',{clientId:'d24e21f9-e855-4a0b-a871-df06644d686e',trackScreenViews:true,trackHashChanges:true,trackOutgoingLinks:true,disabled:!/(^|\.)grumpydog\.co$/.test(location.hostname)});
+(function(){
+  /* Keep campaign tags for the whole visit, so later events carry them too */
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'],q=new URLSearchParams(location.search),utm={},found=false;
+  keys.forEach(function(k){var v=q.get(k);if(v){utm[k]=v;found=true}});
+  try{if(found)sessionStorage.setItem('gd_utm',JSON.stringify(utm));else utm=JSON.parse(sessionStorage.getItem('gd_utm')||'{}')}catch(e){}
+  if(Object.keys(utm).length)window.op('setGlobalProperties',utm);
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    var h=a.getAttribute('href');
+    if(/^mailto:/i.test(h))window.op('track','mailto_click',{address:h.slice(7).split('?')[0]});
+    else if(/^tel:/i.test(h))window.op('track','phone_click',{number:h.slice(4)});
+    else if(/[?&]topic=discovery-call/.test(h))window.op('track','booking_start',{from:location.pathname+location.hash});
+  },true);
+})();
+</script>
+<script src="https://openpanel.dev/op1.js" defer async></script>
 <style>
 :root{
   --navy:#1B2A4A;
@@ -504,6 +523,7 @@ async function sendMessage(e){
     const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     const data=await res.json();
     if(!data.success)throw new Error(data.message||'Submission failed');
+    window.op('track','contact_form_submit',{interest:payload.interest||''});
     f.reset();
     status.innerHTML='<strong style="color:#2E7D32">Message sent!</strong> We\'ll get back to you within a business day.';
   }catch(err){
