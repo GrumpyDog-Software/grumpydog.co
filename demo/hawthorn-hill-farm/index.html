@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hawthorn Hill Farm - website concept</title>
+<meta name="description" content="Website concept for Hawthorn Hill Farm in Grafton, Kings County, Nova Scotia: vegetables, hardneck garlic, berries and tree fruit grown using organic standards.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#C42E2F">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hawthorn Hill Farm - website concept">
+<meta property="og:description" content="A preview of a new website for Hawthorn Hill Farm in Grafton, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/hawthorn-hill-farm/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C42E2F;
+  --red-deep:#9F2224;
+  --yellow:#F3E471;
+  --yellow-soft:#FBF4BF;
+  --green:#2D6E36;
+  --ink:#181914;
+  --ink-soft:#4A4B42;
+  --paper:#FFFDF3;
+  --rule:rgba(24,25,20,.18);
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,4rem);
+  --wide:76rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.6 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.375rem,5.4vw,3.75rem);letter-spacing:-.015em}
+h2{font-size:clamp(2rem,4.4vw,3.25rem);letter-spacing:-.01em}
+h3{font-size:clamp(1.5rem,2.6vw,2rem)}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible,.on-dark input:focus-visible,.on-dark textarea:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:.7rem 1.35rem;
+  font:600 1.0625rem/1.2 var(--body);text-decoration:none;border-radius:.375rem;border:2px solid var(--ink);
+  background:var(--ink);color:var(--paper);cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--yellow{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn--yellow:hover{background:transparent;color:#fff;border-color:#fff}
+.btn--line{background:transparent;color:#fff;border-color:rgba(255,255,255,.75)}
+.btn--line:hover{background:#fff;color:var(--red-deep);border-color:#fff}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+
+/* header */
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.85rem}
+.brand{display:flex;align-items:center;gap:.9rem;text-decoration:none;margin-right:auto;flex:none}
+.brand b,.nav a,.top .btn{white-space:nowrap}
+.brand img{width:4rem;height:4rem;flex:none}
+.brand b{display:block;font:400 1.5rem/1.1 var(--display)}
+.brand span{display:block;font-size:.9375rem;color:var(--ink-soft);line-height:1.3;margin-top:.15rem}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2vw,1.75rem)}
+.nav a{font-weight:600;font-size:1rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--red)}
+.top .btn{min-height:2.75rem;padding:.55rem 1.1rem;font-size:1rem}
+.menu-btn{display:none}
+
+/* hero */
+.hero{position:relative;background:var(--ink)}
+.hero picture img{width:100%;height:min(78vh,46rem);min-height:30rem;object-fit:cover;object-position:30% 45%}
+.hero-panel{position:absolute;right:max(var(--gutter),calc((100% - var(--wide))/2 + var(--gutter)));bottom:0;
+  width:min(37rem,calc(100% - 2*var(--gutter)));background:var(--red);color:#fff;padding:clamp(1.75rem,3.5vw,3rem);
+  border-top:.5rem solid var(--yellow)}
+.hero-panel .where{font-weight:600;margin-bottom:.9rem}
+.hero-panel .lede{font-size:1.1875rem;margin-top:1.1rem;max-width:32rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+
+/* find us: their market banner */
+.find{background:var(--yellow);padding-block:clamp(3.5rem,7vw,6rem)}
+.find-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 3rem;margin-bottom:clamp(2rem,4vw,3.25rem)}
+.find-head p{max-width:30rem}
+.days{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink)}
+.day{padding:1.75rem 2rem 0 0}
+.day + .day{border-left:1px solid var(--ink);padding-left:2rem}
+.day h3{font-size:clamp(1.9rem,3.2vw,2.75rem)}
+.day .place{font-weight:600;font-size:1.25rem;line-height:1.3;margin-top:.9rem}
+.day dl{margin:1rem 0 0;display:grid;gap:.35rem}
+.day dt{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.day dd{margin:0}
+.day .more{margin-top:1.1rem;font-weight:600}
+.day .more a{display:inline-block;padding-block:.6rem}
+
+/* grow */
+.grow{padding-block:clamp(4rem,8vw,7rem)}
+.grow-intro{max-width:44rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.grow-intro p{margin-top:1.1rem;font-size:1.25rem}
+.garlic{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.garlic-main img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.garlic-text p{margin-top:1rem;max-width:30rem}
+.garlic-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.garlic-pair img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.crops{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(3.5rem,7vw,6rem)}
+.crop img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.crop h3{margin-top:1.25rem}
+.crop p{margin-top:.6rem}
+.crop-pair{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;aspect-ratio:4/3}
+.crop .crop-pair img{aspect-ratio:auto;height:100%;min-height:0}
+
+/* animals */
+.flock{background:var(--green);color:#fff;padding-block:clamp(4rem,8vw,6.5rem)}
+.flock .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.flock blockquote{margin:1.5rem 0 0;font-size:1.3125rem;line-height:1.5}
+.flock-pics{display:grid;grid-template-columns:1.6fr 1fr;gap:1rem}
+.flock-pics img{width:100%;height:clamp(14rem,30vw,24rem);object-fit:cover}
+.flock-pics img:last-child{object-position:78% 50%}
+
+/* about */
+.about{padding-block:clamp(4rem,8vw,7rem)}
+.about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.about figure{margin:0}
+.about figure img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%;border:.5rem solid var(--yellow)}
+.about figcaption{font-size:1rem;color:var(--ink-soft);margin-top:.75rem}
+.about-text p{margin-top:1.15rem;max-width:36rem}
+.easement{margin-top:2rem;padding:1.5rem 0 0;border-top:3px solid var(--red);max-width:36rem}
+.easement b{display:block;font:400 clamp(2.75rem,5vw,4rem)/1 var(--display);color:var(--red)}
+.easement p{margin-top:.6rem}
+.follow{display:flex;flex-wrap:wrap;gap:.75rem 2rem;margin-top:2rem;font-weight:600}
+.follow a{display:inline-flex;align-items:center;gap:.55rem;padding-block:.5rem}
+.follow svg{width:1.4rem;height:1.4rem;flex:none}
+
+/* contact */
+.visit{background:var(--red);color:#fff;padding-block:clamp(4rem,8vw,6.5rem)}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,6rem)}
+.visit-lines{margin:2rem 0 0;padding:0;list-style:none;display:grid;gap:1.4rem}
+.visit-lines li{display:grid;grid-template-columns:1.6rem 1fr;gap:1rem;align-items:start}
+.visit-lines svg{width:1.6rem;height:1.6rem;margin-top:.65rem}
+.visit-lines a:not(.btn){font:600 clamp(1.375rem,2.3vw,1.75rem)/1.25 var(--body);text-decoration:none;overflow-wrap:anywhere;display:inline-block;padding-block:.4rem}
+.visit-lines a:not(.btn):hover{text-decoration:underline}
+.visit-lines address{font-style:normal;font-size:1.25rem;line-height:1.45}
+.visit-lines small{display:block;font-size:1rem;opacity:.9;margin-top:.2rem}
+.visit .btn{margin-top:1rem}
+form{background:var(--paper);color:var(--ink);padding:clamp(1.5rem,3vw,2.5rem)}
+form h3{margin-bottom:.4rem}
+form > p{margin-bottom:1.25rem;color:var(--ink-soft);font-size:1.0625rem}
+label{display:block;font-weight:600;font-size:1rem;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--ink);border-radius:.25rem;padding:.7rem .85rem}
+textarea{min-height:8rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--yellow-soft);border-left:4px solid var(--ink);font-size:1rem}
+.form-note[hidden]{display:none}
+
+/* footer */
+.foot img{width:100%;height:clamp(9rem,22vw,16rem);object-fit:cover}
+.foot-bar{background:var(--ink);color:var(--paper);padding-block:2.25rem}
+.foot-bar .wrap{display:flex;flex-wrap:wrap;gap:1rem 3rem;align-items:center;justify-content:space-between;font-size:1rem}
+.foot-bar b{font:400 1.375rem/1.2 var(--display);display:block}
+.foot-links{display:flex;flex-wrap:wrap;gap:.25rem 1.75rem}
+.foot-links a{display:inline-block;padding-block:.5rem}
+
+/* responsive */
+@media (max-width:68rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--paper);border-bottom:3px solid var(--ink);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.125rem}
+  .top{position:relative}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:600 1rem/1 var(--body);
+    background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:.375rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .garlic,.flock .wrap,.about .wrap,.visit .wrap{grid-template-columns:1fr}
+  .flock .wrap{gap:2.25rem}
+}
+@media (max-width:48rem){
+  body{font-size:1.0625rem}
+  .brand img{width:3.25rem;height:3.25rem}
+  .brand{flex:1 1 auto;min-width:0;gap:.65rem}
+  .brand b{font-size:1.125rem;white-space:normal}
+  .menu-btn{padding-inline:.7rem}
+  .brand span{display:none}
+  .top .wrap{gap:.6rem}
+  .top .call span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .top .call{padding-inline:.75rem}
+  .hero picture img{height:auto;min-height:0;aspect-ratio:4/3}
+  .hero-panel{position:static;width:auto;border-top-width:.375rem}
+  .hero-actions .btn{flex:1 1 100%}
+  .days{grid-template-columns:1fr;border-top:0}
+  .day,.day + .day{border-left:0;border-top:3px solid var(--ink);padding:1.5rem 0 2rem}
+  .crops{grid-template-columns:1fr;gap:2.75rem}
+  .visit-lines a:not(.btn){font-size:1.3125rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Hawthorn Hill Farm, home">
+      <img src="assets/logo.webp" alt="Hawthorn Hill Farm logo: a black tree and a sheep on a green hill against a red sky" width="256" height="256">
+      <div><b>Hawthorn Hill Farm</b><span>In the beautiful Annapolis Valley</span></div>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#find">Where to find us</a>
+      <a href="#grow">What we grow</a>
+      <a href="#flock">Sheep and hens</a>
+      <a href="#about">About us</a>
+      <a href="#visit">Contact</a>
+    </nav>
+    <a class="btn call" href="tel:+19025381141" aria-label="Call 902-538-1141">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      <span>902-538-1141</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero on-dark" id="top">
+    <picture>
+      <source media="(max-width:48rem)" srcset="assets/hero-960.webp">
+      <img src="assets/hero.webp" alt="Hawthorn Hill Farm from the air in autumn: red barns, the farmhouse, orchard rows and long market garden beds, ringed by woods in fall colour" width="1600" height="900" fetchpriority="high">
+    </picture>
+    <div class="hero-panel">
+      <p class="where">Grafton, Kings County, Nova Scotia</p>
+      <h1>We love farming in Kings County.</h1>
+      <p class="lede">Fifty acres at the base of the North Mountain, growing vegetables, hardneck garlic, berries and tree fruit using organic standards.</p>
+      <div class="hero-actions">
+        <a class="btn btn--yellow" href="#find">Where to find us</a>
+        <a class="btn btn--line" href="#grow">What we grow</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="find" id="find" aria-labelledby="find-h">
+    <div class="wrap">
+      <div class="find-head">
+        <h2 id="find-h">Where to find us</h2>
+        <p>We sell at two farmers' markets each week from June to October, and you can pick your own at the farm.</p>
+      </div>
+      <div class="days">
+        <article class="day">
+          <h3>Wednesday</h3>
+          <p class="place">Kentville Farmers Market</p>
+          <dl>
+            <dt>Hours</dt><dd>10 am to 1:30 pm</dd>
+            <dt>Place</dt><dd>Centre Square, Kentville</dd>
+          </dl>
+          <p class="more"><a href="https://kentvillefarmersmarket.ca/" rel="noopener">Kentville Farmers Market website</a></p>
+        </article>
+        <article class="day">
+          <h3>Saturday</h3>
+          <p class="place">North Mountain Market</p>
+          <dl>
+            <dt>Hours</dt><dd>Saturday mornings</dd>
+            <dt>Place</dt><dd>3201 Long Point Road, Harbourville</dd>
+          </dl>
+          <p class="more"><a href="https://unitedtapestry.com/market" rel="noopener">North Mountain Market website</a></p>
+        </article>
+        <article class="day">
+          <h3>At the farm</h3>
+          <p class="place">U-pick vegetables and fruit</p>
+          <dl>
+            <dt>Hours</dt><dd>Several days a week in the growing season</dd>
+            <dt>Place</dt><dd>409 Arnold Road, Grafton</dd>
+          </dl>
+          <p class="more"><a href="tel:+19025381141">Call 902-538-1141</a> to ask what is ready and which days we are open.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="grow" id="grow" aria-labelledby="grow-h">
+    <div class="wrap">
+      <div class="grow-intro">
+        <h2 id="grow-h">What we grow</h2>
+        <p>A wide variety of market garden vegetables, eight kinds of berries and a small orchard, all grown using organic standards.</p>
+      </div>
+
+      <div class="garlic">
+        <div class="garlic-main">
+          <img src="assets/garlic-bulbs.webp" alt="A pile of freshly cleaned white hardneck garlic bulbs" width="1200" height="900" loading="lazy">
+        </div>
+        <div class="garlic-text">
+          <h3>Hardneck garlic, and a lot of it</h3>
+          <p>Alongside the vegetables we grow a large crop of hardneck garlic. Look for it on our market table.</p>
+          <div class="garlic-pair">
+            <img src="assets/garlic-field.webp" alt="Long green rows of garlic growing in the field" width="900" height="675" loading="lazy">
+            <img src="assets/garlic-harvest.webp" alt="Freshly pulled garlic plants laid out on the grass, roots and stalks still on" width="900" height="675" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="crops">
+        <article class="crop">
+          <img src="assets/veg-basket.webp" alt="A basket on the grass filled with cabbage, squash, peppers, carrots, radishes and greens" width="900" height="675" loading="lazy">
+          <h3>Vegetables</h3>
+          <p>A wide variety of market garden vegetables through the season.</p>
+        </article>
+        <article class="crop">
+          <img src="assets/berries.webp" alt="Pint boxes of red currants, gooseberries, blueberries and raspberries on a market table" width="900" height="675" loading="lazy">
+          <h3>Berries</h3>
+          <p>Strawberries, blueberries, raspberries, haskaps, grapes, blackberries, currants and gooseberries.</p>
+        </article>
+        <article class="crop">
+          <div class="crop-pair">
+            <img src="assets/pear-blossom.webp" alt="White fruit blossom in the orchard with the red barn behind" width="900" height="675" loading="lazy">
+            <img src="assets/plums.webp" alt="Pint boxes of purple plums" width="900" height="675" loading="lazy">
+          </div>
+          <h3>Tree fruit</h3>
+          <p>A small orchard of apple, pear and plum trees.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="flock on-dark" id="flock" aria-labelledby="flock-h">
+    <div class="wrap">
+      <div>
+        <h2 id="flock-h">Sheep and hens</h2>
+        <blockquote>A herd of Shetland sheep, kept for wool, and a flock of free-range heritage hens decorate our lawns and fields.</blockquote>
+      </div>
+      <div class="flock-pics">
+        <img src="assets/sheep.webp" alt="Shetland sheep standing on the grass in front of the long red barn" width="1200" height="800" loading="lazy">
+        <img src="assets/hens.webp" alt="A barred hen and several brown and golden hens scratching beside the barn" width="900" height="675" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <figure>
+        <img src="assets/paul-marilyn.webp" alt="Marilyn and Paul Cameron smiling at their market table, under the yellow Hawthorn Hill Farm banner" width="1200" height="900" loading="lazy">
+        <figcaption>Marilyn and Paul at the market table.</figcaption>
+      </figure>
+      <div class="about-text">
+        <h2 id="about-h">Paul and Marilyn</h2>
+        <p>Paul is a pharmacist and Marilyn is a veterinarian, and we love farming on our 50 acre property in the heart of the agricultural district of the Annapolis Valley.</p>
+        <p>The farm sits at the base of the North Mountain in the community of Grafton, just north of Waterville.</p>
+        <p>During the growing season we invite farm helpers, called WWOOFers, to stay with us for a few weeks at a time and help with the garden chores.</p>
+        <div class="easement">
+          <b>2017</b>
+          <p>Our farm was the first in Kings County to have a conservation easement placed on it by the Annapolis Valley Farm Land Trust Society.</p>
+        </div>
+        <p class="follow">
+          <a href="https://youtube.com/@hawthornhillfarm2011" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg>
+            Marilyn's YouTube channel
+          </a>
+          <a href="https://www.facebook.com/Hawthorn-Hill-Farm-514318212295920" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M15.5 8.5H14a2 2 0 0 0-2 2V21M9.5 13h5.5"/></svg>
+            The farm on Facebook
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit on-dark" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div>
+        <h2 id="visit-h">Drop by and visit us</h2>
+        <ul class="visit-lines">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            <div><a href="tel:+19025381141">902-538-1141</a><small>Best to call before you come out.</small></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            <div><a href="mailto:maricameron0@gmail.com">maricameron0@gmail.com</a></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>
+            <div>
+              <address>409 Arnold Road<br>Grafton, Kings County<br>Nova Scotia</address>
+              <a class="btn btn--yellow" href="https://www.google.com/maps/search/?api=1&amp;query=409+Arnold+Road%2C+Grafton%2C+Nova+Scotia" rel="noopener">Get directions</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Send us a message</h3>
+        <p>Ask about u-pick days, garlic, or what is coming to market this week.</p>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-contact">Email or phone</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email">
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Hawthorn Hill Farm.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <img src="assets/barn-panorama.webp" alt="The red barns of Hawthorn Hill Farm at sunset with autumn woods behind" width="1920" height="475" loading="lazy">
+  <div class="foot-bar on-dark">
+    <div class="wrap">
+      <div><b>Hawthorn Hill Farm</b>409 Arnold Road, Grafton, Kings County, Nova Scotia</div>
+      <div class="foot-links">
+        <a href="tel:+19025381141">902-538-1141</a>
+        <a href="mailto:maricameron0@gmail.com">Email us</a>
+        <a href="https://youtube.com/@hawthornhillfarm2011" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/Hawthorn-Hill-Farm-514318212295920" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#181914;
+    --gd-ribbon-fg:#FFFDF3;
+    --gd-ribbon-accent:#F3E471;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(255,253,243,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Hawthorn Hill Farm by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
