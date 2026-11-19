@@ -1,0 +1,1158 @@
+<!-- Source for grumpydog.co. Edit this file, then run: python3 _src/build.py
+     Each @part is a reusable block; _src/build.py assembles them into the published pages. -->
+<!-- @part head -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="author" content="Grumpy Dog Software">
+<meta name="robots" content="{{robots}}">
+<meta name="theme-color" content="#0F1B33">
+<link rel="canonical" href="{{canonical}}">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="Grumpy Dog Software">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:title" content="{{social_title}}">
+<meta property="og:description" content="{{social_description}}">
+<meta property="og:image" content="https://grumpydog.co/assets/social-card.jpg">
+<meta property="og:image:secure_url" content="https://grumpydog.co/assets/social-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grumpy Dog Software — websites, apps, and honest tech help for rural Nova Scotia">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{social_title}}">
+<meta name="twitter:description" content="{{social_description}}">
+<meta name="twitter:image" content="https://grumpydog.co/assets/social-card.jpg">
+<meta name="twitter:image:alt" content="Grumpy Dog Software — websites, apps, and honest tech help for rural Nova Scotia">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<link rel="manifest" href="/site.webmanifest">
+<!-- @if home -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://grumpydog.co/#organization",
+      "name": "Grumpy Dog Software",
+      "url": "https://grumpydog.co/",
+      "logo": "https://grumpydog.co/assets/logo.png",
+      "image": "https://grumpydog.co/assets/social-card.jpg",
+      "description": "Female-owned, farm-rooted software company building websites, mobile apps, and practical tools for rural Nova Scotia.",
+      "email": "hello@grumpydog.co",
+      "founder": {
+        "@type": "Person",
+        "name": "Celina"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Nova Scotia"
+      },
+      "knowsAbout": [
+        "Website design and development",
+        "Mobile app development",
+        "Custom business software",
+        "Technology consulting"
+      ],
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=5879958692714284513"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://grumpydog.co/#website",
+      "url": "https://grumpydog.co/",
+      "name": "Grumpy Dog Software",
+      "publisher": {
+        "@id": "https://grumpydog.co/#organization"
+      },
+      "inLanguage": "en-CA"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://grumpydog.co/#broodi",
+      "name": "Broodi",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Android",
+      "description": "Incubator hatching companion for backyard and small-flock keepers. Set your species and set date, and Broodi calculates hatch day and reminds you about candling and lockdown.",
+      "url": "https://play.google.com/store/apps/details?id=app.broodi",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=app.broodi",
+      "installUrl": "https://play.google.com/store/apps/details?id=app.broodi",
+      "image": "https://grumpydog.co/assets/broodi.jpg",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free plan"
+        },
+        {
+          "@type": "Offer",
+          "name": "Broodi Pro",
+          "price": "7.99",
+          "priceCurrency": "USD",
+          "category": "In-app purchase"
+        }
+      ],
+      "publisher": {
+        "@id": "https://grumpydog.co/#organization"
+      }
+    }
+  ]
+}
+</script>
+<!-- @endif -->
+<!-- @if home -->
+<script>{{redirect_script}}</script>
+<!-- @endif -->
+<style>
+:root{
+  --navy:#1B2A4A;
+  --navy-deep:#0F1B33;
+  --ink:#16223D;
+  --ink-soft:#52608A;
+  --paper:#F7F3E9;
+  --paper-deep:#EFE8D6;
+  --card:#FFFDF7;
+  --gold:#D4A03C;
+  --gold-deep:#B8862B;
+  --gold-soft:rgba(212,160,60,0.14);
+  --rule:rgba(22,34,61,0.14);
+  --rule-dark:rgba(255,255,255,0.12);
+  --display:'Archivo Black',sans-serif;
+  --body:'DM Sans',sans-serif;
+  --serif:'Fraunces',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;font-weight:400}
+::selection{background:var(--gold);color:var(--navy-deep)}
+.icon{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ---------- grain ---------- */
+.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:0.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,27,51,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,160,60,0.28)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav-logo{display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:#fff}
+.nav-logo img{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--gold)}
+.nav-logo b{font-family:var(--display);font-weight:400;font-size:0.95rem;letter-spacing:0.06em;display:block;line-height:1.1}
+.nav-logo small{display:block;font-family:var(--body);font-size:0.58rem;font-weight:700;letter-spacing:0.34em;color:var(--gold);text-transform:uppercase;line-height:1.4}
+.nav-links{display:flex;gap:0.25rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;padding:0.55rem 0.85rem;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:4px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-cta{background:var(--gold)!important;color:var(--navy-deep)!important;margin-left:0.5rem}
+.nav-cta:hover{background:#E8B44E!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+.dropdown{position:relative}
+.dropdown-toggle{display:inline-flex;align-items:center;gap:7px;vertical-align:middle}
+.dropdown-toggle::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transform-origin:center;flex-shrink:0}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--navy-deep);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.5rem;min-width:230px;box-shadow:0 16px 40px rgba(0,0,0,0.4)}
+.dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.75rem;border-radius:5px;letter-spacing:0.08em}
+.dropdown-menu img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#fff}
+
+/* ---------- pages ---------- */
+.page{display:none;min-height:100vh;padding-top:76px}
+.page.active{display:block}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:calc(100vh - 76px);display:flex;flex-direction:column;justify-content:center;background:var(--navy-deep);overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 40%,rgba(212,160,60,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 15% 80%,rgba(44,62,107,0.55) 0%,transparent 65%);pointer-events:none}
+.contours{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:1240px;width:100%;margin:0 auto;padding:4rem 2rem 5rem;display:grid;grid-template-columns:1.05fr 0.95fr;gap:3rem;align-items:center;flex:1}
+.eyebrow{display:flex;align-items:center;gap:0.9rem;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:'';width:42px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-text .eyebrow{margin-bottom:1.75rem;animation:rise .7s .05s ease both}
+.hero h1{font-size:clamp(2.5rem,4.8vw,3.9rem);color:#fff;margin-bottom:1.6rem;animation:rise .7s .15s ease both}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--gold);letter-spacing:0}
+.hero-desc{font-size:1.08rem;color:rgba(255,255,255,0.68);margin-bottom:2.6rem;max-width:33rem;animation:rise .7s .25s ease both}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;animation:rise .7s .35s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.95rem 1.9rem;border-radius:6px;font-family:var(--body);font-weight:700;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s,border-color .18s,color .18s}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:4px 4px 0 rgba(0,0,0,0.28)}
+.btn-gold:hover{background:#E8B44E;transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,0.28)}
+.btn-gold:active{transform:translate(0,0);box-shadow:2px 2px 0 rgba(0,0,0,0.28)}
+.on-light .btn-gold{box-shadow:4px 4px 0 rgba(22,34,61,0.22)}
+.on-light .btn-gold:hover{box-shadow:6px 6px 0 rgba(22,34,61,0.22)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.3)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-block{width:100%;justify-content:center}
+.app-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.3rem}
+.gp-badge{display:inline-flex;height:56px;border-radius:9px;transition:transform .18s,filter .18s}
+.gp-badge img{height:100%;width:auto;display:block}
+.gp-badge:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.gp-badge:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hero-ctas .gp-badge{height:52px}
+.avail{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;color:#1c7d4d;margin-bottom:1rem}
+.avail::before{content:'';width:8px;height:8px;border-radius:50%;background:#22a35f;box-shadow:0 0 0 3px rgba(34,163,95,0.18)}
+
+/* hero visual: badge + rotating ring */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:430px;animation:bloom .9s .3s cubic-bezier(.2,.8,.3,1.15) both}
+@keyframes bloom{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
+.badge-wrap{position:relative;width:330px;height:330px}
+.badge-wrap::before{content:'';position:absolute;inset:-17px;border:1px dashed rgba(212,160,60,0.5);border-radius:50%}
+.hero-badge{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 0 0 6px rgba(212,160,60,0.18),0 30px 70px rgba(0,0,0,0.5)}
+.hero-badge img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.ring-text{position:absolute;inset:-58px;width:calc(100% + 116px);height:calc(100% + 116px);animation:spin 48s linear infinite}
+.ring-text text{font-family:var(--body);font-weight:700;font-size:10.5px;letter-spacing:3.4px;fill:rgba(212,160,60,0.75);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-chip{position:absolute;width:72px;height:72px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(255,255,255,0.18),0 14px 30px rgba(0,0,0,0.45);animation:float 7s ease-in-out infinite}
+.hero-chip img{width:100%;height:100%;object-fit:cover}
+.chip-1{top:-2%;right:1%;animation-delay:0s}
+.chip-2{bottom:4%;right:-7%;animation-delay:2.3s}
+.chip-3{bottom:-5%;left:6%;animation-delay:4.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ticker strip */
+.ticker{position:relative;z-index:1;border-top:1px solid var(--rule-dark);background:rgba(255,255,255,0.025)}
+.ticker ul{max-width:1240px;margin:0 auto;padding:1.1rem 2rem;list-style:none;display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.ticker li{font-size:0.68rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.7rem}
+.ticker li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* ---------- sections ---------- */
+.section{padding:6.5rem 2rem}
+.section-dark{background:var(--navy-deep);color:#fff}
+.section-paper{background:var(--paper)}
+.section-inner{max-width:1240px;margin:0 auto}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:end;margin-bottom:3.75rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.section-dark .section-head{border-color:var(--rule-dark)}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:1.1rem}
+.section-head .lede{font-size:1.05rem;color:var(--ink-soft);max-width:34rem;justify-self:end;align-self:end}
+.section-dark .lede{color:rgba(255,255,255,0.62)}
+
+/* service / consulting cards */
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.consult-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:2.4rem 2.2rem;text-decoration:none;color:inherit;display:block;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card::before{content:'';position:absolute;top:0;left:0;height:3px;width:0;background:var(--gold);transition:width .35s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(22,34,61,0.12);border-color:rgba(212,160,60,0.5)}
+.card:hover::before{width:100%}
+.card .num{position:absolute;top:1.1rem;right:1.4rem;font-family:var(--display);font-size:2.6rem;color:rgba(22,34,61,0.06);line-height:1}
+.stamp{width:60px;height:60px;border:1.5px dashed var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);margin-bottom:1.6rem;background:var(--gold-soft)}
+.stamp .icon{width:25px;height:25px}
+.card h3{font-size:1.15rem;margin-bottom:0.8rem}
+.card p{color:var(--ink-soft);font-size:0.95rem}
+
+/* audience (dark) */
+.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem 2rem}
+.aud-card{padding-top:1.5rem;border-top:1px solid var(--rule-dark);transition:border-color .3s}
+.aud-card:hover{border-top-color:var(--gold)}
+.aud-card .icon{width:28px;height:28px;color:var(--gold);margin-bottom:0.9rem;stroke-width:1.6}
+.aud-card h4{color:#fff;font-size:0.92rem;margin-bottom:0.35rem;letter-spacing:0.01em}
+.aud-card p{color:rgba(255,255,255,0.5);font-size:0.82rem;line-height:1.6}
+
+/* app plates */
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.plate{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.plate:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.plate-img{padding:2.4rem 2rem 1.9rem;display:flex;justify-content:center;background:linear-gradient(180deg,var(--paper-deep),rgba(239,232,214,0))}
+.imgring{display:block;width:150px;height:150px;border-radius:50%;padding:7px;border:1.5px dashed rgba(184,134,43,0.55);background:#fff}
+.imgring img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.plate-body{padding:0 2.1rem 2.3rem;display:flex;flex-direction:column;flex:1}
+.tag{align-self:flex-start;font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-deep);border:1px solid rgba(184,134,43,0.45);border-radius:99px;padding:0.25rem 0.85rem;margin-bottom:1.1rem}
+.plate h3{font-size:1.25rem;margin-bottom:0.6rem}
+.plate p{color:var(--ink-soft);font-size:0.92rem;margin-bottom:1.4rem;flex:1}
+.textlink{font-size:0.74rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:0.5rem}
+.textlink::after{content:'→';color:var(--gold-deep);transition:transform .2s}
+.plate:hover .textlink::after{transform:translateX(5px)}
+
+/* selected work */
+.work-section{background:var(--paper-deep)}
+.work-grid{display:grid;gap:1.75rem}
+.work-card{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.work-card:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.work-card.featured-work{display:grid;grid-template-columns:1.35fr 0.65fr}
+.work-visual{min-height:230px;padding:2rem;display:flex;align-items:center;justify-content:center;background:var(--paper-deep);position:relative;overflow:hidden}
+.work-visual::after{content:'';position:absolute;inset:1.25rem;border:1px dashed rgba(184,134,43,0.42);border-radius:8px}
+.work-visual img{position:relative;z-index:1;width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 15px 34px rgba(22,34,61,0.18)}
+.work-visual.work-site{padding:0;align-items:stretch}
+.work-visual.work-site::after{display:none}
+.work-visual.work-site img{width:100%;height:100%;min-height:420px;border-radius:0;object-fit:cover;object-position:top;box-shadow:none}
+.work-browser{position:relative;z-index:1;width:100%;max-width:310px;background:var(--navy-deep);border-radius:8px;box-shadow:0 18px 40px rgba(22,34,61,0.22);overflow:hidden}
+.work-browser-bar{height:25px;background:#fff;display:flex;align-items:center;gap:5px;padding:0 10px}
+.work-browser-bar i{display:block;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.work-browser-body{padding:1.4rem 1.2rem 1.5rem;color:#fff}
+.work-browser-body small{display:block;color:var(--gold);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;font-size:0.55rem}
+.work-browser-body strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.2;margin:0.55rem 0}
+.work-browser-body span{display:block;width:70%;height:5px;background:rgba(255,255,255,0.22);border-radius:99px}
+.work-body{padding:2.5rem 2.3rem;display:flex;flex-direction:column;justify-content:center}
+.work-body h3{font-size:1.35rem;margin:0.7rem 0 0.7rem}
+.work-body p{color:var(--ink-soft);font-size:0.95rem;margin-bottom:1.5rem}
+
+/* pull quote */
+.pullquote{background:var(--paper-deep);padding:6rem 2rem}
+.pq-inner{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(250px,360px) 1fr;gap:4.5rem;align-items:center}
+.pq-photo{position:relative;padding:0.6rem;border:1.5px dashed rgba(184,134,43,0.55);border-radius:14px;background:var(--card);transform:rotate(-1.5deg);box-shadow:8px 8px 0 rgba(212,160,60,0.28)}
+.pq-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:9px}
+.pq-copy{text-align:left}
+.pq-inner .mark{font-family:var(--display);font-size:6.5rem;line-height:0.55;color:var(--gold);display:block;margin-bottom:1.4rem}
+.pq-inner blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,1.95rem);line-height:1.5;color:var(--ink)}
+.pq-inner cite{display:inline-flex;align-items:center;gap:0.9rem;margin-top:2rem;font-style:normal;font-size:0.7rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep)}
+.pq-inner cite::before{content:'';width:34px;height:1px;background:var(--gold)}
+
+/* ---------- subpage hero ---------- */
+.page-hero{position:relative;background:var(--navy-deep);padding:5.5rem 2rem 4.5rem;overflow:hidden;border-bottom:3px solid var(--gold)}
+.page-hero .ph-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto}
+.page-hero h1{font-size:clamp(2.1rem,4vw,3.1rem);color:#fff;margin:1.2rem 0 1rem}
+.page-hero p{font-size:1.08rem;color:rgba(255,255,255,0.64);max-width:40rem}
+
+/* featured app */
+.featured-app{display:grid;grid-template-columns:0.85fr 1.15fr;gap:4.5rem;align-items:center}
+.featured-app-img{display:flex;justify-content:center}
+.featured-app-img .imgring{width:300px;height:300px;max-width:100%;padding:10px;box-shadow:0 24px 60px rgba(22,34,61,0.16)}
+.featured-app-text h2{font-size:2rem;margin:0.9rem 0 0.5rem}
+.featured-app-text .app-subtitle{font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep)}
+.featured-app-text>p{color:var(--ink-soft);margin:1rem 0 1.5rem;font-size:1.02rem}
+.feature-list{list-style:none;margin-bottom:2.2rem}
+.feature-list li{padding:0.45rem 0;color:var(--ink-soft);display:flex;align-items:flex-start;gap:0.8rem;font-size:0.95rem;border-bottom:1px dashed var(--rule)}
+.feature-list li::before{content:'✓';color:var(--gold-deep);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* app screenshots */
+.screenshots-section{background:var(--paper-deep);overflow:hidden}
+.screenshots-section .section-head{margin-bottom:2.75rem}
+.screenshots-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.25rem;align-items:start}
+.screenshot-card{margin:0;min-width:0}
+.screenshot-frame{padding:0.45rem;background:var(--navy-deep);border:1px solid rgba(212,160,60,0.45);border-radius:22px;box-shadow:0 18px 38px rgba(22,34,61,0.16);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.screenshot-card:hover .screenshot-frame{transform:translateY(-5px);box-shadow:0 24px 48px rgba(22,34,61,0.22)}
+.screenshot-frame img{display:block;width:100%;height:auto;border-radius:16px}
+.screenshot-card figcaption{padding:0.9rem 0.35rem 0;color:var(--ink-soft);font-size:0.78rem;text-align:center;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* staff */
+.staff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem}
+.staff-card{display:grid;grid-template-columns:minmax(155px,0.78fr) 1.22fr;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.staff-card:hover{transform:translateY(-5px);box-shadow:6px 6px 0 rgba(212,160,60,0.35),0 18px 44px rgba(22,34,61,0.10);border-color:rgba(212,160,60,0.55)}
+.staff-photo{min-height:320px;background:var(--paper-deep);overflow:hidden}
+.staff-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.staff-body{padding:2rem 1.8rem;display:flex;flex-direction:column;justify-content:center}
+.staff-body .tag{margin-bottom:1rem}
+.staff-body h2{font-size:1.35rem;margin-bottom:0.55rem}
+.staff-role{color:var(--gold-deep);font-size:0.73rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;line-height:1.5}
+.staff-body p{color:var(--ink-soft);font-size:0.92rem}
+
+/* pillars (dark) */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.75rem}
+.pillar-card{background:rgba(255,255,255,0.04);border:1px solid var(--rule-dark);border-radius:10px;padding:2.1rem;transition:background .3s,transform .25s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;height:3px;width:0;background:var(--gold);transition:width .35s}
+.pillar-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px)}
+.pillar-card:hover::before{width:100%}
+.pillar-card h3{color:#fff;font-size:1.02rem;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.65rem}
+.pillar-card h3 .icon{color:var(--gold);width:20px;height:20px}
+.pillar-card p{color:rgba(255,255,255,0.6);font-size:0.9rem}
+.pillar-card ul{list-style:none;margin-top:0.85rem}
+.pillar-card ul li{color:rgba(255,255,255,0.52);font-size:0.85rem;padding:0.28rem 0;display:flex;align-items:flex-start;gap:0.55rem}
+.pillar-card ul li::before{content:'→';color:var(--gold);flex-shrink:0}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:stretch}
+.price-card{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:2.6rem 2.3rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.price-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(22,34,61,0.12)}
+.price-card.featured{border:2px solid var(--navy);box-shadow:7px 7px 0 var(--gold)}
+.price-card.featured:hover{box-shadow:9px 9px 0 var(--gold),0 18px 44px rgba(22,34,61,0.10)}
+.price-stamp{position:absolute;top:-15px;right:1.6rem;background:var(--navy);color:var(--gold);font-family:var(--display);font-size:0.62rem;letter-spacing:0.2em;padding:0.45rem 1.1rem;border-radius:4px;transform:rotate(2deg)}
+.price-card h3{font-size:1.2rem}
+.price-sub{color:var(--ink-soft);font-size:0.88rem;margin:0.3rem 0 1.2rem}
+.price{font-family:var(--display);font-size:2.7rem;color:var(--navy);line-height:1;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
+.price small{font-family:var(--body);font-weight:500;font-size:0.85rem;color:var(--ink-soft);letter-spacing:0}
+.price-features{list-style:none;margin:1.4rem 0 2rem;flex:1}
+.price-features li{padding:0.5rem 0;font-size:0.92rem;color:var(--ink-soft);display:flex;align-items:flex-start;gap:0.6rem;border-bottom:1px dashed var(--rule)}
+.price-features li::before{content:'→';color:var(--gold-deep);font-weight:700;flex-shrink:0}
+.fineprint{text-align:center;margin-top:2.6rem;color:var(--ink-soft);font-size:0.9rem}
+.fineprint a{color:var(--gold-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--gold)}
+
+/* consulting cta */
+.consult-cta{text-align:center;margin-top:3.5rem}
+.consult-cta .rate{font-size:1rem;color:var(--ink-soft);margin-bottom:1.6rem}
+.consult-cta .rate strong{font-family:var(--display);font-weight:400;color:var(--navy);font-size:1.15rem}
+.section-dark .consult-cta .rate{color:rgba(255,255,255,0.62)}
+.section-dark .consult-cta .rate strong{color:#fff}
+
+/* contact */
+.contact-section{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
+.contact-info h3{font-size:1.5rem;margin-bottom:1rem}
+.contact-info>p{color:var(--ink-soft);margin-bottom:2.2rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;padding:1.05rem 0;border-bottom:1px dashed var(--rule);color:var(--ink-soft);font-size:0.97rem}
+.contact-detail .icon{color:var(--gold-deep);width:20px;height:20px}
+.contact-detail a{color:var(--navy);font-weight:700;text-decoration:none}
+.contact-detail a:hover{color:var(--gold-deep)}
+.callout{margin-top:2.2rem;padding:1.6rem;background:var(--gold-soft);border:1px dashed rgba(184,134,43,0.5);border-radius:10px;font-size:0.92rem;color:var(--ink-soft)}
+.callout strong{color:var(--ink)}
+.contact-form{background:var(--card);border:1px solid var(--rule);padding:2.6rem;border-radius:10px;box-shadow:7px 7px 0 rgba(212,160,60,0.3)}
+.form-group{margin-bottom:1.3rem}
+.form-group label{display:block;font-weight:700;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.5rem;color:var(--ink)}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:0.85rem 1rem;border:1.5px solid var(--rule);border-radius:6px;font-family:var(--body);font-size:0.95rem;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.form-group textarea{resize:vertical;min-height:130px}
+.contact-form .btn-gold{box-shadow:4px 4px 0 rgba(22,34,61,0.22)}
+.contact-form .btn-gold:hover{box-shadow:6px 6px 0 rgba(22,34,61,0.22)}
+.form-note{font-size:0.82rem;color:var(--ink-soft);text-align:center;margin-top:0.9rem}
+.form-note a{color:var(--gold-deep);font-weight:700;text-decoration:none}
+
+/* ---------- footer ---------- */
+.footer{background:var(--navy-deep);color:rgba(255,255,255,0.55);padding:4.5rem 2rem 0;position:relative;overflow:hidden;border-top:3px solid var(--gold)}
+.footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;padding-bottom:3rem;position:relative;z-index:1}
+.footer-brand{display:flex;align-items:flex-start;gap:1.1rem}
+.footer-brand img{width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--gold);flex-shrink:0}
+.footer-brand b{font-family:var(--display);font-weight:400;color:#fff;font-size:1rem;letter-spacing:0.04em;display:block}
+.footer-brand .tag2{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:0.95rem;display:block;margin:0.3rem 0 0.6rem}
+.footer-brand p{font-size:0.85rem;line-height:1.7}
+.footer h5{font-family:var(--body);font-size:0.66rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.footer ul{list-style:none}
+.footer ul li{padding:0.3rem 0}
+.footer ul a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;transition:color .2s}
+.footer ul a:hover{color:var(--gold)}
+.footer-word{font-family:var(--display);font-size:clamp(3.5rem,9.5vw,8.5rem);line-height:0.85;color:rgba(255,255,255,0.035);text-align:center;white-space:nowrap;user-select:none;pointer-events:none;letter-spacing:0.02em}
+.footer-bottom{border-top:1px solid var(--rule-dark);position:relative;z-index:1}
+.footer-bottom div{max-width:1240px;margin:0 auto;padding:1.4rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;font-size:0.78rem;letter-spacing:0.04em}
+
+/* fade-in on scroll */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fade-in{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr 1fr}
+  .staff-grid{grid-template-columns:1fr}
+  .work-card.featured-work{grid-template-columns:1fr}
+  .work-visual.work-site img{min-height:0;aspect-ratio:16/10}
+  .aud-grid{grid-template-columns:repeat(2,1fr)}
+  .screenshots-grid{grid-template-columns:repeat(5,190px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0.25rem 0 1.5rem;scrollbar-color:var(--gold) transparent}
+  .screenshot-card{scroll-snap-align:start}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:76px;left:0;right:0;background:var(--navy-deep);padding:1rem 1.5rem 1.5rem;border-top:1px solid var(--rule-dark)}
+  .nav-links.open .dropdown-menu{display:block;position:static;box-shadow:none;border:none;padding-left:0.75rem}
+  .hamburger{display:flex}
+}
+@media(max-width:768px){
+  .hero-content{grid-template-columns:1fr;gap:3.5rem;padding:3.5rem 1.5rem 4.5rem}
+  .hero-visual{min-height:auto;order:-1}
+  .badge-wrap{width:215px;height:215px}
+  .ring-text{inset:-44px;width:calc(100% + 88px);height:calc(100% + 88px)}
+  .hero-chip{width:54px;height:54px}
+  .ticker ul{justify-content:flex-start;gap:0.8rem 1.6rem;padding:1rem 1.5rem}
+  .section{padding:4.5rem 1.5rem}
+  .section-head{grid-template-columns:1fr;gap:1.2rem;align-items:start}
+  .section-head .lede{justify-self:start}
+  .cards-3,.plates,.price-grid,.consult-grid,.work-grid{grid-template-columns:1fr}
+  .featured-app{grid-template-columns:1fr;gap:2.5rem}
+  .featured-app-img .imgring{width:220px;height:220px}
+  .screenshots-grid{grid-template-columns:repeat(5,72vw);margin-right:-1.5rem;padding-right:1.5rem}
+  .staff-card{grid-template-columns:1fr}
+  .staff-photo{min-height:0;aspect-ratio:4/5}
+  .contact-section{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2.2rem}
+  .footer-bottom div{flex-direction:column;text-align:center;padding:1.4rem 1rem}
+  .pullquote{padding:4.5rem 1.5rem}
+  .pq-inner{grid-template-columns:1fr;gap:2.75rem}
+  .pq-photo{width:min(100%,340px);margin:0 auto}
+  .pq-copy{text-align:center}
+  .pq-inner cite{justify-content:center}
+}
+.callout[hidden]{display:none}
+.contact-form{scroll-margin-top:100px}
+.nf-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+</style>
+</head>
+<!-- @endpart -->
+
+<!-- @part nav -->
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav"><div class="nav-inner">
+  <a class="nav-logo" href="#home">
+    <img src="/assets/logo.jpg" alt="Grumpy Dog Software">
+    <span><b>GRUMPY DOG</b><small>Software</small></span>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" data-page="home">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" href="#apps" data-page="apps">Our Apps</a>
+      <div class="dropdown-menu">
+        <a href="#broodi" data-page="broodi"><img src="/assets/broodi.jpg" alt="">Broodi</a>
+        <a href="#nutriroots" data-page="nutriroots"><img src="/assets/nutriroots.jpg" alt="">NutriRoots</a>
+        <a href="#pethealth" data-page="pethealth"><img src="/assets/pethealth.jpg" alt="">Pet Health RX</a>
+      </div>
+    </li>
+    <li><a href="#services" data-page="services">Our Services</a></li>
+    <li><a href="#work" data-page="work">Our Work</a></li>
+    <li><a href="#staff" data-page="staff">Our Staff</a></li>
+    <li><a href="#contact" data-page="contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</div></nav>
+<!-- @endpart -->
+
+<!-- @part home -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <svg class="contours" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,640 C240,560 420,700 720,620 C1020,540 1200,660 1480,580" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,690 C260,610 460,750 740,670 C1040,590 1220,710 1480,640" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1.3"/>
+      <path d="M-40,740 C280,665 480,795 760,720 C1060,645 1240,760 1480,700" fill="none" stroke="rgba(212,160,60,0.16)" stroke-width="1.3" stroke-dasharray="6 7"/>
+      <path d="M-40,790 C300,720 500,840 780,775 C1080,705 1260,810 1480,760" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.3"/>
+      <path d="M-40,120 C260,180 460,60 760,115 C1060,170 1240,80 1480,130" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.3"/>
+      <path d="M-40,70 C280,125 480,15 780,65 C1080,115 1260,35 1480,80" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1.3"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="eyebrow">Annapolis Valley · Nova Scotia</div>
+        <h1>Websites, apps &amp; honest tech help for <em>rural Nova Scotia</em>.</h1>
+        <p class="hero-desc">We're a female-owned software company in the Annapolis Valley. Rooted in farm life ourselves, we build practical websites and tools for farms, shops, trades, and local businesses.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#services">What We Do</a>
+          <a class="btn btn-ghost" href="#apps">See Our Apps</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="badge-wrap">
+          <svg class="ring-text" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="ringpath" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs>
+            <text><textPath href="#ringpath">Herding code · Solving problems · Grumpy Dog Software · Annapolis Valley · </textPath></text>
+          </svg>
+          <div class="hero-badge"><img src="/assets/logo.jpg" alt="Grumpy Dog Software logo"></div>
+          <div class="hero-chip chip-1"><img src="/assets/broodi.jpg" alt="Broodi app"></div>
+          <div class="hero-chip chip-2"><img src="/assets/nutriroots.jpg" alt="NutriRoots app"></div>
+          <div class="hero-chip chip-3"><img src="/assets/pethealth.jpg" alt="Pet Health RX app"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ticker">
+      <ul>
+        <li>Female-owned &amp; local</li>
+        <li>By farmers, for farmers</li>
+        <li>Plain English, no jargon</li>
+        <li>Apps built in-house</li>
+        <li>Hosting handled for you</li>
+        <li>One grumpy border collie</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-paper on-light" id="services-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 01 — Services</div><h2>What We Do</h2></div>
+      <p class="lede">Three ways we help businesses outside the big city work smarter and reach more customers.</p>
+    </div>
+    <div class="cards-3">
+      <a class="card fade-in" href="#services-websites"><span class="num">01</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Websites</h3><p>A fast, professional website that tells people who you are, shows what you offer, and makes it easy to reach you. We handle the hosting and upkeep, so you never have to think about it.</p>
+      </a>
+      <a class="card fade-in" href="#apps"><span class="num">02</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Apps &amp; Custom Tools</h3><p>Purpose-built mobile and web tools shaped around how you actually work — bookings, orders, record keeping. No bloat, nothing you don't need.</p>
+      </a>
+      <a class="card fade-in" href="#services-guidance"><span class="num">03</span>
+        <div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <h3>Guidance &amp; Training</h3><p>Not sure where to start? We'll look at how your business runs, cut through the sales pitches, and help you pick — or build — tools that fit. Plain English, no jargon.</p>
+      </a>
+    </div>
+  </div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 02 — Neighbours</div><h2>Who We Help</h2></div>
+      <p class="lede">If you run it, grow it, make it, fix it, or serve it — we can help you do it with less paperwork and more reach.</p>
+    </div>
+    <div class="aud-grid fade-in">
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9C12 5.5 9.5 3 5 3c0 4.5 2.5 7 7 6z"/><path d="M12 12c0-3.5 2.5-6 7-6 0 4.5-2.5 7-7 6z"/></svg><h4>Farms &amp; Growers</h4><p>Crops, livestock, dairy, poultry — any scale</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><h4>Trades &amp; Contractors</h4><p>Builders, electricians, plumbers, landscapers</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><h4>Shops &amp; Restaurants</h4><p>Cafés, retail, farm-to-table, food trucks</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><h4>Markets &amp; Farm Stands</h4><p>Roadside stands, farmers markets, CSAs</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><h4>Inns &amp; Tourism</h4><p>B&amp;Bs, cottages, experiences, attractions</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><h4>Makers &amp; Producers</h4><p>Wineries, cideries, preserves, baked goods</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h4>Co-ops &amp; Community</h4><p>Food hubs, non-profits, local organizations</p></div>
+      <div class="aud-card"><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="8.5" r="1.7"/><circle cx="10.2" cy="5.3" r="1.7"/><circle cx="13.8" cy="5.3" r="1.7"/><circle cx="18" cy="8.5" r="1.7"/><path d="M12 10.5c-3.2 0-5.8 2.6-5.8 5.3 0 1.9 1.4 3.2 3.2 3.2.9 0 1.7-.4 2.6-.4s1.7.4 2.6.4c1.8 0 3.2-1.3 3.2-3.2 0-2.7-2.6-5.3-5.8-5.3z"/></svg><h4>Pet &amp; Animal Owners</h4><p>Health tracking for the animals you love</p></div>
+    </div>
+  </div></section>
+
+  <section class="section section-paper on-light" id="apps-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 03 — Built In-House</div><h2>Our Apps</h2></div>
+      <p class="lede">We don't just build for other people. These are our own products — born from problems we wanted solved ourselves.</p>
+    </div>
+    <div class="plates">
+      <a class="plate fade-in" href="#broodi">
+        <div class="plate-img"><span class="imgring"><img src="/assets/broodi.jpg" alt="Broodi"></span></div>
+        <div class="plate-body"><span class="tag">Poultry &amp; Hatching</span><h3>Broodi</h3><p>Incubator hatching companion. Set your species, set your date — Broodi handles the countdown, candling reminders, and lockdown alerts.</p><span class="avail">Live on Google Play</span><span class="textlink">Learn more</span></div>
+      </a>
+      <a class="plate fade-in" href="#nutriroots">
+        <div class="plate-img"><span class="imgring"><img src="/assets/nutriroots.jpg" alt="NutriRoots"></span></div>
+        <div class="plate-body"><span class="tag">Plant Health &amp; Soil</span><h3>NutriRoots</h3><p>Assess plant and root health, diagnose diseases, plan companion planting, and get precise fertilizer recommendations — all in one app.</p><span class="textlink">Learn more</span></div>
+      </a>
+      <a class="plate fade-in" href="#pethealth">
+        <div class="plate-img"><span class="imgring"><img src="/assets/pethealth.jpg" alt="Pet Health RX"></span></div>
+        <div class="plate-body"><span class="tag">Chronic &amp; Wellness Care</span><h3>Pet Health RX Manager</h3><p>Manage chronic conditions like epilepsy, diabetes, and obesity alongside everyday wellness — medications, vet visits, and health logs in one place.</p><span class="textlink">Learn more</span></div>
+      </a>
+    </div>
+  </div></section>
+
+  <section class="section work-section on-light" id="work-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">№ 04 — Selected Work</div><h2>Our Work</h2></div>
+      <p class="lede">Customer websites built around real operations, clear communication, and a straightforward path from interest to action.</p>
+    </div>
+<!-- @include work-grid -->
+  </div></section>
+
+  <div class="pullquote"><div class="pq-inner fade-in">
+    <div class="pq-photo"><img src="/assets/argos-quote.webp" alt="Argos the Border Collie wearing his red bandana" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="pq-copy">
+      <span class="mark">“</span>
+      <blockquote>If you catch me being grumpy, it means I'm intensely focused. Herding software is a serious business.</blockquote>
+      <cite>Argos the Border Collie — Head of Project Management</cite>
+    </div>
+  </div></div>
+</div>
+<!-- @endpart -->
+
+<!-- @part work-grid -->
+    <div class="work-grid">
+      <a class="work-card featured-work fade-in" href="https://macgregorvalleyfarm.com/" target="_blank" rel="noopener">
+        <div class="work-visual work-site"><img src="/assets/macgregor-valley-farm.webp" alt="MacGregor Valley Farm heritage poultry website" width="1200" height="750" loading="lazy" decoding="async"></div>
+        <div class="work-body"><span class="tag">Customer Website</span><h3>MacGregor Valley Farm</h3><p>A responsive farm website that brings heritage poultry conservation, breed information, and current availability into one clear customer journey.</p><span class="textlink">Visit website</span></div>
+      </a>
+    </div>
+<!-- @endpart -->
+
+<!-- @part apps -->
+<!-- ============ BROODI ============ -->
+<div class="page" id="page-broodi">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Poultry &amp; Hatching</div><h1>Broodi</h1><p>Your incubator's best friend. Track hatching dates, monitor progress, and never miss a milestone. Free to download on Google Play.</p>
+    <div class="hero-ctas" style="margin-top:1.6rem">
+      <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+        <img src="/assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+      </a>
+    </div></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="/assets/broodi.jpg" alt="Broodi"></span></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Poultry &amp; Hatching</div>
+      <h2>Hatching Made Simple</h2>
+      <p>Whether you're hatching chickens, ducks, quail, or turkeys, Broodi calculates your exact hatch date and keeps you on track with key milestones throughout incubation.</p>
+      <ul class="feature-list">
+        <li>Support for chickens, ducks, turkeys, quail, geese, and more</li>
+        <li>Automatic hatch date calculation from set date</li>
+        <li>Candling reminders and lockdown alerts</li>
+        <li>Track multiple batches simultaneously</li>
+        <li>Works offline — perfect for the coop</li>
+        <li>Clean, easy interface designed for busy hands</li>
+      </ul>
+      <div class="app-ctas">
+        <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+          <img src="/assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+        </a>
+        <a class="btn btn-gold" href="#contact">Ask About Broodi</a>
+      </div>
+    </div>
+  </div></div></section>
+  <section class="section screenshots-section"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Inside the App</div><h2>Broodi in Action</h2></div>
+      <p class="lede">Plan a hatch, follow every milestone, and see the whole incubation timeline at a glance.</p>
+    </div>
+    <div class="screenshots-grid">
+      <figure class="screenshot-card fade-in">
+        <div class="screenshot-frame"><img src="/assets/screenshots/broodi_homepage.webp" alt="Broodi home screen showing active incubation plans" width="600" height="1300" loading="lazy" decoding="async"></div>
+        <figcaption>Your Hatches</figcaption>
+      </figure>
+      <figure class="screenshot-card fade-in">
+        <div class="screenshot-frame"><img src="/assets/screenshots/broodi_new_plan.webp" alt="Broodi screen for choosing poultry species for a new hatch plan" width="600" height="1300" loading="lazy" decoding="async"></div>
+        <figcaption>Choose a Species</figcaption>
+      </figure>
+      <figure class="screenshot-card fade-in">
+        <div class="screenshot-frame"><img src="/assets/screenshots/broodi_new_plan2.webp" alt="Broodi new hatch plan setup screen" width="600" height="1300" loading="lazy" decoding="async"></div>
+        <figcaption>Build Your Plan</figcaption>
+      </figure>
+      <figure class="screenshot-card fade-in">
+        <div class="screenshot-frame"><img src="/assets/screenshots/broodi_timeline.webp" alt="Broodi incubation timeline with upcoming milestones" width="600" height="1300" loading="lazy" decoding="async"></div>
+        <figcaption>Follow the Timeline</figcaption>
+      </figure>
+      <figure class="screenshot-card fade-in">
+        <div class="screenshot-frame"><img src="/assets/screenshots/broodi_hatch.webp" alt="Broodi hatch details and countdown screen" width="600" height="1300" loading="lazy" decoding="async"></div>
+        <figcaption>Track Hatch Day</figcaption>
+      </figure>
+    </div>
+  </div></section>
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">From Set to Hatch</div><h2>How It Works</h2></div>
+      <p class="lede">Three steps. That's it.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 22c4 0 7-3 7-8 0-5-3-12-7-12S5 9 5 14c0 5 3 8 7 8z"/></svg>1. Pick Your Species</h3><p>Select from a wide range of poultry — each with accurate incubation periods baked in.</p></div>
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2. Set Your Date</h3><p>Enter when you set the eggs and Broodi does the math. Hatch day, candling dates, lockdown — mapped out.</p></div>
+      <div class="pillar-card fade-in"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>3. Hatch Day</h3><p>Get reminders at every milestone and know exactly when to expect pipping. No more calendar math.</p></div>
+    </div>
+    <div class="app-ctas fade-in" style="justify-content:center;margin-top:2.6rem">
+      <a class="gp-badge" href="https://play.google.com/store/apps/details?id=app.broodi" target="_blank" rel="noopener">
+        <img src="/assets/google-play/get-it-on-google-play.svg" alt="Get Broodi on Google Play" width="180" height="54">
+      </a>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ NUTRIROOTS ============ -->
+<div class="page" id="page-nutriroots">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Plant Health &amp; Soil</div><h1>NutriRoots</h1><p>Nurturing roots. Improving yields. A complete plant health, disease diagnosis, companion planting, and fertilizer management platform.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="/assets/nutriroots.jpg" alt="NutriRoots"></span></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Plant Health &amp; Soil Science</div>
+      <h2>Your Whole Garden in One App</h2>
+      <p>NutriRoots is a mobile-first app that helps gardeners and growers assess root and overall plant health, diagnose diseases, plan companion planting, evaluate fertilizer options, and get step-by-step remediation — all tailored to your species, soil, climate, and growing system.</p>
+      <ul class="feature-list">
+        <li>Root and above-ground health assessment with photo upload</li>
+        <li>Disease diagnosis with confidence levels and treatment plans</li>
+        <li>Evidence-based companion planting with spatial layouts</li>
+        <li>Precise fertilizer dosing — N-P-K, micronutrients, and calculators</li>
+        <li>Tailored to container, raised bed, or in-ground systems</li>
+        <li>Unified report: root issues, diseases, companions, and fertilizer plan</li>
+      </ul>
+      <a class="btn btn-gold" href="#contact">Ask About NutriRoots</a>
+    </div>
+  </div></div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Under the Hood</div><h2>Core Capabilities</h2></div>
+      <p class="lede">Four powerful engines working together to keep your plants thriving.</p>
+    </div>
+    <div class="pillars-grid fade-in">
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Disease Detection</h3>
+        <p>Identify what's wrong — fast — and know exactly what to do about it.</p>
+        <ul>
+          <li>Symptom checklist for leaf, stem, root, and fruit issues</li>
+          <li>Photo upload for visual diagnosis</li>
+          <li>Rule-based engine covering fungal, bacterial, viral, and pest problems</li>
+          <li>Treatment options: cultural, biological, and approved organic controls</li>
+          <li>Quarantine and disposal guidance to limit spread</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Companion Planting</h3>
+        <p>Know what to plant together — and what to keep apart.</p>
+        <ul>
+          <li>Evidence-based pairings and avoidance lists</li>
+          <li>Functional groups: nitrogen-fixers, trap crops, pollinator attractors</li>
+          <li>Spatial layouts tailored to root architecture</li>
+          <li>Succession planting and seasonal timing guidance</li>
+          <li>Ready-to-use intercropping templates</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 9V3"/></svg>Fertilizer Guidance</h3>
+        <p>The right nutrients, in the right amount, at the right time.</p>
+        <ul>
+          <li>Fertilizer chooser matched to crop, growth stage, and soil tests</li>
+          <li>N-P-K recommendations with micronutrient considerations</li>
+          <li>Warnings for over/under-application risks</li>
+          <li>Organic vs synthetic trade-off guidance</li>
+          <li>Calculators: mixing, grams per m², per pot, and drip/fertigation</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>Unified Reports</h3>
+        <p>One assessment, one report — everything you need to act.</p>
+        <ul>
+          <li>Combined root issues, disease findings, and companion recommendations</li>
+          <li>Fertilizer plan with dosages and timing</li>
+          <li>Prioritized actions: low-effort cultural fixes first, then targeted inputs</li>
+          <li>Prompts for when to seek lab confirmation or professional help</li>
+          <li>Regional pesticide and legal restriction warnings</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ PET HEALTH RX ============ -->
+<div class="page" id="page-pethealth">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Our Apps — Chronic &amp; Wellness Care</div><h1>Pet Health RX Manager</h1><p>More than a health tracker — a chronic disease management companion for the animals you love.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="featured-app fade-in">
+    <div class="featured-app-img"><span class="imgring"><img src="/assets/pethealth.jpg" alt="Pet Health RX Manager"></span></div>
+    <div class="featured-app-text">
+      <div class="app-subtitle">Chronic &amp; Wellness Care</div>
+      <h2>Health Management Built for Real Life</h2>
+      <p>Pet Health RX Manager goes beyond basic wellness tracking. It's designed for pet owners managing chronic conditions — epilepsy, diabetes, obesity, and more — with the tools to track medications, monitor patterns, log episodes, and keep your vet in the loop.</p>
+      <ul class="feature-list">
+        <li>Chronic disease dashboards — seizure logs, blood glucose tracking, weight plans</li>
+        <li>Medication schedules with dosage tracking and refill reminders</li>
+        <li>Vet visit history, notes, and upcoming appointment alerts</li>
+        <li>Episode and symptom logging with patterns and trends over time</li>
+        <li>Multi-pet support — dogs, cats, and other companion animals</li>
+        <li>Exportable health reports to share with your veterinarian</li>
+        <li>Vaccination records and preventive care schedules</li>
+        <li>Weight and nutrition tracking for obesity management</li>
+      </ul>
+      <a class="btn btn-gold" href="#contact">Ask About Pet Health RX</a>
+    </div>
+  </div></div></section>
+
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">When It's More Than a Checkup</div><h2>Built for Chronic Care</h2></div>
+      <p class="lede">When your pet has an ongoing condition, you need more than a calendar — you need a system.</p>
+    </div>
+    <div class="pillars-grid fade-in">
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Epilepsy Management</h3>
+        <p>Track seizure frequency, duration, severity, and triggers. See patterns over time and share detailed logs with your vet to fine-tune treatment.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>Diabetes Tracking</h3>
+        <p>Log blood glucose readings, insulin doses, meals, and activity. Monitor trends to help keep levels stable between vet visits.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="16"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/></svg>Obesity &amp; Weight</h3>
+        <p>Set target weights, track progress, log meals and exercise. Get a clear picture of whether the plan is working — or needs adjusting.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M10.5 20.5L3.5 13.5a4.95 4.95 0 1 1 7-7l7 7a4.95 4.95 0 1 1-7 7z"/><path d="M8.5 8.5l7 7"/></svg>Medication Manager</h3>
+        <p>Never miss a dose. Track multiple medications across multiple pets with schedules, dosage history, and refill alerts.</p>
+      </div>
+    </div>
+  </div></section>
+</div>
+
+<!-- @endpart -->
+
+<!-- @part services -->
+<div class="page" id="page-services">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Websites · Custom Tools · Guidance</div><h1>Our Services</h1><p>Practical technology for rural businesses, from a professional website to custom tools and plain-spoken guidance.</p></div>
+  </div>
+<!-- @include websites-pricing -->
+<!-- @include guidance -->
+</div>
+<!-- @endpart -->
+
+<!-- @part websites-pricing -->
+  <section class="section section-paper on-light" id="services-websites"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Websites · Plain Pricing</div><h2>Get Your Business Online</h2></div>
+      <p class="lede">Every site comes mobile-ready, fast, and built to last. We handle the hosting too.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card fade-in">
+        <h3>Starter</h3><p class="price-sub">Perfect for getting online</p>
+        <div class="price">$999<small> one-time</small></div>
+        <ul class="price-features"><li>Single-page website</li><li>Mobile responsive design</li><li>Contact form</li><li>Google Maps integration</li><li>Basic search engine setup</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
+      </div>
+      <div class="price-card featured fade-in">
+        <span class="price-stamp">MOST POPULAR</span>
+        <h3>Professional</h3><p class="price-sub">For growing operations</p>
+        <div class="price">$2,499<small> one-time</small></div>
+        <ul class="price-features"><li>Up to 5 pages</li><li>Custom design &amp; branding</li><li>Photo gallery</li><li>Blog / news section</li><li>Social media integration</li><li>Visitor stats dashboard</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
+      </div>
+      <div class="price-card fade-in">
+        <h3>Market Pro</h3><p class="price-sub">The full setup</p>
+        <div class="price">$4,999<small> one-time</small></div>
+        <ul class="price-features"><li>Unlimited pages</li><li>Online store / ordering</li><li>Booking / scheduling</li><li>Custom integrations</li><li>Priority support</li><li>1 year hosting included</li></ul>
+        <a class="btn btn-gold btn-block" href="#contact">Get Started</a>
+      </div>
+    </div>
+    <p class="fineprint">All packages include managed hosting starting at $19/month after the first year. Need something custom? <a href="#contact">Let's talk.</a></p>
+  </div></section>
+<!-- @endpart -->
+
+<!-- @part guidance -->
+  <section class="section section-dark" id="services-guidance"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Guidance &amp; Custom Tools</div><h2>Plain English, Not Jargon</h2></div>
+      <p class="lede">Whether you're selling at a roadside stand or running crews across the county, getting organized doesn't have to be overwhelming.</p>
+    </div>
+    <div class="consult-grid">
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3>Where to Start</h3><p>We look at your whole operation and point out where the right tools save time, money, and headaches. No upselling — sometimes the answer is "you don't need anything."</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h3>Selling Online</h3><p>Sell direct to customers, take pre-orders for market day, or set up bookings and sign-ups. We build the right system for how you actually sell.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h3>Records That Keep Themselves</h3><p>From herd records to job logs to market sales — move from notebooks and scattered spreadsheets to systems that grow with you.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div><h3>Picking the Right Tools</h3><p>The market is noisy and every vendor promises the moon. We cut through the pitches and help you pick tools that fit — or build custom ones.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><h3>Training &amp; Onboarding</h3><p>Already have tools but nobody uses them? We train you and your team so the investment actually pays off.</p></div>
+      <div class="card fade-in"><div class="stamp"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Custom Builds</h3><p>When off-the-shelf doesn't cut it, we build tools tailored to your exact workflow.</p></div>
+    </div>
+    <div class="consult-cta fade-in">
+      <p class="rate">Guidance starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
+      <a class="btn btn-gold" href="/contact?topic=discovery-call#contact-form">Book a Free Discovery Call</a>
+    </div>
+  </div></section>
+<!-- @endpart -->
+
+<!-- @part pricing -->
+<div class="page" id="page-pricing">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Websites · Hosting · Guidance</div><h1>Pricing</h1><p>Plain prices for websites, managed hosting, and guidance. No surprises.</p></div>
+  </div>
+<!-- @include websites-pricing -->
+  <section class="section section-dark"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Guidance &amp; Custom Tools</div><h2>Plain English, Not Jargon</h2></div>
+      <p class="lede">Not sure what you need yet? Start with a free 30-minute discovery call. See everything we help with on <a href="#services-guidance" style="color:var(--gold)">our services page</a>.</p>
+    </div>
+    <div class="consult-cta fade-in">
+      <p class="rate">Guidance starts at <strong>$150/hour</strong> — or ask about project-based pricing.</p>
+      <a class="btn btn-gold" href="/contact?topic=discovery-call#contact-form">Book a Free Discovery Call</a>
+    </div>
+  </div></section>
+</div>
+<!-- @endpart -->
+
+<!-- @part work -->
+<div class="page" id="page-work">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Selected Work</div><h1>Our Work</h1><p>Customer websites built for rural businesses and working farms.</p></div>
+  </div>
+  <section class="section work-section on-light"><div class="section-inner">
+<!-- @include work-grid -->
+    <div class="consult-cta fade-in" style="margin-top:3rem"><a class="btn btn-gold" href="#contact">Get in Touch</a></div>
+  </div></section>
+</div>
+<!-- @endpart -->
+
+<!-- @part staff -->
+<div class="page" id="page-staff">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">The People Behind the Work</div><h1>Our Staff</h1><p>A small, hands-on team with practical experience, clear priorities, and a suspiciously high ratio of dogs to humans.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner">
+    <div class="section-head fade-in">
+      <div><div class="eyebrow">Meet the Team</div><h2>Small Team. Serious Follow-Through.</h2></div>
+      <p class="lede">You work directly with the person responsible for your project, supported by an exceptionally attentive canine leadership team.</p>
+    </div>
+    <div class="staff-grid">
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="/assets/celina-portrait.webp" alt="Celina, owner and operator of Grumpy Dog Software" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">The Human</span><h2>Celina</h2><div class="staff-role">Owner &amp; Operator</div><p>Celina leads every client relationship and project from first conversation through launch and ongoing support. She combines practical farm experience with a clear-eyed approach to technology, building websites and tools that solve real problems without unnecessary complexity.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="/assets/argos-quote.webp" alt="Argos, Head of Project Management" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">Operations</span><h2>Argos</h2><div class="staff-role">Head of Project Management</div><p>Argos keeps a close eye on schedules, priorities, and anyone who appears to be standing still for too long. His management style is focused, direct, and strongly in favour of regular outdoor status meetings.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="/assets/luna-portrait.webp" alt="Luna, Head of Morale and Cuteness" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">People &amp; Culture</span><h2>Luna</h2><div class="staff-role">Head of Morale &amp; Cuteness</div><p>Luna makes sure the workday stays balanced, spirits remain high, and no good idea goes uncelebrated. She brings curiosity, enthusiasm, and a well-timed reminder that every difficult problem benefits from a short break.</p></div>
+      </article>
+      <article class="staff-card fade-in">
+        <div class="staff-photo"><img src="/assets/max-portrait.webp" alt="Max, Head of Security" width="800" height="1000" loading="lazy" decoding="async"></div>
+        <div class="staff-body"><span class="tag">Security</span><h2>Max</h2><div class="staff-role">Head of Security — Cyber &amp; Otherwise</div><p>Max oversees perimeter checks, unexpected visitors, and anything that looks even slightly unusual. His approach to security is proactive, thorough, and backed by an impressive bark-first escalation policy.</p></div>
+      </article>
+    </div>
+  </div></section>
+</div>
+<!-- @endpart -->
+
+<!-- @part contact -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Say Hello</div><h1>Get in Touch</h1><p>We promise we're friendlier than we look. Mostly.</p></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner"><div class="contact-section fade-in">
+    <div class="contact-info">
+      <h3>Let's Build Something Together</h3>
+      <p>Whether you need an app for your farm, a website for your shop, or just want to figure out where to start — drop us a line. We'll get back to you faster than a border collie on a breakaway sheep.</p>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:hello@grumpydog.co">hello@grumpydog.co</a></div>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Annapolis Valley, Nova Scotia</div>
+      <div class="contact-detail"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri, 9am–5pm Atlantic</div>
+      <div class="callout"><strong>Free 30-minute discovery call</strong> — Tell us about your business and we'll tell you honestly whether we can help. No pressure, no pitch deck, no nonsense.</div>
+    </div>
+    <form class="contact-form" id="contact-form" onsubmit="sendMessage(event)">
+      <p class="callout" id="discoveryNote" style="margin:0 0 1.4rem" hidden><strong>Booking a free discovery call</strong> — there is no calendar to pick from. Send this form and we'll reply within a business day to set a time for your 30-minute call.</p>
+      <input type="hidden" name="access_key" value="fdba5c65-9818-40c1-bab6-d456299a4836">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <div class="form-group"><label for="f-name">Your Name</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
+      <div class="form-group"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@yourbusiness.com" required></div>
+      <div class="form-group"><label for="f-interest">What are you interested in?</label>
+        <select id="f-interest" name="interest"><option>A Free Discovery Call</option><option selected>A Website</option><option>An App or Custom Tool</option><option>Guidance &amp; Consulting</option><option>Broodi</option><option>NutriRoots</option><option>Pet Health RX Manager</option><option>Hosting &amp; Maintenance</option><option>Just Browsing / Other</option></select>
+      </div>
+      <div class="form-group"><label for="f-message">Tell us about your project</label><textarea id="f-message" name="message" placeholder="What do you do, and what's the biggest headache we could take off your plate?" required></textarea></div>
+      <button class="btn btn-gold btn-block" type="submit">Send Message</button>
+      <p class="form-note" id="formStatus">Prefer email? Write us directly at <a href="mailto:hello@grumpydog.co">hello@grumpydog.co</a>.</p>
+    </form>
+  </div></div></section>
+</div>
+<!-- @endpart -->
+
+<!-- @part notfound -->
+<div class="page" id="page-notfound">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Page Not Found</div><h1>This Page Wandered Off</h1><p>Even a good herding dog loses one now and then. The page you were after isn't here, but the rest of the flock is accounted for.</p><div class="nf-actions"><a class="btn btn-gold" href="#home">Back to the Home Page</a><a class="btn btn-ghost" href="#contact">Get in Touch</a></div></div>
+  </div>
+</div>
+<!-- @endpart -->
+
+<!-- @part footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="/assets/logo.jpg" alt="">
+      <div>
+        <b>GRUMPY DOG SOFTWARE</b>
+        <span class="tag2">Herding code. Solving problems.</span>
+        <p>A female-owned company building websites, apps, and practical tools for rural Nova Scotia. Rooted in the Annapolis Valley and built with a by-farmers, for-farmers perspective.</p>
+      </div>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#staff">Our Staff</a></li>
+        <li><a href="#contact">Get in Touch</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Our Apps</h5>
+      <ul>
+        <li><a href="#broodi">Broodi</a></li>
+        <li><a href="#nutriroots">NutriRoots</a></li>
+        <li><a href="#pethealth">Pet Health RX Manager</a></li>
+        <li><a href="https://play.google.com/store/apps/dev?id=5879958692714284513" target="_blank" rel="noopener">Our apps on Google Play</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-word" aria-hidden="true">GRUMPY DOG</div>
+  <div class="footer-bottom"><div>
+    <span>© 2026 Grumpy Dog Software · Annapolis Valley, Nova Scotia</span>
+    <span>Made in the Valley</span>
+  </div></div>
+</footer>
+<!-- @endpart -->
+
+<!-- @part script-common -->
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*90);observer.unobserve(entry.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+
+async function sendMessage(e){
+  e.preventDefault();
+  const f=e.target;
+  const btn=f.querySelector('button[type="submit"]');
+  const status=document.getElementById('formStatus');
+  const payload=Object.fromEntries(new FormData(f));
+  payload.subject='[grumpydog.co] '+payload.interest+' — '+payload.name;
+  payload.from_name='grumpydog.co contact form';
+  const origLabel=btn.textContent;
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    const data=await res.json();
+    if(!data.success)throw new Error(data.message||'Submission failed');
+    f.reset();
+    status.innerHTML='<strong style="color:#2E7D32">Message sent!</strong> We\'ll get back to you within a business day.';
+  }catch(err){
+    const mail='mailto:hello@grumpydog.co?subject='+encodeURIComponent(payload.subject)+'&body='+encodeURIComponent(payload.message+'\n\n— '+payload.name+' ('+payload.email+')');
+    status.innerHTML='Hmm, that didn\'t go through. <a href="'+mail+'">Send it by email instead →</a>';
+  }finally{
+    btn.disabled=false;btn.textContent=origLabel;
+  }
+}
+<!-- @endpart -->
+
+<!-- @part script-home -->
+const PAGES=['home','broodi','nutriroots','pethealth'];
+const PAGE_META={
+  home:['Grumpy Dog Software — Websites, Apps & Tech Help in Rural Nova Scotia','Female-owned software company in the Annapolis Valley building websites, apps, and practical tools for rural Nova Scotia.'],
+  apps:['Our Apps — Grumpy Dog Software','Explore practical apps built by Grumpy Dog Software for poultry, plant health, and pet care.'],
+  broodi:['Broodi — Incubator Hatching Companion','Plan poultry hatches, follow incubation milestones, and never miss candling, lockdown, or hatch day with Broodi.'],
+  nutriroots:['NutriRoots — Plant Health & Soil App','Assess plant and root health, diagnose disease, plan companion planting, and make informed fertilizer decisions with NutriRoots.'],
+  pethealth:['Pet Health RX Manager — Chronic & Wellness Care','Track medications, chronic conditions, vet visits, weight, and everyday wellness for the animals you love.'],
+};
+function route(){
+  let id=(location.hash||'#home').replace('#','');
+  if(window.GD_REDIRECTS&&window.GD_REDIRECTS[id]){location.replace(window.GD_REDIRECTS[id]);return}
+  let activeNav=id;
+  const meta=PAGE_META[id]||PAGE_META.home;
+  document.title=meta[0];
+  document.querySelector('meta[name="description"]').content=meta[1];
+  let scrollTarget=null;
+  if(id==='apps'){id='home';scrollTarget='apps-section'}
+  if(!PAGES.includes(id)){id='home';activeNav='home'}
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===activeNav));
+  document.getElementById('navLinks').classList.remove('open');
+  if(scrollTarget){setTimeout(()=>document.getElementById(scrollTarget).scrollIntoView({behavior:'smooth'}),80)}
+  else{window.scrollTo({top:0})}
+  document.querySelectorAll('#page-'+id+' .fade-in').forEach(el=>{el.classList.remove('visible');observer.observe(el)});
+}
+window.addEventListener('hashchange',route);
+route();
+<!-- @endpart -->
+
+<!-- @part script-contact -->
+(function(){
+  if(new URLSearchParams(location.search).get('topic')!=='discovery-call')return;
+  const sel=document.getElementById('f-interest');
+  if(sel)sel.value='A Free Discovery Call';
+  const note=document.getElementById('discoveryNote');
+  if(note)note.hidden=false;
+})();
+<!-- @endpart -->
