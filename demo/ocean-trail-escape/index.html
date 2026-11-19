@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocean Trail Escape - website concept</title>
+<meta name="description" content="Website concept for Ocean Trail Escape, a renovated farmhouse on 80 acres in Hall's Harbour, Nova Scotia, with walking trails to the cliffs over the Bay of Fundy.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1D2C44">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ocean Trail Escape - website concept">
+<meta property="og:description" content="A preview of a website for Ocean Trail Escape in Hall's Harbour, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/ocean-trail-escape/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1D2C44;
+  --bay:#2A7385;
+  --bay-deep:#1F5A69;
+  --wood:#B98A55;
+  --ink:#1B2230;
+  --ink-soft:#56606E;
+  --paper:#FBFAF6;
+  --sand:#F1ECE1;
+  --rule:rgba(29,44,68,.18);
+  --display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:72rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.75rem,6.6vw,5rem);letter-spacing:-.01em}
+h2{font-size:clamp(2.25rem,5vw,3.5rem);letter-spacing:-.01em}
+h3{font-size:1.75rem;line-height:1.15}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--bay);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:.7rem 1.5rem;
+  font:700 1rem/1.2 var(--body);text-decoration:none;border-radius:999px;border:2px solid var(--navy);
+  background:var(--navy);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--navy)}
+.btn--white{background:#fff;border-color:#fff;color:var(--navy)}
+.btn--white:hover{background:transparent;color:#fff}
+.btn--ghost{background:transparent;border-color:rgba(255,255,255,.8);color:#fff}
+.btn--ghost:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+.top{position:relative;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.85rem}
+.brand{margin-right:auto;flex:none;text-decoration:none;font:400 1.75rem/1 var(--display)}
+.brand span{display:block;font:600 .8125rem/1.3 var(--body);color:var(--ink-soft);margin-top:.2rem}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+.nav a{font-weight:600;font-size:.9375rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--bay)}
+.top .btn{min-height:2.75rem;padding:.5rem 1.2rem;font-size:.9375rem;white-space:nowrap}
+.menu-btn{display:none}
+
+/* hero */
+.hero{position:relative;color:#fff;background:var(--navy)}
+.hero picture img{width:100%;height:min(76vh,44rem);min-height:28rem;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,25,40,.15) 30%,rgba(15,25,40,.72) 100%);pointer-events:none}
+.hero-text{position:absolute;left:0;right:0;bottom:0;z-index:1;padding-bottom:clamp(2rem,5vw,4rem)}
+.hero-text h1{max-width:16ch}
+.hero-text .lede{font-size:1.1875rem;margin-top:1rem;max-width:32rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+
+/* facts */
+.facts{border-bottom:1px solid var(--rule)}
+.facts ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.facts li{padding:1.5rem 1.5rem 1.5rem 0}
+.facts li + li{border-left:1px solid var(--rule);padding-left:1.5rem}
+.facts b{display:block;font:400 2.25rem/1 var(--display)}
+.facts span{font-size:.9375rem;color:var(--ink-soft)}
+
+/* house */
+.house{padding-block:clamp(4rem,8vw,6.5rem)}
+.house-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end}
+.house-head p{font-size:1.125rem;max-width:32rem}
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;margin-top:clamp(2rem,4vw,3rem)}
+.gallery figure{margin:0;position:relative;grid-column:span 2}
+.gallery figure.big{grid-column:span 3}
+.gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;font-weight:600;font-size:.875rem;padding:.3rem .7rem}
+.inside{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(2.5rem,5vw,4rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--rule)}
+.have{margin:1.25rem 0 0;padding:0;list-style:none;columns:2;column-gap:2rem}
+.have li{padding:.3rem 0 .3rem 1.3rem;position:relative;break-inside:avoid}
+.have li::before{content:"";position:absolute;left:0;top:.95em;width:.5rem;height:.5rem;border-radius:50%;background:var(--bay)}
+.know{margin:1.25rem 0 0;padding:0;list-style:none;border-top:2px solid var(--navy)}
+.know li{display:flex;justify-content:space-between;gap:1.5rem;padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.know span:last-child{text-align:right;font-weight:600}
+
+/* trails */
+.trails{background:var(--navy);color:#fff;padding-block:clamp(4rem,8vw,6.5rem)}
+.trails .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.trails figure{margin:0}
+.trails figure img{width:100%;aspect-ratio:5/6;object-fit:cover}
+.trails figcaption{font-size:.9375rem;opacity:.85;margin-top:.6rem}
+.trails p{margin-top:1.2rem;max-width:34rem;font-size:1.125rem}
+.trails .ask{margin-top:1.75rem;padding:1.1rem 1.3rem;border-left:3px solid var(--wood);font-size:1rem;max-width:34rem}
+
+/* nearby */
+.nearby{padding-block:clamp(4rem,8vw,6.5rem)}
+.nearby .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.nearby p{margin-top:1.1rem;max-width:33rem}
+.near{margin:1.5rem 0 0;padding:0;list-style:none;border-top:2px solid var(--navy);max-width:33rem}
+.near li{display:flex;justify-content:space-between;gap:1.5rem;padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.near span:last-child{font-weight:600;text-align:right;white-space:nowrap}
+.said blockquote{margin:0 0 2rem}
+.said blockquote p{margin:0;font:400 clamp(1.5rem,2.6vw,1.875rem)/1.25 var(--display);max-width:none}
+.said cite{display:block;font-style:normal;font-size:.9375rem;color:var(--ink-soft);margin-top:.6rem}
+
+/* contact */
+.stay{background:var(--sand);padding-block:clamp(4rem,8vw,6rem)}
+.stay .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.stay .lede{margin-top:1rem;max-width:30rem}
+.lines{margin:1.75rem 0 0;padding:0;list-style:none;display:grid;gap:1.25rem}
+.lines small{display:block;font-size:.9375rem;color:var(--ink-soft)}
+.lines a:not(.btn){font:700 clamp(1.125rem,2vw,1.375rem)/1.25 var(--body);text-decoration:none;display:inline-block;padding-block:.6rem;overflow-wrap:anywhere}
+.lines a:not(.btn):hover{text-decoration:underline}
+.lines address{font-style:normal;font-size:1.0625rem;line-height:1.5;margin-top:.2rem}
+.lines .btn{margin-top:1rem}
+form{background:#fff;padding:clamp(1.5rem,3vw,2.25rem)}
+form > p{margin:.4rem 0 1rem;color:var(--ink-soft)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{display:block;font-weight:700;font-size:.9375rem;margin:1rem 0 .35rem}
+input,textarea,select{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--navy);border-radius:.35rem;padding:.65rem .8rem}
+textarea{min-height:6rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--sand);border-left:4px solid var(--bay);font-size:.9375rem}
+.form-note[hidden]{display:none}
+.foot{background:var(--navy);color:#fff;padding-block:1.75rem;font-size:.9375rem;text-align:center}
+
+@media (max-width:60rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--paper);border-bottom:3px solid var(--navy);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.0625rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:700 1rem/1 var(--body);
+    background:transparent;color:var(--navy);border:2px solid var(--navy);border-radius:999px;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .top .enquire{display:none}
+  .house-head,.inside,.trails .wrap,.nearby .wrap,.stay .wrap{grid-template-columns:1fr}
+  .trails figure{max-width:26rem}
+  .gallery figure,.gallery figure.big{grid-column:span 3}
+}
+@media (max-width:46rem){
+  body{font-size:1rem}
+  .brand{font-size:1.5rem}
+  .hero picture img{height:32rem;min-height:0}
+  .hero-actions .btn{flex:1 1 100%}
+  .facts ul{grid-template-columns:1fr 1fr}
+  .facts li{padding:1.1rem 1rem 1.1rem 0}
+  .facts li:nth-child(odd){border-left:0;padding-left:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--rule)}
+  .gallery figure,.gallery figure.big{grid-column:span 6}
+  .have{columns:1}
+  .row{grid-template-columns:1fr;gap:0}
+  .know li,.near li{flex-direction:column;gap:.1rem}
+  .know span:last-child,.near span:last-child{text-align:left;white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Ocean Trail Escape, home">Ocean Trail Escape<span>Hall's Harbour, Nova Scotia</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#house">The farmhouse</a>
+      <a href="#trails">The trails</a>
+      <a href="#nearby">Nearby</a>
+      <a href="#stay">Enquire</a>
+    </nav>
+    <a class="btn enquire" href="#stay">Ask about a stay</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero on-dark" id="top">
+    <picture>
+      <source media="(max-width:46rem)" srcset="assets/bay-of-fundy-900.webp">
+      <img src="assets/bay-of-fundy.webp" alt="The Bay of Fundy from the clifftop: turquoise water, a curving beach and wooded headland under a wide sky" width="1600" height="900" fetchpriority="high">
+    </picture>
+    <div class="hero-text">
+      <div class="wrap">
+        <h1>Walk from the porch to the cliffs over the Bay of Fundy.</h1>
+        <p class="lede">A newly renovated farmhouse on 80 acres of walking trails, minutes from the hamlet of Hall's Harbour.</p>
+        <div class="hero-actions">
+          <a class="btn btn--white" href="#stay">Ask about a stay</a>
+          <a class="btn btn--ghost" href="#house">See the farmhouse</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="wrap">
+      <ul>
+        <li><b>4</b><span>guests</span></li>
+        <li><b>2</b><span>bedrooms</span></li>
+        <li><b>80</b><span>acres of trails</span></li>
+        <li><b>3 min</b><span>drive to Hall's Harbour</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="house" id="house" aria-labelledby="house-h">
+    <div class="wrap">
+      <div class="house-head">
+        <h2 id="house-h">The farmhouse</h2>
+        <p>A charming retreat along the Bay of Fundy, and a peaceful place to relax, recharge and reconnect with nature. The whole house is yours.</p>
+      </div>
+      <div class="gallery">
+        <figure class="big"><img src="assets/farmhouse.webp" alt="The white farmhouse with its covered porch and deck, set on a lawn under tall trees" width="1200" height="900" loading="lazy"><figcaption>The house</figcaption></figure>
+        <figure class="big"><img src="assets/porch.webp" alt="The covered porch with a pine ceiling and cushioned chairs, looking out over the lawn and fields" width="1000" height="750" loading="lazy"><figcaption>Covered porch</figcaption></figure>
+        <figure><img src="assets/living-room.webp" alt="The living room with a sofa, armchairs and a large coffee table" width="1000" height="750" loading="lazy"><figcaption>Living room</figcaption></figure>
+        <figure><img src="assets/kitchen.webp" alt="The white kitchen with wooden counters, a wall oven and a dishwasher" width="1000" height="750" loading="lazy"><figcaption>Kitchen</figcaption></figure>
+        <figure><img src="assets/dining.webp" alt="The dining area with a round wooden table and the staircase behind" width="1000" height="750" loading="lazy"><figcaption>Dining</figcaption></figure>
+        <figure><img src="assets/bedroom-1.webp" alt="A bedroom with white linen, navy cushions and a rattan pendant light" width="1000" height="750" loading="lazy"><figcaption>Bedroom one</figcaption></figure>
+        <figure><img src="assets/bedroom-2.webp" alt="A second bedroom with a white bed and a blue patterned rug" width="1000" height="750" loading="lazy"><figcaption>Bedroom two</figcaption></figure>
+        <figure><img src="assets/bathroom.webp" alt="The bathroom with a glass walk-in shower and a wooden vanity" width="1000" height="750" loading="lazy"><figcaption>Bathroom</figcaption></figure>
+      </div>
+
+      <div class="inside">
+        <div>
+          <h3>What is here</h3>
+          <ul class="have">
+            <li>Full kitchen with dishwasher</li>
+            <li>Coffee maker and kettle</li>
+            <li>Washer and dryer</li>
+            <li>Wifi and a desk to work at</li>
+            <li>Heat pump for heating and cooling</li>
+            <li>Television and board games</li>
+            <li>Covered porch and outdoor dining</li>
+            <li>Barbecue</li>
+            <li>Travel crib</li>
+            <li>Free parking</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Good to know</h3>
+          <ul class="know">
+            <li><span>Check-in</span><span>after 3 pm, with a keypad</span></li>
+            <li><span>Check-out</span><span>before 10 am</span></li>
+            <li><span>Minimum stay</span><span>2 nights</span></li>
+            <li><span>Pets</span><span>sorry, no pets</span></li>
+            <li><span>Smoking and parties</span><span>not permitted</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trails on-dark" id="trails" aria-labelledby="trails-h">
+    <div class="wrap">
+      <figure>
+        <img src="assets/trail-map.webp" alt="An aerial view of the property with the trail marked in yellow, running from the house through the woods to the shore" width="900" height="1080" loading="lazy">
+        <figcaption>Some of the walkable trail system, from the house to the shore.</figcaption>
+      </figure>
+      <div>
+        <h2 id="trails-h">Eighty acres, and a trail to the sea</h2>
+        <p>Included in the property is an expansive set of trails that lead through the wooded areas right to the ocean cliffs.</p>
+        <p>At the end of the walk is the Bay of Fundy, with the highest tides in the world.</p>
+        <p class="ask">Please be respectful to the woods. No smoking and no vehicles on the trails.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="nearby" id="nearby" aria-labelledby="nearby-h">
+    <div class="wrap">
+      <div>
+        <h2 id="nearby-h">Nearby</h2>
+        <p>Hall's Harbour is a three minute drive away, with its famous high tides and the lobster pound right on the wharf, open May to October.</p>
+        <ul class="near">
+          <li><span>Hall's Harbour</span><span>3 minutes</span></li>
+          <li><span>Wolfville and wine country</span><span>about half an hour</span></li>
+          <li><span>Halifax Stanfield airport</span><span>about 1.5 hours</span></li>
+        </ul>
+      </div>
+      <div class="said">
+        <blockquote>
+          <p>This country home was the perfect place for our family! Everything was spotless and very well decorated with a lot of extra touches which did not go unnoticed.</p>
+          <cite>Angela, July 2026</cite>
+        </blockquote>
+        <blockquote>
+          <p>What a beautiful spot, peaceful and relaxing. The house had everything we needed, including the beautiful front porch where we enjoyed our morning coffee.</p>
+          <cite>Darren, August 2025</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="stay" id="stay" aria-labelledby="stay-h">
+    <div class="wrap">
+      <div>
+        <h2 id="stay-h">Ask about a stay</h2>
+        <p class="lede">Send your dates and we will reply with availability and the rate.</p>
+        <ul class="lines">
+          <li><small>Phone</small><a href="tel:+19055418196">905-541-8196</a></li>
+          <li><small>Email</small><a href="mailto:getrealmanagementinc@gmail.com">getrealmanagementinc@gmail.com</a></li>
+          <li><small>Find us</small>
+            <address>3828 Highway 359<br>Hall's Harbour, Nova Scotia B0P 1J0</address>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=3828+Highway+359%2C+Halls+Harbour%2C+Nova+Scotia" rel="noopener">Get directions</a>
+          </li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Your dates</h3>
+        <p>Two night minimum. Up to four guests.</p>
+        <div class="row">
+          <div><label for="f-in">Arriving</label><input id="f-in" name="arrive" type="date"></div>
+          <div><label for="f-out">Leaving</label><input id="f-out" name="leave" type="date"></div>
+        </div>
+        <label for="f-guests">Guests</label>
+        <select id="f-guests" name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-email">Your email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
+        <label for="f-msg">Anything we should know</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Ocean Trail Escape.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">Ocean Trail Escape, 3828 Highway 359, Hall's Harbour, Nova Scotia</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#111B2B;
+    --gd-ribbon-fg:#FFFFFF;
+    --gd-ribbon-accent:#BFE3EA;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(255,255,255,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Ocean Trail Escape by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
