@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twisted Whisk - website concept</title>
+<meta name="description" content="Website concept for Twisted Whisk, Danielle Lehn's bakery in Kentville, Nova Scotia: sourdough, focaccia, flakies, croissants and cookies at markets around the Annapolis Valley.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F3B9BE">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Twisted Whisk - website concept">
+<meta property="og:description" content="A preview of a first website for Twisted Whisk bakery in Kentville, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/twisted-whisk/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/webp" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#F3B9BE;
+  --pink-soft:#FBE4E6;
+  --wood:#B45A1A;
+  --crust:#E4833C;
+  --ink:#1A1512;
+  --ink-soft:#5A4F48;
+  --paper:#FFFFFF;
+  --oat:#FBF3E8;
+  --rule:rgba(26,21,18,.2);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:70rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.8vw,4.25rem);letter-spacing:-.03em}
+h2{font-size:clamp(2.1rem,4.8vw,3.25rem);letter-spacing:-.025em}
+h3{font-size:1.5rem;letter-spacing:-.015em;line-height:1.15}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--wood);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:.7rem 1.4rem;
+  font:600 1.0625rem/1.2 var(--body);text-decoration:none;border-radius:999px;border:2px solid var(--ink);
+  background:var(--ink);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--line{background:transparent;color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:#fff}
+.btn--pink{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.btn--pink:hover{background:transparent;color:#fff;border-color:#fff}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+
+.top{position:relative;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.5rem}
+.brand{margin-right:auto;flex:none;display:block}
+.brand img{width:5.25rem;height:5.25rem}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+.nav a{font-weight:600;font-size:1rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--crust)}
+.top .btn{min-height:2.75rem;padding:.5rem 1.1rem;font-size:1rem;white-space:nowrap}
+.menu-btn{display:none}
+
+/* hero on her banner pink */
+.hero{background:var(--pink)}
+.hero .wrap{display:grid;grid-template-columns:1.4fr .8fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(3rem,6vw,5rem)}
+.hero .lede{font-size:1.25rem;line-height:1.5;margin-top:1.4rem;max-width:30rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-pic img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:1rem;transform:rotate(1.5deg);border:.4rem solid #fff}
+
+/* bake */
+.bake{padding-block:clamp(4rem,8vw,6.5rem)}
+.bake-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 3rem}
+.bake-head p{max-width:27rem;color:var(--ink-soft)}
+.loaf{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.loaf-pics{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.loaf-pics img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:.75rem}
+.price{display:inline-block;background:var(--ink);color:#fff;font:700 1rem/1 var(--display);padding:.4rem .75rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
+.loaf p{margin-top:.9rem;max-width:30rem}
+.list{margin:1.25rem 0 0;padding:0;list-style:none;border-top:2px solid var(--ink);max-width:30rem}
+.list li{padding:.55rem 0;border-bottom:1px solid var(--rule);font-weight:600}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,2.5vw,2rem);margin-top:clamp(3rem,6vw,4.5rem)}
+.shelf article{background:var(--oat);border-radius:.75rem;padding:1.5rem 1.4rem 1.6rem}
+.shelf h3 .price{font-size:.875rem;margin-left:0;margin-top:.5rem;display:table}
+.shelf ul{margin:1rem 0 0;padding:0;list-style:none}
+.shelf li{padding:.25rem 0}
+.shelf li.new{font-weight:600;color:var(--wood)}
+
+/* find */
+.find{background:var(--ink);color:#fff;padding-block:clamp(4rem,8vw,6rem)}
+.find .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.find .lede{font-size:1.1875rem;margin-top:1.1rem;max-width:34rem}
+.stops{margin:2rem 0 0;padding:0;list-style:none;border-top:3px solid var(--pink)}
+.stops li{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.stops b{font:700 1.0625rem/1.3 var(--display);color:var(--pink)}
+.stops small{display:block;font-size:.9375rem;opacity:.85}
+.find .btn{margin-top:1.75rem;margin-right:.5rem}
+.find figure{margin:0}
+.find figure img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:1rem}
+
+/* about */
+.about{padding-block:clamp(4rem,8vw,6.5rem)}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.about img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:1rem}
+.about p{margin-top:1.1rem;max-width:33rem}
+.about .big{font:600 clamp(1.4rem,2.6vw,1.75rem)/1.3 var(--display);letter-spacing:-.015em}
+.about cite{display:block;font-style:normal;font-size:.9375rem;color:var(--ink-soft);margin-top:.5rem}
+.said{margin-top:2rem;padding:1.25rem 1.4rem;background:var(--pink-soft);border-radius:.75rem;max-width:33rem}
+.said p{margin:0}
+
+/* contact */
+.contact{background:var(--pink);padding-block:clamp(4rem,8vw,6rem)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.c-lines{margin:1.75rem 0 0;padding:0;list-style:none;display:grid;gap:1.25rem}
+.c-lines small{display:block;font-weight:600;font-size:.9375rem}
+.c-lines a{font:700 clamp(1.25rem,2.3vw,1.625rem)/1.25 var(--display);text-decoration:none;display:inline-block;padding-block:.5rem;overflow-wrap:anywhere}
+.c-lines a:hover{text-decoration:underline}
+.c-lines a.sm{font:600 1.0625rem/1.3 var(--body);text-decoration:underline;margin-right:1.25rem;padding-block:.7rem}
+form{background:#fff;padding:clamp(1.5rem,3vw,2.25rem);border-radius:1rem}
+form > p{margin:.4rem 0 1rem;color:var(--ink-soft)}
+label{display:block;font-weight:600;font-size:.9375rem;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--ink);border-radius:.5rem;padding:.7rem .85rem}
+textarea{min-height:7rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--oat);border-left:4px solid var(--crust);font-size:.9375rem}
+.form-note[hidden]{display:none}
+.foot{background:var(--ink);color:#fff;padding-block:1.75rem;font-size:.9375rem;text-align:center}
+
+@media (max-width:64rem){
+  .shelf{grid-template-columns:1fr 1fr}
+}
+@media (max-width:58rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:#fff;border-bottom:3px solid var(--ink);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.125rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:600 1rem/1 var(--body);
+    background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:999px;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .loaf,.find .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .find figure{max-width:24rem}
+}
+@media (max-width:46rem){
+  body{font-size:1rem}
+  .top .wrap{gap:.6rem}
+  .brand img{width:4.25rem;height:4.25rem}
+  .top .call span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .top .call{padding-inline:.8rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .lede{font-size:1.125rem}
+  .hero-actions,.hero-actions .btn{width:100%}
+  .hero-pic img{transform:none}
+  .shelf{grid-template-columns:1fr}
+  .stops li{grid-template-columns:1fr;gap:.1rem}
+  .find .btn{width:100%;margin-right:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Twisted Whisk, home">
+      <img src="assets/logo.webp" alt="Twisted Whisk" width="360" height="360">
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#bake">What I bake</a>
+      <a href="#find">Where to find me</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn call" href="tel:+15192875436" aria-label="Call 519-287-5436">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      <span>519-287-5436</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>Sourdough and sweet treats, baked in Kentville.</h1>
+        <p class="lede">I make all my fillings and preserves from scratch, using real ingredients sourced locally whenever possible.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#bake">What I bake</a>
+          <a class="btn btn--line" href="#find">Where to find me</a>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <img src="assets/market-table.webp" alt="The Twisted Whisk market table: cases of flakies and croissants, loaves in kraft paper bands, bagged cookies, and the pink Twisted Whisk banner" width="1100" height="1100" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="bake" id="bake" aria-labelledby="bake-h">
+    <div class="wrap">
+      <div class="bake-head">
+        <h2 id="bake-h">What I bake</h2>
+        <p>The features change from week to week. These are the ones people ask for.</p>
+      </div>
+
+      <div class="loaf">
+        <div>
+          <h3>Sourdough <span class="price">$10</span></h3>
+          <p>Every loaf goes into a 24 hour cold ferment before it is baked.</p>
+          <ul class="list" aria-label="Sourdough loaves">
+            <li>Organic White</li>
+            <li>Jalapeño, Green Onion and Cheddar</li>
+            <li>Olives and Garlic</li>
+            <li>Dill Pickle and Cheddar</li>
+            <li>Apricot and Walnut</li>
+          </ul>
+        </div>
+        <div class="loaf-pics">
+          <img src="assets/proofing.webp" alt="Racks of sourdough proofing in loaf tins and round cane baskets" width="800" height="800" loading="lazy">
+          <img src="assets/jalapeno-focaccia.webp" alt="A tray of focaccia dough topped with sliced jalapeño and green onion, ready for the oven" width="800" height="800" loading="lazy">
+        </div>
+      </div>
+
+      <div class="shelf">
+        <article>
+          <h3>Focaccia and buns</h3>
+          <ul>
+            <li>Jalapeño, green onion and garlic focaccia</li>
+            <li>Olives and garlic focaccia</li>
+            <li>Garlic and cheddar pull apart buns</li>
+            <li class="new">New: Butter Naancaccia</li>
+            <li>Organic sourdough naan</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Flakies <span class="price">5 for $20</span></h3>
+          <ul>
+            <li>Lemon Blueberry</li>
+            <li>Chocolate</li>
+            <li>Cherry</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Croissants</h3>
+          <ul>
+            <li>Hazelnut Praline</li>
+            <li>Almond</li>
+            <li>Biscoff</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Cookies <span class="price">$4, or 3 for $10</span></h3>
+          <ul>
+            <li>Lemon Crinkle</li>
+            <li>S'more</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="find on-dark" id="find" aria-labelledby="find-h">
+    <div class="wrap">
+      <div>
+        <h2 id="find-h">Where to find me</h2>
+        <p class="lede">Markets, wineries, breweries and craft fairs around the Valley. The stops change every week, so check before you head out.</p>
+        <ul class="stops">
+          <li><b>Wednesdays</b><span>Kentville Farmers Market<small>10 am to 1:30 pm</small></span></li>
+          <li><b>Thursdays in summer</b><span>Kingston Farmers Market<small>3 to 7 pm, June to September, 831 Main Street, Kingston</small></span></li>
+          <li><b>Some weekends</b><span>Benjamin Bridge, Sea Level Brewing and Nichols Farm Market</span></li>
+          <li><b>September</b><span>Kentville Garlic Festival</span></li>
+        </ul>
+        <a class="btn btn--pink" href="https://www.facebook.com/twistedwhiskbakery" rel="noopener">This week on Facebook</a>
+        <a class="btn btn--pink" href="https://www.instagram.com/twisted.whisk/" rel="noopener">This week on Instagram</a>
+      </div>
+      <figure>
+        <img src="assets/table-banner.webp" alt="The Twisted Whisk table set up on a wooden deck, with pies, loaves and the pink banner" width="900" height="900" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <img src="assets/pumpkin-loaf.webp" alt="A sourdough loaf shaped and scored like a pumpkin, with a cinnamon stick stem, among autumn leaves" width="1200" height="800" loading="lazy">
+      <div>
+        <h2 id="about-h">Hi, I'm Danielle</h2>
+        <p class="big">I'm Danielle Lehn, the baker and owner. I have a passion for crafting sourdough bread and sweet treats.</p>
+        <p>One of my favourite things about cooking and baking is the science behind it. Quality is key in everything I make.</p>
+        <div class="said">
+          <p>"Hubby tried the Key Lime cookie. He said it's the best cookie he has ever tasted lol."</p>
+          <cite>Andrea, Facebook review, May 2025</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">Get in touch</h2>
+        <ul class="c-lines">
+          <li><small>Call or text</small><a href="tel:+15192875436">519-287-5436</a></li>
+          <li><small>Email</small><a href="mailto:twistedwhiskinfo@gmail.com">twistedwhiskinfo@gmail.com</a></li>
+          <li><small>Follow along</small>
+            <a class="sm" href="https://www.facebook.com/twistedwhiskbakery" rel="noopener">Facebook</a>
+            <a class="sm" href="https://www.instagram.com/twisted.whisk/" rel="noopener">Instagram</a>
+          </li>
+          <li><small>Based in</small>Kentville, Nova Scotia</li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Ask about this week's bake</h3>
+        <p>Want to know what is coming to market, or after a particular loaf? Send a note.</p>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-contact">Email or phone</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email">
+        <label for="f-msg">Your message</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Twisted Whisk.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">Twisted Whisk, Kentville, Nova Scotia</div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#1A1512;
+    --gd-ribbon-fg:#FFFFFF;
+    --gd-ribbon-accent:#F3B9BE;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(255,255,255,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Twisted Whisk by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
