@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macdonald Cottage - website concept</title>
+<meta name="description" content="Website concept for Macdonald Cottage, Charles Macdonald's concrete cottage at Huntington Point on Nova Scotia's Bay of Fundy, available for short summer stays.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#C8161D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Macdonald Cottage - website concept">
+<meta property="og:description" content="A preview of a website for Macdonald Cottage at Huntington Point, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/macdonald-cottage/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;0,800;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8161D;
+  --red-deep:#A31016;
+  --cream:#FBF3DC;
+  --butter:#F6D55C;
+  --sea:#1F5F7A;
+  --ink:#231A14;
+  --ink-soft:#5E5247;
+  --paper:#FFFDF7;
+  --rule:rgba(35,26,20,.2);
+  --display:"Alegreya",Georgia,"Times New Roman",serif;
+  --body:"Alegreya Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:70rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.1875rem/1.55 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.2vw,3.875rem);letter-spacing:-.015em}
+h2{font-size:clamp(2.1rem,4.6vw,3.25rem);letter-spacing:-.01em}
+h3{font-size:1.625rem;font-weight:700;line-height:1.15}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+.on-red a:focus-visible,.on-red button:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:.65rem 1.5rem;
+  font:700 1.125rem/1.2 var(--body);text-decoration:none;border-radius:.3rem;border:2px solid var(--ink);
+  background:var(--ink);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--butter{background:var(--butter);border-color:var(--butter);color:var(--ink)}
+.btn--butter:hover{background:transparent;color:#fff;border-color:#fff}
+.btn--ghost{background:transparent;border-color:rgba(255,255,255,.8);color:#fff}
+.btn--ghost:hover{background:#fff;color:var(--red-deep);border-color:#fff}
+
+.top{position:relative;background:var(--red);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.8rem}
+.brand{margin-right:auto;flex:none;text-decoration:none;font:800 1.625rem/1 var(--display);padding-block:.55rem}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+.nav a{font-weight:500;font-size:1.125rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:#fff}
+.menu-btn{display:none}
+
+/* hero */
+.hero{background:var(--red);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(2rem,5vw,4rem) clamp(3rem,6vw,5rem)}
+.hero .kicker{font:italic 500 1.375rem/1.3 var(--display)}
+.hero h1{margin-top:.5rem}
+.hero .lede{font-size:1.3125rem;margin-top:1.25rem;max-width:30rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.hero-pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border:.5rem solid var(--cream)}
+
+.facts{background:var(--cream);border-bottom:1px solid var(--rule)}
+.facts ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.facts li{padding:1.25rem 1.25rem 1.25rem 0}
+.facts li + li{border-left:1px solid var(--rule);padding-left:1.25rem}
+.facts b{display:block;font:800 1.5rem/1.15 var(--display);color:var(--red-deep)}
+.facts span{font-size:1.0625rem;color:var(--ink-soft)}
+
+/* how it works */
+.how{padding-block:clamp(4rem,8vw,6rem)}
+.how-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end}
+.how-head p{max-width:31rem}
+.how-head .stars{font:italic 500 1.5rem/1.3 var(--display);color:var(--red-deep)}
+.inside{margin:clamp(2rem,4vw,3rem) 0 0}
+.inside img{width:100%;aspect-ratio:1400/590;object-fit:cover}
+.inside figcaption{font-size:1.0625rem;color:var(--ink-soft);margin-top:.5rem}
+.lists{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(2rem,4vw,3rem)}
+.lists ul{margin:1rem 0 0;padding:0;list-style:none;border-top:3px solid var(--ink)}
+.lists li{padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.lists .know li{border-left:.3rem solid var(--butter);padding-left:.9rem}
+
+/* history */
+.history{background:var(--cream);padding-block:clamp(4rem,8vw,6.5rem)}
+.history-top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.history-top p{margin-top:1.1rem;max-width:34rem}
+.history figure{margin:0}
+.history figure img{width:100%;border:.4rem solid #fff;box-shadow:0 1px 0 var(--rule)}
+.history figcaption{font:italic 500 1.0625rem/1.3 var(--display);margin-top:.5rem}
+.album{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.5vw,1.75rem);margin-top:clamp(2.5rem,5vw,4rem);align-items:start}
+.album img{aspect-ratio:8/5;object-fit:cover}
+.museum{margin-top:clamp(2rem,4vw,3rem);padding-top:1.5rem;border-top:1px solid var(--rule);max-width:44rem}
+
+/* point */
+.point{position:relative;padding-block:clamp(4rem,8vw,6.5rem)}
+.point-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end}
+.point-head p{max-width:31rem}
+.shore{display:grid;grid-template-columns:1.2fr 1.2fr .9fr;gap:.75rem;margin-top:clamp(2rem,4vw,3rem)}
+.shore img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.shore img:last-child{aspect-ratio:auto}
+.near-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(2rem,4vw,3rem);align-items:start}
+.near{margin:0;padding:0;list-style:none;border-top:3px solid var(--ink)}
+.near li{display:flex;justify-content:space-between;gap:1.5rem;padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.near span:last-child{font-weight:700;white-space:nowrap}
+.guestbook{margin:0;padding-left:1.25rem;border-left:.3rem solid var(--red)}
+.guestbook p{font:italic 500 1.375rem/1.4 var(--display)}
+.guestbook cite{display:block;font-style:normal;font-size:1.0625rem;color:var(--ink-soft);margin-top:.6rem}
+
+/* ask fred */
+.ask{color:#fff;padding-block:clamp(4rem,8vw,6rem);background:var(--sea) url(assets/watercolour.webp) center/cover;background-blend-mode:multiply}
+.ask .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.ask .lede{margin-top:1rem;max-width:30rem;font-size:1.25rem}
+.lines{margin:1.75rem 0 0;padding:0;list-style:none;display:grid;gap:1.1rem}
+.lines small{display:block;font-size:1.0625rem;opacity:.9}
+.lines a{font:700 clamp(1.25rem,2.4vw,1.625rem)/1.25 var(--body);display:inline-block;padding-block:.5rem;overflow-wrap:anywhere}
+.lines a.sm{font-size:1.125rem;padding-block:.65rem}
+form{background:var(--paper);color:var(--ink);padding:clamp(1.5rem,3vw,2.25rem)}
+form > p{margin:.4rem 0 1rem;color:var(--ink-soft)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{display:block;font-weight:700;font-size:1.0625rem;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--ink);border-radius:.3rem;padding:.6rem .8rem}
+textarea{min-height:6rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--cream);border-left:4px solid var(--red);font-size:1.0625rem}
+.form-note[hidden]{display:none}
+.foot{background:var(--ink);color:#fff;padding-block:1.75rem;font-size:1.0625rem;text-align:center}
+.foot p + p{margin-top:.3rem;opacity:.85}
+
+@media (max-width:60rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--red-deep);border-bottom:3px solid var(--butter);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:1.25rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:700 1.0625rem/1 var(--body);
+    background:transparent;color:#fff;border:2px solid #fff;border-radius:.3rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .how-head,.lists,.history-top,.point-head,.near-row,.ask .wrap{grid-template-columns:1fr}
+  .album{grid-template-columns:1fr 1fr}
+}
+@media (max-width:46rem){
+  body{font-size:1.125rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-pic{order:-1}
+  .hero-actions .btn{flex:1 1 100%}
+  .facts ul{grid-template-columns:1fr 1fr}
+  .facts li{padding:1rem 1rem 1rem 0}
+  .facts li:nth-child(odd){border-left:0;padding-left:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--rule)}
+  .inside img{aspect-ratio:16/10}
+  .shore{grid-template-columns:1fr 1fr}
+  .shore img:last-child{display:none}
+  .row{grid-template-columns:1fr;gap:0}
+  .near li{flex-direction:column;gap:.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top on-red">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Macdonald Cottage, home">Macdonald Cottage</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#history">History</a>
+      <a href="#point">Huntington Point</a>
+      <a href="#ask">Ask Fred</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero on-red" id="top">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Short stays for couples or tiny families</p>
+        <h1>Charles Macdonald's concrete cottage at Huntington Point.</h1>
+        <p class="lede">A roadside curiosity for ninety years, on Nova Scotia's Bay of Fundy. Relax in one of Nova Scotia's most unique handcrafted structures.</p>
+        <div class="hero-actions">
+          <a class="btn btn--butter" href="#ask">Ask about dates</a>
+          <a class="btn btn--ghost" href="#how">How it works</a>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <img src="assets/cottage.webp" alt="Macdonald Cottage: a small house with a bright red curved roof, cream walls and a lower storey of stones painted red, yellow, blue and green, set in a garden" width="1200" height="900" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="wrap">
+      <ul>
+        <li><b>$175 a night</b><span>two night minimum</span></li>
+        <li><b>Mid June</b><span>till the end of September</span></li>
+        <li><b>Two beds</b><span>bedding for two included</span></li>
+        <li><b>Heritage Property</b><span>registered in Nova Scotia</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="how-head">
+        <h2 id="how-h">How it works</h2>
+        <div>
+          <p>Charlie built the cottage for himself and Mabel. It's small, unconventional, quirky and fun.</p>
+          <p class="stars">One guest called it 4+ star camping.</p>
+        </div>
+      </div>
+      <figure class="inside">
+        <img src="assets/inside.webp" alt="Inside the cottage: a spiral staircase, a round table with wire chairs, a white wood stove and a kitchen with yellow cupboards" width="1400" height="590" loading="lazy">
+        <figcaption>Kept much the way Charlie and Mabel left it. Cosy and authentic.</figcaption>
+      </figure>
+      <div class="lists">
+        <div>
+          <h3>What you get</h3>
+          <ul>
+            <li>Hot and cold running water, gravity fed from a spring in the forest</li>
+            <li>An indoor flush toilet</li>
+            <li>An undercover, on-demand hot water shower in the car port</li>
+            <li>An electric stove and refrigerator, plus a wood stove to take off a chill</li>
+            <li>Pots and pans, and dishes, and cutlery and charm</li>
+            <li>Two beds upstairs, one full size and one three-quarter size, with bedding for two</li>
+          </ul>
+        </div>
+        <div class="know">
+          <h3>What to know before you come</h3>
+          <ul>
+            <li>The beds are reached by a tight spiral staircase, a particular challenge for anyone with mobility issues.</li>
+            <li>There is no wi-fi. We have installed a cellular booster in the cottage, and there is service at the beach fifty metres away.</li>
+            <li>The shower is outdoors, under cover.</li>
+            <li>Stays are two nights or more.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="history" id="history" aria-labelledby="history-h">
+    <div class="wrap">
+      <div class="history-top">
+        <div>
+          <h2 id="history-h">Charlie and Mabel</h2>
+          <p>Charles William Macdonald (1874 to 1967) was a seaman, labourer, artist and manufacturer. He and Mabel had camped at Huntington Point since 1919.</p>
+          <p>In the 1930s he purchased land, and when business slowed at his Kentville Concrete, he and his worker partners went to the shore to see what they could build. To prove its durability as a building medium, they fashioned five cottages using concrete with stone and wood.</p>
+          <p>Of the five cottages, four remain. The Teapot was unceremoniously bulldozed into the Bay in the 1980s.</p>
+          <p>Charlie's favourite has remained in the family. To help with its upkeep, the Macdonalds are offering an uncommon engagement with Nova Scotia heritage.</p>
+        </div>
+        <figure>
+          <img src="assets/charlie-and-mabel.webp" alt="An old colour photograph of Charlie and Mabel Macdonald standing in a garden beside a van" width="529" height="409" loading="lazy">
+          <figcaption>Charlie and Mabel Macdonald</figcaption>
+        </figure>
+      </div>
+      <div class="album">
+        <figure><img src="assets/under-construction-1935.webp" alt="A stone and concrete cottage being built, with a ladder against the wall and an early car beside it" width="800" height="495" loading="lazy"><figcaption>Under construction in 1935</figcaption></figure>
+        <figure><img src="assets/teapot-cottage.webp" alt="A rounded concrete cottage with a tall spout-like chimney" width="639" height="360" loading="lazy"><figcaption>The Teapot Cottage</figcaption></figure>
+        <figure><img src="assets/charlie-mabel-teapot.webp" alt="A couple sitting on chairs in front of the rounded Teapot Cottage" width="575" height="332" loading="lazy"><figcaption>Charlie and Mabel at the Teapot Cottage</figcaption></figure>
+        <figure><img src="assets/before-balcony.webp" alt="Macdonald Cottage in an old photograph, with an open balcony and a stone chimney" width="600" height="348" loading="lazy"><figcaption>Macdonald Cottage before the balcony's enclosure</figcaption></figure>
+      </div>
+      <p class="museum">To learn more about Charlie's concrete sculptures and story, be sure to visit the Charles Macdonald Concrete Museum in nearby Centreville.</p>
+    </div>
+  </section>
+
+  <section class="point" id="point" aria-labelledby="point-h">
+    <div class="wrap">
+      <div class="point-head">
+        <h2 id="point-h">Huntington Point</h2>
+        <p>The beach is fifty metres away. It is popular for finding unique rocks, beach bonfires, summertime picnics, and watching the highest tides on Earth.</p>
+      </div>
+      <div class="shore">
+        <img src="assets/beach.webp" alt="Waves breaking on the dark pebble beach at Huntington Point" width="1000" height="750" loading="lazy">
+        <img src="assets/bonfire.webp" alt="A bonfire on the beach at dusk with a firework bursting over the water" width="1000" height="750" loading="lazy">
+        <img src="assets/sunset.webp" alt="The sun setting over the Bay of Fundy, seen through dark spruce trees" width="800" height="1000" loading="lazy">
+      </div>
+      <div class="near-row">
+        <ul class="near">
+          <li><span>Hall's Harbour Lobster Pound</span><span>5 minutes</span></li>
+          <li><span>Saltair Nordic Spa</span><span>15 minutes</span></li>
+          <li><span>Cape Split Provincial Park</span><span>30 minutes</span></li>
+          <li><span>Annapolis Valley wineries</span><span>30 minutes</span></li>
+        </ul>
+        <blockquote class="guestbook">
+          <p>We ate, we painted, we explored the beach, and we marvelled at the whimsical scenery of these beautiful cottages and of Huntington Point. The dog is tired, and we are happy. We can't wait to come back!</p>
+          <cite>Jody, in the guest book, September 2024</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="ask on-red" id="ask" aria-labelledby="ask-h">
+    <div class="wrap">
+      <div>
+        <h2 id="ask-h">Ask Fred about dates</h2>
+        <p class="lede">Send your preferred dates. Fred will follow up to discuss your visit and confirm availability.</p>
+        <ul class="lines">
+          <li><small>Email Fred Macdonald</small><a href="mailto:fred@greatcircle.ca">fred@greatcircle.ca</a></li>
+          <li><small>Find the cottage</small>1166 Huntington Point Road, near Hall's Harbour<br>
+            <a class="sm" href="https://www.google.com/maps/search/?api=1&amp;query=45.197217%2C-64.6406859" rel="noopener">Open in maps</a></li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Your dates</h3>
+        <p>$175 a night, two night minimum, mid June till the end of September.</p>
+        <div class="row">
+          <div><label for="f-in">Arriving</label><input id="f-in" name="arrive" type="date"></div>
+          <div><label for="f-out">Leaving</label><input id="f-out" name="leave" type="date"></div>
+        </div>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-email">Your email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email">
+        <label for="f-msg">Tell us who is coming</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send to Fred</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Fred.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Macdonald Cottage, 1166 Huntington Point Road, Nova Scotia</p>
+    <p>Nova Scotia Short Term Registration Number STR2627B3688</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#231A14;
+    --gd-ribbon-fg:#FFFDF7;
+    --gd-ribbon-accent:#F6D55C;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(255,253,247,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Macdonald Cottage by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
