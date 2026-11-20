@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annapolis Royal Farmers &amp; Traders Market - website concept</title>
+<meta name="description" content="Website concept for the Annapolis Royal Farmers &amp; Traders Market: Saturday mornings in Annapolis Royal, Nova Scotia, indoors at the Legion from October to May and outdoors at Market Square from May to October.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#EFB071">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Annapolis Royal Farmers &amp; Traders Market - website concept">
+<meta property="og:description" content="A preview of a new website for the Annapolis Royal Farmers &amp; Traders Market. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/annapolis-royal-farmers-and-traders-market/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --apricot:#EFB071;
+  --apricot-soft:#FBEBDA;
+  --slate:#313D41;
+  --slate-soft:#566267;
+  --rust:#A8461F;
+  --teal:#3F6170;
+  --white:#FFFFFF;
+  --rule:rgba(49,61,65,.22);
+  --display:"Abril Fatface","Bodoni 72",Georgia,serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:72rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--slate);font:400 1.0625rem/1.65 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.75rem,6.6vw,4.75rem);letter-spacing:-.005em}
+h2{font-size:clamp(2.25rem,5vw,3.5rem)}
+h3{font:600 1.375rem/1.25 var(--body);margin:0}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible,.on-dark input:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--slate);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:.7rem 1.4rem;
+  font:600 1rem/1.2 var(--body);text-decoration:none;border-radius:.3rem;border:2px solid var(--slate);
+  background:var(--slate);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--slate)}
+.btn--line{background:transparent;color:var(--slate)}
+.btn--line:hover{background:var(--slate);color:#fff}
+.btn--apricot{background:var(--apricot);border-color:var(--apricot);color:var(--slate)}
+.btn--apricot:hover{background:transparent;color:#fff;border-color:#fff}
+
+/* header */
+.top{position:relative;background:#fff;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.7rem}
+.brand{margin-right:auto;flex:none;display:block}
+.brand img{width:7rem;height:auto}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.2vw,1.9rem)}
+.nav a{font-weight:600;font-size:.9375rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--rust)}
+.menu-btn{display:none}
+
+/* hero */
+.hero{background:var(--apricot)}
+.hero .wrap{display:grid;grid-template-columns:1.45fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:end;padding-block:clamp(3rem,7vw,5.5rem) 0}
+.hero-copy{padding-bottom:clamp(3rem,7vw,5.5rem)}
+.hero .lede{font-size:1.1875rem;margin-top:1.5rem;max-width:33rem}
+.next{margin-top:2.25rem;background:var(--slate);color:#fff;padding:1.5rem 1.75rem;max-width:30rem;border-radius:.3rem}
+.next small{display:block;font-weight:600;font-size:.9375rem;color:var(--apricot)}
+.next b{display:block;font:400 clamp(1.75rem,3.4vw,2.4rem)/1.1 var(--display);margin:.35rem 0 .6rem}
+.next p{font-size:1rem}
+.next a{font-weight:600;display:inline-block;padding-block:.5rem}
+.hero-pic{align-self:end}
+.hero-pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:.3rem .3rem 0 0}
+
+/* visit */
+.visit{padding-block:clamp(4rem,8vw,6.5rem)}
+.seasons{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(2rem,4vw,3rem);border-top:3px solid var(--slate)}
+.season{padding:1.75rem 2rem 0 0}
+.season + .season{border-left:1px solid var(--rule);padding-left:2rem}
+.season .when{font-weight:600;color:var(--rust);font-size:1rem}
+.season h3{margin-top:.35rem;font-size:1.5rem}
+.season dl{margin:1rem 0 0;display:grid;gap:.5rem}
+.season dt{font-weight:600;font-size:.875rem;color:var(--slate-soft)}
+.season dd{margin:0}
+.season .more{margin-top:1rem;font-weight:600}
+.season .more a{display:inline-block;padding-block:.5rem}
+.now{display:inline-block;background:var(--apricot);font-weight:600;font-size:.875rem;padding:.15rem .6rem;border-radius:999px;margin-left:.4rem;vertical-align:middle;color:var(--slate)}
+
+/* vendors */
+.vendors{background:var(--apricot-soft);padding-block:clamp(4rem,8vw,6.5rem)}
+.v-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 3rem}
+.v-head p{max-width:30rem}
+.v-tools{margin-top:2rem;display:grid;gap:1rem}
+.v-tools label{font-weight:600;font-size:.9375rem;display:block;margin-bottom:.35rem}
+.v-tools input{width:100%;max-width:26rem;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--slate);border-radius:.3rem;padding:.7rem .9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:600 .9375rem/1.2 var(--body);min-height:2.75rem;padding:.5rem 1rem;border-radius:999px;border:1.5px solid var(--slate);background:transparent;color:var(--slate);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--slate);color:#fff}
+.v-count{font-size:.9375rem;color:var(--slate-soft);margin-top:1.25rem;min-height:1.6em}
+.vgroup{margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+.vgroup[hidden],.vgroup li[hidden]{display:none}
+.vgroup h3 span{font-weight:400;color:var(--slate-soft);font-size:1rem;margin-left:.3rem}
+.vgroup ul{margin:1rem 0 0;padding:0;list-style:none;columns:3;column-gap:2.5rem}
+.vgroup li{padding:.3rem 0;break-inside:avoid}
+
+/* history */
+.history{padding-block:clamp(4rem,8vw,6.5rem)}
+.history .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.history-pics{display:grid;grid-template-columns:1fr;gap:1rem}
+.history-pics img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:.3rem}
+.crier{display:grid;grid-template-columns:9rem 1fr;gap:1rem;align-items:center;font-size:.9375rem;color:var(--slate-soft)}
+.crier img{aspect-ratio:4/3}
+.year{font:400 clamp(4rem,10vw,7rem)/.9 var(--display);color:var(--rust);display:block}
+.history h2{margin-top:.5rem}
+.history-text p{margin-top:1.15rem;max-width:34rem}
+
+/* take part */
+.part{background:var(--slate);color:#fff;padding-block:clamp(4rem,8vw,6rem)}
+.part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3.5vw,3rem);margin-top:clamp(2rem,4vw,3rem)}
+.part-grid > div{border-top:3px solid var(--apricot);padding-top:1.25rem}
+.part-grid p{margin-top:.8rem}
+.part-grid ul{margin:.8rem 0 0;padding:0;list-style:none}
+.part-grid li{padding:.2rem 0;display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid rgba(255,255,255,.18)}
+.part-grid .btn{margin-top:1.25rem}
+.board{font-size:.9375rem}
+
+/* contact */
+.contact{padding-block:clamp(4rem,8vw,6rem)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem)}
+.c-lines{margin:1.75rem 0 0;padding:0;list-style:none;display:grid;gap:1.25rem}
+.c-lines small{display:block;font-weight:600;font-size:.875rem;color:var(--slate-soft)}
+.c-lines a{font-weight:600;display:inline-block;padding-block:.55rem;overflow-wrap:anywhere}
+.signup{background:var(--teal);color:#fff;padding:clamp(1.5rem,3vw,2.25rem);border-radius:.3rem}
+.signup p{margin-top:.6rem}
+.signup label{display:block;font-weight:600;font-size:.9375rem;margin:1.25rem 0 .35rem}
+.signup input{width:100%;font:inherit;color:var(--slate);background:#fff;border:0;border-radius:.3rem;padding:.75rem .9rem}
+.signup .btn{margin-top:1rem}
+.form-note{margin-top:1rem;padding:.8rem 1rem;background:rgba(255,255,255,.14);border-left:4px solid var(--apricot);font-size:.9375rem}
+.form-note[hidden]{display:none}
+
+.foot{background:var(--apricot);padding-block:2.25rem;font-size:.9375rem}
+.foot p{max-width:52rem}
+.foot p + p{margin-top:.8rem}
+
+@media (max-width:62rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:#fff;border-bottom:3px solid var(--slate);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.0625rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .9rem;font:600 1rem/1 var(--body);
+    background:transparent;color:var(--slate);border:2px solid var(--slate);border-radius:.3rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .vgroup ul{columns:2}
+  .history .wrap,.contact .wrap{grid-template-columns:1fr}
+  .part-grid{grid-template-columns:1fr}
+}
+@media (max-width:46rem){
+  body{font-size:1rem}
+  .brand img{width:5.75rem}
+  .hero .wrap{grid-template-columns:1fr;gap:0}
+  .hero-copy{padding-bottom:2rem}
+  .hero-pic img{aspect-ratio:4/3;object-position:50% 30%;border-radius:.3rem .3rem 0 0}
+  .seasons{grid-template-columns:1fr;border-top:0}
+  .season,.season + .season{border-left:0;border-top:3px solid var(--slate);padding:1.4rem 0 2rem}
+  .vgroup ul{columns:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Annapolis Royal Farmers and Traders Market, home">
+      <img src="assets/logo.png" alt="Annapolis Royal Farmers &amp; Traders Market" width="139" height="99">
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#visit">Visit the market</a>
+      <a href="#vendors">Vendors</a>
+      <a href="#history">History</a>
+      <a href="#part">Become a vendor</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Saturday mornings in Annapolis Royal.</h1>
+        <p class="lede">Live music, hot food, artisans and locally grown food. Take a stroll through history while supporting local businesses and makers.</p>
+        <div class="next on-dark" id="next">
+          <small id="next-label">Indoor market, on now</small>
+          <b id="next-date">Every Saturday</b>
+          <p>9 am to noon at the Legion, 66 Victoria St, Annapolis Royal.</p>
+          <p><a href="#visit">All market days and places</a></p>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <img src="assets/flowers.webp" alt="Bouquets of dahlias and foxgloves in buckets at a market flower stall" width="900" height="1080" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <h2 id="visit-h">Visit the market</h2>
+      <div class="seasons">
+        <article class="season">
+          <p class="when">October to May <span class="now">On now</span></p>
+          <h3>Indoor market</h3>
+          <dl>
+            <div><dt>When</dt><dd>Saturdays, 9 am to noon</dd></div>
+            <div><dt>Where</dt><dd>The Legion, 66 Victoria St, Annapolis Royal</dd></div>
+            <div><dt>This season</dt><dd>October 17, 2026 to May 2027</dd></div>
+          </dl>
+          <p class="more"><a href="https://www.google.com/maps/search/?api=1&amp;query=66+Victoria+St%2C+Annapolis+Royal%2C+Nova+Scotia" rel="noopener">Directions to the Legion</a></p>
+        </article>
+        <article class="season">
+          <p class="when">May to October</p>
+          <h3>Outdoor market</h3>
+          <dl>
+            <div><dt>When</dt><dd>Saturdays, 9 am to 1 pm, rain or shine</dd></div>
+            <div><dt>Where</dt><dd>Market Square, 178 St George St, Annapolis Royal</dd></div>
+            <div><dt>Next season</dt><dd>Back in Market Square in May 2027</dd></div>
+          </dl>
+          <p class="more"><a href="https://www.google.com/maps/search/?api=1&amp;query=178+St+George+St%2C+Annapolis+Royal%2C+Nova+Scotia" rel="noopener">Directions to Market Square</a></p>
+        </article>
+        <article class="season">
+          <p class="when">Summer</p>
+          <h3>Wednesday night market</h3>
+          <dl>
+            <div><dt>When</dt><dd>Wednesday evenings in summer</dd></div>
+            <div><dt>Where</dt><dd>Market Square, with live music on the stage</dd></div>
+            <div><dt>Next season</dt><dd>Returns in summer 2027</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vendors" id="vendors" aria-labelledby="vendors-h">
+    <div class="wrap">
+      <div class="v-head">
+        <h2 id="vendors-h">Our market vendors</h2>
+        <p>96 farmers, bakers, makers and community groups have a table at the market this year. Not every vendor is there every week.</p>
+      </div>
+      <div class="v-tools">
+        <div>
+          <label for="v-search">Find a vendor</label>
+          <input id="v-search" type="search" placeholder="Try honey, pottery or coffee" autocomplete="off">
+        </div>
+        <div class="chips" role="group" aria-label="Show one kind of vendor"><button type="button" class="chip" data-cat="grow" aria-pressed="false">Growers and farmers</button><button type="button" class="chip" data-cat="make" aria-pressed="false">Bakers, roasters and distillers</button><button type="button" class="chip" data-cat="eat" aria-pressed="false">Hot food</button><button type="button" class="chip" data-cat="craft" aria-pressed="false">Artisans and crafters</button><button type="button" class="chip" data-cat="trade" aria-pressed="false">Traders</button><button type="button" class="chip" data-cat="comm" aria-pressed="false">Community groups</button><button type="button" class="chip" data-cat="other" aria-pressed="false">Other</button></div>
+      </div>
+      <p class="v-count" id="v-count" role="status"></p>
+      <section class="vgroup" data-cat="grow"><h3>Growers and farmers <span>21</span></h3><ul><li data-k="i have ontario wildcrafted spring ephemeral  perennial flowering and edible plant  allium tricoccum bulbs for transplanting in ornamental and or vegetable garden  sold in increments of a dozen bulbs and minimum of 12 at a time  price is  10 for 12 bulbs  they">Angie Lima Rojas</li><li data-k="barteaux farms is located in the beautiful annapolis valley of nova scotia  just a short distance from historic annapolis royal  our family has been farming here for 7 plus generations  barteaux farms takes great pride and producing high quality produce such a">Barteaux Farms</li><li data-k="producer of natural honey">Belleisle Bees</li><li data-k="blackbird hollow is many things  a hardy fruit   nut tree nursery  providing home grown trees  perennials  seeds   more  as well  they offer home grown  hand crafted herbal apothecary wares such as fire cider  elixirs  tonics  salves   more  as well as seasona">blackbird hollow</li><li data-k="always interested in a chat">Bruce Family Farm</li><li data-k="casa nova fine beverages is a nova scotian award winning producer of wine  cello&#x27;s and ciders  we also produce estate hot sauces  condiments  flavoured maple syrup and organic apple cider vinegar">Casa Nova Fine Beverages</li><li data-k="green leaf enterprises grows vegetable transplants  flowers  herb  hanging baskets  fresh flowers all without sprays or chemicals  we grow on vegetable all started from our seedlings  we bring beautiful fresh arrangements and cut flowers bouquets  we have been">Green Leaf Enterprises</li><li data-k="we re a family run  multi generational farm rooted in the annapolis valley  growing and producing high quality food with a strong focus on organic practices  while much of what we offer is organically grown  we also grow and source select non organic crops to">Inglis Legacy Farm</li><li data-k="we are small scale family run business">Ragged Robin Farm &amp; Nursery</li><li data-k="as a homesteading family we want to share some of our skills and produce with our community  everyone in our family is involved  this farmers market is part of the venue to provide our team with business experience  it also gives us the opportunity to interact">Salt and Light Sea Salt Co</li><li data-k="scotian shores clean up project is committed to cleaning the shorelines of nova scotia  we host lots of volunteer events and work with over 15 local artists to repurpose the debris we find into beautiful items  we sell these to fundraiser for outlr clean ups">Scotian Shores Clean Up Project</li><li data-k="sissiboo organics was birthed in 2015 and we have attended the annapolis royal farmers market since 2016 making this our 10 season at the market  we also sell salad greens and micro greens year round in local rental farm markets  goucher s farm market  wilmot">Sissiboo Organics</li><li data-k="we are a small batch craft distillery creating award winning spirits from the first &#x27;legal&#x27; stills designed  built and assembled in nova scotia">Still Fired Distilleries</li><li data-k="stone meadow gardens grows an amazing array of cut flowers in granville beach  find their beautiful bunches and bouquets every saturday at the annapolis market  or come visit their flower stand at their historic farm in granville beach  during the high summer">Stone Meadow Gardens</li><li data-k="our farm is located at the base of the north mountain and our growing field rests on a knoll overlooking granville centre and the annapolis river  we grow a diverse range of certified organic vegetables  herbs and fruits with an emphasis on unique and traditio">Strattons Farm</li><li data-k="red wiggler worms and by products">The Worm Barn</li><li data-k="local  robust continental hardneck garlic  no chemicals or sprays on the farm">vanderweit farms</li><li data-k="wandering farm is a small scale  biodiverse and spray free market garden located just outside of harbourville  ns">Wandering Farm</li><li data-k="pure maple syrup made for 32 years in belleisle">Warren Syrup</li><li data-k="windy hills homestead is a family run homestead in bear river dedicated to creating wholesome  handcrafted products inspired by nature  from small batch natural skincare and healing salves to rotational grazing farm goods  every item is made with care using qu">Windy Hills Homestead</li><li data-k="we are a small family farm  we raise our livestock naturally without the use of hormones  antibiotics or additives in the feed  the beef lamb chicken turkey and laying hens are raised free range during spring summer and fall  with the pork raised free run in l">Windy View Farm Ltd.</li></ul></section>
+      <section class="vgroup" data-cat="make"><h3>Bakers, roasters and distillers <span>11</span></h3><ul><li data-k="atlantic sweets and treats creates handcrafted sweets that bring a fun and nostalgic twist to every occasion  we offer include different flavors of marshmallows  chocolate covered treats  and fan favorites like our traditional apple fritters and funnel cakes">Atlantic Sweets and Treats</li><li data-k="pre packaged freeze dried candy  various skittles  flavoured marshmallows  nerds clusters">Colton&#x27;s Candy Corner</li><li data-k="i m a candy maker  i use traditional methods and real ingredients and cream my fudge on a marble slab  i make traditional flavours and then others that are my creations and have never existed in the body of fudge before">Den’s Fudge</li><li data-k="fullstrong coffee is a small coffee roastery located in aylesford  nova scotia  with a focus on medium to dark roast coffee  smooth and vibrant flavors">Fullstrong Coffee</li><li data-k="my business is a small batch herbal apothecary rooted in traditional plant knowledge  seasonal rhythms  and everyday nourishment  i create handcrafted herbal products using time honoured methods  thoughtfully sourced ingredients  and a deep respect for the con">Holisticious</li><li data-k="ironworks is a micro distillery located in the old port of lunenburg on nova scotia s historic south shore  we take our name from the 1893 heritage building we call home  a marine blacksmith s shop that once produced ironworks for the shipbuilding trade">Ironworks Distillery</li><li data-k="at k b homestead bakery  fresh is key  homemade  handmade  from scratch baking  created with love and intention  i include fresh homegrown in season produce as well as homemade preserves from our north mountain garden and orchard  i keep ingredients simple  an">K &amp; B Homestead Bakery</li><li data-k="lazy bear brewing  a family run microbrewery specializing in smash batches if craft beer  cider and seltzers  lazy bear publishing  small independent publisher of local children&#x27;s books">Lazy Bear Brewing</li><li data-k="sissiboo coffee roaster ltd  is a specialty coffee company based in bear river  nova scotia  with caf  locations in bear river and annapolis royal and a growing wholesale presence across atlantic canada  founded and operated by jon welch  sissiboo focuses on s">Sissiboo Coffee Roaster Ltd.</li><li data-k="uniquely beautiful hand carved functional kitchen implements for everyday life   upcycled lobster rope crafted into rugged rope mats and fun garden accessories">Timber and Tide Studio</li><li data-k="from wolf haus bakery  we bring to you a delightful scrumptous mix of sweet and savoury baked goods  combining my canadian roots and generations of austrian influence we source local products to bring you the most delicious treats">Wolfhaus Bakery</li></ul></section>
+      <section class="vgroup" data-cat="eat"><h3>Hot food <span>5</span></h3><ul><li data-k="as the name suggests  we are a family owned and operated butcher shop  we can be found at the market selling our own store made  100  locally grown pork    sausages off the barbecue  our physical shop is located at 607 granville street in the beautiful communi">D&#x27;Aubin Family Meats</li><li data-k="n">KENAAN&#x27;S KITCHEN</li><li data-k="stirring the pot soup cafe is a small batch soup vendor in nova scotia specializing in fresh  flavorful soups from scratch  made with love by a red seal cook  quality and flavor is my top priority">Stirring The Pot Soups</li><li data-k="hometown authentic thai food">Thailand-Food68</li><li data-k="i m originally from japan and being sushi chef at canmore ab and then here nova scotia  i love food  making and eating  i believe good food is happiness  oishi means delicious in english  i put love into my food">Yukiko’s Oishi Sushi</li></ul></section>
+      <section class="vgroup" data-cat="craft"><h3>Artisans and crafters <span>39</span></h3><ul><li data-k="a little bit vintage provides a vintage look to bags and clothing in a new and upcycled way  it also provides a twist on nostalgia through its unique silver spoon jewelry and genuine stone necklaces  bracelets and other adornments">A Little Bit Vintage</li><li data-k="hand made wooden products such as cooking spatulas  coffee spoons  and larger wooden cooking spoons and salad tongs">Al’s Spatulas</li><li data-k="art by ruth is all about adding colour and personality to your home  whether it s a whimsical tile or a local landmark ruth has something for every taste">Art by Ruth</li><li data-k="barefoot daughter botanical body care is a small batch skincare company specializing in handcrafted  plant based shampoo and body bars for sensitive skin and eco conscious consumers  founded by aly coy  the brand focuses on ingredient transparency and sustaina">Barefoot Daughter</li><li data-k="the barnkat knitter lives and designs in the annapolis valley an area known for its beauty and its history  encompassing seascapes  orchards  vineyards and historic architecture  the  valley  has inspiration aplenty  the barnkat plays with colour and gets idea">BarnKat Knitter</li><li data-k="at beads by kismet  we create handmade jewelry inspired by our colombian roots and the vibrant spirit of the east coast  from ocean inspired pieces with freshwater pearls to playful cat themed designs  each item is crafted with care  cat personality  time spen">Beads by Kismet</li><li data-k="local artist making unique designs with an east coast flare which can also be personalized  offering coasters  clocks  barn boards and ethically source scallop shells">Beyond the Canvas by Rebecca</li><li data-k="i handmake polymer clay earrings  and other items like bookmarks and keychains">Clay by Day Designs</li><li data-k="i am a clay artist and am very passionate about my craft  i absolutely love creating jewelry  i like to dabble in creating other craft items as well such as birdhouses and small furniture pieces  i always enjoy making jewelry pieces for my customers and am loo">Clayplay by Sherry</li><li data-k="i create all my jewelry myself using only the finest materials  bone  horn  glass beads  hazelwood  and deer moose hide  all my designs are my own and are inspired by traditional native designs  other than the materials i gather myself everything i use is purc">crow&#x27;s crafts</li><li data-k="i make various hand made items from painted ornaments  to hand made one of a kind ear rings  everything is hand made locally  by me  the leather works are mainly from reclaimed leather">Cyanide Jellybean Designs</li><li data-k="holly everett was born and raised in a small fishing village on the shores of the bay of fundy  better known as hillsburn  nova scotia  she now resides with her husband  and shihpoo  in parker s cove  nova scotia  upon a completing an accounting course at the">Everett</li><li data-k="gingersgrater  com our famous hand made ceramics">Gingersgrater.com</li><li data-k="i make crocheted hats  my own designs  patterns and stitches">Handmade Hats by Carolynn</li><li data-k="hardcorearts sells abstract acrylic paintings on canvas board representing emotional and psychological interpersonal and intrapersonal relationships  feelings translated to paint">Hardcorearts</li><li data-k="i create home decor pieces from reclaimed lobster rope">Healing Ties By Nicole</li><li data-k="be aware of the process  inspired by repurposing and reclaiming materials  altered and dyed hand made and altered clothing handmade and natural accessories">In.form clothing</li><li data-k="j e friend is a local author of five crime thriller novels and one children s story written for her grandchildren">J. E. Friend, Author</li><li data-k="about the artist jill kyte is a mother  a school teacher  and an acrylic painter  she lives in digby  nova scotia  she specializes in painting florals  still life and landscapes  by working with a limited palette  she enjoys mixing and discovering vibrant colo">Jill Kyte Acrylic Paintings</li><li data-k="i&#x27;m a local artist  heavily inspired by nature and the local landscape  i have a lot of fun creating nautical and maritime themed art with an unusual twist">Jodi MacAleese Art</li><li data-k="judy&#x27;s sea glass jewelry features unique hand created one of a kind wearable art  over the years i have expanded my collection featuring beautiful lanterns and pictures made from sea glass and natural organics that i have gathered along the shores of nova scot">Judy&#x27;s Sea Glass Jewelry</li><li data-k="we make cute and stylish jewelry  keychains and charms  also adorable crochet plushies">Katie</li><li data-k="original art work featuring local landscape  still life and florals in watercolour  ink and pastel">L Williams Studio</li><li data-k="i have been creating quilts and other items for over 30 years  i have sold items to visitors at our beautiful market in annapolis to customers throughout canada  united states and europe  for that unique gift or a keepsake from the maritimes  please check out">Marilyn Mullen Quilts and Crafts</li><li data-k="maryann&#x27;s creations on fb maryannscreation2023 on instagram i do custom order sealskin products">Maryann&#x27;s Creations</li><li data-k="maxine&#x27;s family crafts has provided all types of hand knit items to the public for the past 41 years  and 2026 will be our 41st year  we have many repeat customers from all over the world who have purchased our hand knit products  it has been a pleasure to mee">Maxine&#x27;s Family Crafts</li><li data-k="i am a nova scotia artist who primarily paints canadian wildlife">melaniewearart</li><li data-k="pectoral brand fishing apparel  mugs and hats  the following fish are a selection of what i have  the mugs and hats are not yet printed">Pectoral</li><li data-k="riverside pottery crafts whimsical and functional pottery in our home studio near bear river">Riverside Pottery</li><li data-k="scotian tides apparel is a nova scotia based lifestyle and apparel brand that combines east coast culture with norse inspired design and storytelling  the company creates quality clothing and merchandise including hoodies  t shirts  caps  toques  artwork  and">Scotian Tides Apparel</li><li data-k="hi  i m lauren  i m 16 and this is my business">Seaside Handmade</li><li data-k="a one of a kind folkart combining carving and painting  a one of a kind seaglass art using multiple pieces of nature">Sea….nery</li><li data-k="most items are made with re cycled fabrics  many of the items are nova scotia themed  using nova scotia flags  tartans and other nova scotia themed fabrics">sew &amp; sew</li><li data-k="simply knit and crochet is a small handmade business based in cornwallis park   created by debora   a lifelong maker with a passion for creating warm  practical pieces by hand  now approaching retirement  i opened simply knit and crochet to continue doing what">Simply Knit and Crochet</li><li data-k="solidarity and spite leatherwork is a locally owned workshop producing hand made leather goods  from belts and wallets to keytags and bookmarks  along with commissioned work options starting at  25 hr plus materials">Solidarity and Spite Leatherwork</li><li data-k="i work with raw fibre to create my wet and needlefelted items  i have been a weaver for over 40 years and have added woven purses  shawls and tea towels to my market booth">The Cranky Ewe</li><li data-k="we have a wide range of matted prints  framed prints  and notecards made from our art originals  kathi makes large greenmen women from concrete for garden decor as well as no spray jams and jellies">Two Crows Gallery</li><li data-k="valley tees makes original  nova scotia themed t shirts that are designed and screen printed by hand in the annapolis valley">Valley Tees</li><li data-k="zenful designs is a unique combination of wearable art  crochet  sewing and jewelry  all one of a kind with a hint of nostalgia  what started out a unique jewelry brand  which in 2017 evolved into an apparel and home decor niche  we hope the customer can see">ZenfulDesigns</li></ul></section>
+      <section class="vgroup" data-cat="trade"><h3>Traders <span>3</span></h3><ul><li data-k="welcome to moose house  we publish fiction  non fiction  and other materials about  written in  or connected to rural nova scotia  located in perotte  annapolis county  we focus on all parts of rural nova scotia">Moose House Publications</li><li data-k="pleasant street living   beautiful things for your home and your life  vintage shop with so much more  offer a wide selection of vintage as well as new pieces for your home  italian pantry   artisanal italian pantry ingredients  the best that italy has to offe">Pleasant Street Living</li><li data-k="i ve been enjoying market cert  organic   gluten blends spices  extract plus salves">Watkins company</li></ul></section>
+      <section class="vgroup" data-cat="comm"><h3>Community groups <span>14</span></h3><ul><li data-k="annapolis royal pride advocates for equal rights for the 2slgbtqia  community in annapolis county  this year the pride festical takes place from july 3 5th  with the parade occurring right after the market ends on july 4th">Annapolis Royal Pride</li><li data-k="bbbs creates mentoring relationships amongst adults and youth  mentoring is two way  learning and development partnership where the young person needs are placed at the centre  because young people s brains are still developing  mentoring can support that proc">Big Brothers Big Sisters of the Annapolis Valley</li><li data-k="cracked armour&#x27;s  est 2018  mission is to raise awareness for ptsd  tbi  traumatic brain injury  and mental health  and to support those who still struggle  by creating an army of warriors who rep our gear  our hope is to send the message to others that they a">CRACKED ARMOUR</li><li data-k="the ecology action centre acts as watchdog  convener  mobilizer and incubator  we engage community to create systemic change in the face of urgent  complex environmental issues  my work is centred around energy efficiency in homes  institutional buildings and">Ecology Action Centre</li><li data-k="elephant grass printmakers society is an artist run printmaking studio committed to expanding the tradition of printmaking and letterpress within our community  egps not only provides members access to printmaking equipment  they educate and share the joy of p">Elephant Grass Printmakers Society</li><li data-k="family service nova scotia is a community based provincial organization that has been offering a wide variety of programs and services to nova scotians since 1969  supporting our service users is at the centre of everything we do  family service nova scotia">Family Service Nova Scotia</li><li data-k="we are a local ngo working to promote protection of the mickey hill lambs lake protection society">Friends of Mickey Hikk</li><li data-k="the friends of the annapolis royal library would like to thank everyone who has donated books  we will be selling these at the summer farmer&#x27;s market to raise funds to support our library  please also check in with us for information about library services and">Friends of the Annapolis Royal Library</li><li data-k="our goal is to build a connected  self reliant community  weekly programs  community coffee  craft   book club  fitness  yoga  indoor fitness walking    tai chi  special events monthly   rentals available  join our email list  little library   aed on site">Lower Granville Hall</li><li data-k="the nova scotia nature trust was created to protect and conserve our province s incredible natural legacy  we work directly to save outstanding natural areas  through land conservation  we use a strategic  science driven approach to identify and protect the mo">Nova Scotia Nature Trust</li><li data-k="the paradise historical society offers programs  events  and workshops that celebrate the local history of our area  we support local artists and crafters  host displays and events from local organizations  and offer genealogical research support for those see">Paradise Historical Society</li><li data-k="we are a collective of scholars activists committed to queer liberation across the life course and into aging futures  the queer geronology lab is dedicated to anti oppressive research that advances a more just aging society  with a deep commitment to democrat">Queer Gerontology Lab, Dalhousie University</li><li data-k="valley waste resource provides waste management services to all residents of annapolis county  our education team runs education programs  works with schools and local organizations to provide waste sorting information">Valley Waste Resource Management</li><li data-k="walk of hope to be held august 22  2026">Walk of Hope, Ovarian Cancer Canada</li></ul></section>
+      <section class="vgroup" data-cat="other"><h3>Other <span>3</span></h3><ul><li data-k="founded in 2022  cats for keeps rescue society is a 100  volunteer run  registered canadian charity  we are a cat rescue society dedicated to helping homeless cats and kittens in nova scotia  we rescue  foster  vet  and home adoptable cats to reduce suffering">Cats for Keeps</li><li data-k="handpicked and handcrafted in nova scotia  each  rock on  candle is created as an individual piece of art  the rocks we choose are delicately selected for their natural beauty  varying in shape  color and texture as no man made product can  with fiberglass wic">Rock On Rock Candles</li><li data-k="an organic gardener for 45 years and an epietemologist for 58 years  dr elliot offers vegetables and insights">Wiseacres Produce Organic Gardening and Epistemology</li></ul></section>
+    </div>
+  </section>
+
+  <section class="history" id="history" aria-labelledby="history-h">
+    <div class="wrap">
+      <div class="history-text">
+        <span class="year">1976</span>
+        <h2 id="history-h">Nova Scotia's longest-running outdoor market</h2>
+        <p>What began in 1976 with just a few farmers and a pot of fresh coffee has grown into a vibrant, bustling hub of over 100 vendors, weather permitting, each offering a taste of what makes this region so special.</p>
+        <p>From just-picked produce and artisan breads to locally made beer, wine and spirits, the Market is a celebration of everything homegrown and handcrafted. You'll find hot food to enjoy as you wander, fair-trade coffee roasted right here in the Valley, fresh-cut flowers, handmade soaps, pottery, clothing, jewellery, original artwork and more.</p>
+        <p>Live music fills the air each week. It's part kitchen party, part community gathering, and a true taste of small-town hospitality.</p>
+        <p>Come early, bring a tote bag, and experience the magic of Market day in Annapolis Royal.</p>
+      </div>
+      <div class="history-pics">
+        <img src="assets/basket.webp" alt="A basket of carrots, tomatoes and plums beside a carton of brown and pale green eggs" width="900" height="900" loading="lazy">
+        <div class="crier">
+          <img src="assets/town-crier.webp" alt="The Annapolis Royal town crier in a feathered tricorn hat and heraldic tabard, by the water" width="300" height="225" loading="lazy">
+          <p>The town crier, a familiar face on Market day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part on-dark" id="part" aria-labelledby="part-h">
+    <div class="wrap">
+      <h2 id="part-h">Take part</h2>
+      <div class="part-grid">
+        <div>
+          <h3>Become a vendor</h3>
+          <p>2026 winter applications are open. Permanent vendors have a set spot every market day. Casual vendors fill in when permanent vendors are away, first come, first served.</p>
+          <a class="btn btn--apricot" href="https://www.annapolisroyalfarmersmarket.com/how-to-apply" rel="noopener">How to apply</a>
+        </div>
+        <div>
+          <h3>2026 table fees</h3>
+          <ul>
+            <li><span>Outdoor, members</span><span>$35 a day</span></li>
+            <li><span>Outdoor, non-members</span><span>$45 a day</span></li>
+            <li><span>Indoor, all vendors</span><span>$25 a day</span></li>
+            <li><span>Power</span><span>$5 a day</span></li>
+          </ul>
+          <p>Prices include HST. Payment is due the Thursday before each market day.</p>
+        </div>
+        <div>
+          <h3>Play on our stage</h3>
+          <p>If you are interested in performing on our stage during the outdoor markets on Saturdays and Wednesdays, reach out to ask about available dates.</p>
+          <a class="btn btn--apricot" href="mailto:directors@annapolisroyalfarmersmarket.com?subject=Playing%20at%20the%20market">Ask about dates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">Contact us</h2>
+        <ul class="c-lines">
+          <li><small>Board of Directors</small><a href="mailto:directors@annapolisroyalfarmersmarket.com">directors@annapolisroyalfarmersmarket.com</a></li>
+          <li><small>Market Manager</small>Jenn Chivers</li>
+          <li><small>Mailing address</small>P.O. Box 748, Annapolis Royal, NS B0S 1A0</li>
+          <li><small>Follow along</small>
+            <a href="https://www.facebook.com/annapolisroyalfarmersmarket" rel="noopener">Facebook</a> &nbsp;
+            <a href="https://www.instagram.com/annapolisroyalfarmersmarket" rel="noopener">Instagram</a>
+          </li>
+        </ul>
+        <p class="board" style="margin-top:1.75rem;max-width:34rem"><strong>2026 Board of Directors.</strong> Chair Dawn Thompson. Co-Chair Jay Stone. Treasurer Janice Friend. Secretary Murray Harris. Directors Sandi Aitken, Dieter Claussing, Bill McKee and Cheryl den Hartog.</p>
+      </div>
+      <form class="signup on-dark" id="signup" novalidate>
+        <h3>Stay in the loop</h3>
+        <p>Sign up with your email address to receive news, updates and special events happening at the Market.</p>
+        <label for="s-email">Email address</label>
+        <input id="s-email" name="email" type="email" autocomplete="email">
+        <button class="btn btn--apricot" type="submit">Sign up</button>
+        <p class="form-note" id="signup-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would add you to the Market's mailing list.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>We recognize that the Annapolis Royal Farmers &amp; Traders Market takes place in Mi'kma'ki, the unceded and ancestral territory of the Mi'kmaq People. We acknowledge and honour the Mi'kmaq as the past, present, and future caretakers of this land.</p>
+    <p>Annapolis Royal Farmers &amp; Traders Market, P.O. Box 748, Annapolis Royal, NS B0S 1A0</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+
+  /* Next market day, from the season's Saturday dates. Falls back to the static text above. */
+  var DATES=["2026-10-17", "2026-10-24", "2026-11-07", "2026-11-14", "2026-11-21", "2026-11-28", "2026-12-12", "2026-12-19", "2026-12-26", "2027-01-02", "2027-01-09", "2027-01-16", "2027-01-23", "2027-01-30", "2027-02-06", "2027-02-13", "2027-02-20", "2027-02-27", "2027-03-06", "2027-03-13", "2027-03-20", "2027-03-27", "2027-04-03", "2027-04-10", "2027-04-17", "2027-04-24", "2027-05-01", "2027-05-08"];
+  try{
+    var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),next=null;
+    for(var i=0;i<DATES.length;i++){
+      var p=DATES[i].split('-'),d=new Date(+p[0],p[1]-1,+p[2]);
+      if(d>today||(d.getTime()===today.getTime()&&now.getHours()<12)){next=d;break}
+    }
+    if(next){
+      var isToday=next.getTime()===today.getTime();
+      document.getElementById('next-label').textContent=isToday?'The market is on today':'Next market';
+      document.getElementById('next-date').textContent=next.toLocaleDateString('en-CA',{weekday:'long',month:'long',day:'numeric'});
+    }
+  }catch(e){}
+
+  /* Vendor search and filter */
+  var q=document.getElementById('v-search'),chips=[].slice.call(document.querySelectorAll('.chip')),
+      groups=[].slice.call(document.querySelectorAll('.vgroup')),count=document.getElementById('v-count'),cat='';
+  function apply(){
+    var term=q.value.trim().toLowerCase(),shown=0;
+    groups.forEach(function(g){
+      var catOk=!cat||g.getAttribute('data-cat')===cat,n=0;
+      [].forEach.call(g.querySelectorAll('li'),function(li){
+        var ok=catOk&&(!term||(li.textContent+' '+(li.getAttribute('data-k')||'')).toLowerCase().indexOf(term)>-1);
+        li.hidden=!ok;if(ok)n++;
+      });
+      g.hidden=n===0;shown+=n;
+    });
+    count.textContent=(term||cat)?(shown===0?'No vendors match. Try a shorter word, or clear the filter.':shown+(shown===1?' vendor':' vendors')+' shown'):'';
+  }
+  q.addEventListener('input',apply);
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    var on=c.getAttribute('aria-pressed')==='true';
+    chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    cat=on?'':c.getAttribute('data-cat');if(!on)c.setAttribute('aria-pressed','true');apply();
+  })});
+
+  document.getElementById('signup').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('signup-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#232C2F;
+    --gd-ribbon-fg:#FFFFFF;
+    --gd-ribbon-accent:#EFB071;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:5.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for the Annapolis Royal Farmers &amp; Traders Market by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
