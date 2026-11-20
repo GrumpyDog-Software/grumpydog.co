@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordan's Natural Acres - website concept</title>
+<meta name="description" content="Website concept for Jordan's Natural Acres, a fourth generation family farm on Gaspereau Mountain, Nova Scotia: grass fed beef, free range pork, pastured chicken and free range eggs.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E3A2B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jordan's Natural Acres - website concept">
+<meta property="og:description" content="A preview of a new website for Jordan's Natural Acres on Gaspereau Mountain, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/jordans-natural-acres/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --spruce:#1E3A2B;
+  --pasture:#2F6B1F;
+  --hide:#8A4A22;
+  --ink:#17211B;
+  --ink-soft:#48544B;
+  --paper:#F4F6EC;
+  --paper-deep:#E6EBD6;
+  --white:#FFFFFF;
+  --rule:rgba(23,33,27,.2);
+  --display:"Zilla Slab",Rockwell,Georgia,serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --wide:62rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.6 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.6rem,7vw,4.75rem);letter-spacing:-.015em}
+h2{font-size:clamp(2.1rem,4.6vw,3.25rem);letter-spacing:-.01em}
+h3{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--hide);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible,.on-dark input:focus-visible,.on-dark textarea:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:.7rem 1.4rem;
+  font:600 1.0625rem/1.2 var(--body);text-decoration:none;border-radius:.25rem;border:2px solid var(--spruce);
+  background:var(--spruce);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--spruce)}
+.btn--line{background:transparent;color:var(--spruce)}
+.btn--line:hover{background:var(--spruce);color:#fff}
+.btn--light{background:var(--paper);border-color:var(--paper);color:var(--spruce)}
+.btn--light:hover{background:transparent;color:#fff;border-color:#fff}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+
+/* header */
+.top{position:relative;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:1rem}
+.brand{text-decoration:none;margin-right:auto;flex:none}
+.brand b{display:block;font:700 1.625rem/1.05 var(--display);white-space:nowrap}
+.brand span{display:block;font-size:.9375rem;color:var(--ink-soft);margin-top:.2rem}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.2vw,1.75rem)}
+.nav a{font-weight:600;font-size:1rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--hide)}
+.top .btn{min-height:2.75rem;padding:.55rem 1.1rem;font-size:1rem;white-space:nowrap}
+.menu-btn{display:none}
+
+/* hero */
+.hero{padding-top:clamp(2.5rem,6vw,5rem)}
+.hero h1{max-width:17ch}
+.hero-row{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem 3rem;margin-top:1.5rem}
+.hero .lede{font-size:1.3125rem;line-height:1.5;max-width:31rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero figure{margin:clamp(2rem,4vw,3rem) 0 0}
+.hero figure img{width:100%;aspect-ratio:960/433;object-fit:cover}
+
+/* where to buy */
+.buy{background:var(--spruce);color:#fff;margin-top:clamp(3rem,6vw,5rem);padding-block:clamp(3.5rem,7vw,5.5rem)}
+.days{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(2rem,4vw,3rem);border-top:3px solid #fff}
+.day{padding:1.6rem 1.75rem 0 0}
+.day + .day{border-left:1px solid rgba(255,255,255,.4);padding-left:1.75rem}
+.day .place{font-weight:600;font-size:1.25rem;line-height:1.3;margin-top:.8rem}
+.day p + p{margin-top:.6rem}
+.day .more{font-weight:600}
+.day .more a{display:inline-block;padding-block:.5rem}
+
+/* what we raise */
+.raise{padding-block:clamp(4rem,8vw,6.5rem)}
+.raise > .wrap > p{margin-top:1rem;font-size:1.25rem;max-width:36rem}
+.animal{display:grid;grid-template-columns:minmax(0,26rem) 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start;
+  margin-top:clamp(3rem,6vw,4.5rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--rule)}
+.animal:nth-of-type(even) img{order:2}
+.animal:nth-of-type(even){grid-template-columns:1fr minmax(0,26rem)}
+.animal img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.animal p{margin-top:1rem;max-width:34rem}
+details{margin-top:1.5rem;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);max-width:34rem}
+summary{cursor:pointer;font-weight:600;padding:.9rem 2rem .9rem 0;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:.35rem;top:50%;width:.6rem;height:.6rem;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateY(-70%) rotate(45deg);transition:transform .15s}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details ul{margin:0;padding:0 0 1.1rem;list-style:none;columns:2;column-gap:2rem}
+details li{padding:.2rem 0;break-inside:avoid}
+details .note{padding:0 0 1.1rem;color:var(--ink-soft);font-size:1rem;margin:0}
+
+/* how we farm */
+.farm{background:var(--paper-deep);padding-block:clamp(4rem,8vw,6rem)}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.5rem);margin-top:clamp(2rem,4vw,3rem)}
+.way h3{font-size:1.5rem;padding-top:1rem;border-top:3px solid var(--pasture)}
+.way p{margin-top:.7rem}
+.farm blockquote{margin:clamp(2.5rem,5vw,4rem) 0 0;max-width:44rem}
+.farm blockquote p{font:600 clamp(1.4rem,2.6vw,1.875rem)/1.3 var(--display)}
+.farm cite,.family cite,.said cite{display:block;font-style:normal;font-size:1rem;color:var(--ink-soft);margin-top:.9rem}
+
+/* family */
+.family{padding-block:clamp(4rem,8vw,6.5rem)}
+.family .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.family p{margin-top:1.1rem;max-width:34rem}
+.family blockquote{margin:2rem 0 0;padding-left:1.25rem;border-left:4px solid var(--hide)}
+.family blockquote p{margin:0;font:600 clamp(1.5rem,2.8vw,2rem)/1.25 var(--display)}
+.family img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* customers */
+.said{border-top:1px solid var(--rule);padding-block:clamp(3.5rem,7vw,5.5rem)}
+.quotes{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(2rem,5vw,4rem);margin-top:2rem}
+.said blockquote{margin:0}
+.said blockquote p{font-size:1.1875rem}
+
+/* contact */
+.visit{background:var(--spruce);color:#fff;padding-block:clamp(4rem,8vw,6rem)}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.lines{margin:2rem 0 0;padding:0;list-style:none;display:grid;gap:1.5rem}
+.lines small{display:block;font-size:1rem;opacity:.85}
+.lines a:not(.btn){font:600 clamp(1.375rem,2.4vw,1.75rem)/1.25 var(--body);text-decoration:none;display:inline-block;padding-block:.5rem;overflow-wrap:anywhere}
+.lines a.email{font-size:clamp(1.0625rem,1.75vw,1.3125rem)}
+.lines a:not(.btn):hover{text-decoration:underline}
+.lines address{font-style:normal;font-size:1.1875rem;line-height:1.45;margin-top:.2rem}
+.lines .btn{margin-top:1rem}
+form{background:var(--paper);color:var(--ink);padding:clamp(1.5rem,3vw,2.25rem)}
+form h3{font-size:1.625rem;margin-bottom:.4rem}
+form > p{margin-bottom:1.1rem;color:var(--ink-soft);font-size:1.0625rem}
+label{display:block;font-weight:600;font-size:1rem;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--ink);border-radius:.25rem;padding:.7rem .85rem}
+textarea{min-height:7.5rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--paper-deep);border-left:4px solid var(--pasture);font-size:1rem}
+.form-note[hidden]{display:none}
+
+/* footer */
+.foot{background:var(--ink);color:var(--paper);padding-block:2.25rem}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:1rem 3rem;align-items:center;justify-content:space-between;font-size:1rem}
+.foot b{font:700 1.375rem/1.2 var(--display);display:block}
+.foot-links{display:flex;flex-wrap:wrap;gap:.25rem 1.75rem}
+.foot-links a{display:inline-block;padding-block:.5rem}
+
+@media (max-width:60rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--paper);border-bottom:3px solid var(--ink);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.125rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .8rem;font:600 1rem/1 var(--body);
+    background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:.25rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .family .wrap,.visit .wrap{grid-template-columns:1fr}
+}
+@media (max-width:46rem){
+  body{font-size:1.0625rem}
+  .top .wrap{gap:.6rem}
+  .brand{flex:1 1 auto;min-width:0}
+  .brand b{font-size:1.25rem;white-space:normal}
+  .brand span{display:none}
+  .top .call span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .top .call{padding-inline:.75rem}
+  .hero .lede{font-size:1.1875rem}
+  .hero-actions,.hero-actions .btn{width:100%}
+  .hero figure{margin-inline:calc(var(--gutter)*-1)}
+  .hero figure img{aspect-ratio:3/2}
+  .days{grid-template-columns:1fr;border-top:0}
+  .day,.day + .day{border-left:0;border-top:3px solid #fff;padding:1.4rem 0 1.9rem}
+  .animal,.animal:nth-of-type(even){grid-template-columns:1fr}
+  .animal:nth-of-type(even) img{order:0}
+  .ways,.quotes{grid-template-columns:1fr}
+  details ul{columns:1}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Jordan's Natural Acres, home">
+      <b>Jordan's Natural Acres</b><span>Gaspereau Mountain, Nova Scotia</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#buy">Where to buy</a>
+      <a href="#raise">What we raise</a>
+      <a href="#farm">How we farm</a>
+      <a href="#family">The family</a>
+      <a href="#visit">Contact</a>
+    </nav>
+    <a class="btn call" href="tel:+19023000248" aria-label="Call or text 902-300-0248">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      <span>902-300-0248</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1>A fourth generation family farm on Gaspereau Mountain.</h1>
+      <div class="hero-row">
+        <p class="lede">Grass fed beef, free range pork, pastured chicken and free range eggs, raised without sprays or chemical fertilizer.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#buy">Where to buy</a>
+          <a class="btn btn--line" href="#raise">What we raise</a>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/pasture.webp" alt="The Jordans' cattle, brown, tan and black-and-white, grazing a wide green pasture under a blue sky" width="960" height="433" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <section class="buy on-dark" id="buy" aria-labelledby="buy-h">
+    <div class="wrap">
+      <h2 id="buy-h">Where to buy</h2>
+      <div class="days">
+        <article class="day">
+          <h3>Saturday</h3>
+          <p class="place">Wolfville Farmers' Market</p>
+          <p>8:30 am to 1 pm, year-round<br>24 Elm Avenue, Wolfville</p>
+          <p class="more"><a href="https://www.wolfvillefarmersmarket.ca/saturday-market" rel="noopener">Wolfville Farmers' Market website</a></p>
+        </article>
+        <article class="day">
+          <h3>Wednesday</h3>
+          <p class="place">Kentville Farmers Market</p>
+          <p>10 am to 1:30 pm. Meat is packaged and fresh frozen, and we serve sausage on a bun and burgers, with chili in winter.</p>
+          <p class="more"><a href="https://kentvillefarmersmarket.ca/" rel="noopener">Kentville Farmers Market website</a></p>
+        </article>
+        <article class="day">
+          <h3>At the farm</h3>
+          <p class="place">2439 Davidson St., Gaspereau Mountain</p>
+          <p>We deliver to nearby areas and take bulk orders.</p>
+          <p class="more"><a href="tel:+19023000248">Call or text 902-300-0248</a> before you come.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="raise" id="raise" aria-labelledby="raise-h">
+    <div class="wrap">
+      <h2 id="raise-h">What we raise</h2>
+      <p>Beef, pork, chicken and eggs. Here is how each one is raised.</p>
+
+      <article class="animal">
+        <img src="assets/beef.webp" alt="A tan bull grazing long grass behind a single strand of fence wire, with cattle and woods behind" width="800" height="600" loading="lazy">
+        <div>
+          <h3>Grass fed beef</h3>
+          <p>We grow true grass fed beef. No grain is ever present in their diet, and we don't use any animal by-products, growth hormones, antibiotics or steroids.</p>
+          <p>From May until November the cattle have access to 100 acres of managed rotating pasture and woodland. During the colder months they are fed grass silage and hay in our barns.</p>
+          <details>
+            <summary>Beef cuts we sell</summary>
+            <ul>
+              <li>Lean ground</li><li>Medium ground</li><li>All beef patties</li><li>Stew meat</li><li>Sausage</li><li>Honey garlic sausage</li>
+              <li>Round steak</li><li>Sirloin steak</li><li>Rib eye</li><li>Striploin</li><li>Tenderloin</li>
+              <li>Cross rib roast</li><li>Sirloin tip roast</li><li>Prime rib</li>
+              <li>Liver, heart and tongue</li><li>Soup bones and marrow bones</li>
+              <li>Front quarter, hind quarter or side</li>
+            </ul>
+            <p class="note">Call or text for what is in stock and current prices.</p>
+          </details>
+        </div>
+      </article>
+
+      <article class="animal">
+        <img src="assets/pork.webp" alt="Three dark-haired pigs rooting in the soil of their outdoor paddock" width="800" height="600" loading="lazy">
+        <div>
+          <h3>Pastured and forest grown pork</h3>
+          <p>Our pigs are raised outside in a fenced paddock, where they have access to pasture and shelter. In this natural environment they root and eat like a pig would in its natural habitat.</p>
+          <p>In addition to pasture, the pigs are fed a grain ration and apples from wild trees on our property.</p>
+          <details>
+            <summary>Pork cuts we sell</summary>
+            <ul>
+              <li>Ground pork</li><li>Loin chops</li><li>Bacon</li><li>Shoulder bacon</li><li>Shoulder roast</li>
+              <li>Fresh ham roast or steak</li><li>Ham roast</li><li>Ham steak</li><li>Deli ham</li><li>Tenderloin</li>
+            </ul>
+            <p class="note">Call or text for what is in stock and current prices.</p>
+          </details>
+        </div>
+      </article>
+
+      <article class="animal">
+        <img src="assets/chicken.webp" alt="White meat chickens on fresh grass inside an open-sided pasture pen" width="800" height="600" loading="lazy">
+        <div>
+          <h3>Pasture raised chicken</h3>
+          <p>Once the chicks are feathered well enough for the outside temperatures, we move them into outside pens that are partially enclosed for shelter. Here the birds can scratch, eat grass and insects, and sit in the sun.</p>
+          <p>The pens are moved every day to a new spot in one of our pastures, so the birds always have fresh grass. There are no antibiotics or growth hormones in our chicken, and it is processed at our local butcher's, which is provincially inspected.</p>
+          <details>
+            <summary>Chicken cuts we sell</summary>
+            <ul>
+              <li>Whole chicken</li><li>Breast</li><li>Boneless skinless breast</li><li>Thighs</li><li>Boneless skinless thighs</li>
+              <li>Drumsticks</li><li>Wings</li><li>Liver and hearts</li><li>Necks and backs</li>
+            </ul>
+            <p class="note">Call or text for what is in stock and current prices.</p>
+          </details>
+        </div>
+      </article>
+
+      <article class="animal">
+        <img src="assets/hens.webp" alt="Brown laying hens ranging on pasture beside their A-frame hen house on wheels" width="800" height="600" loading="lazy">
+        <div>
+          <h3>Free range eggs</h3>
+          <p>Our eggs come from traditional breeds: Rhode Island Reds and White Leghorns. During the warmer months the hens are moved to pasture, where they live in two chicken houses on wheels that are moved every two to three days, giving them grass, insects and sunlight.</p>
+          <p>During the colder months the birds keep warm in the hen house, where they are free to roam and scratch in the hay. You can find our eggs at the farmers' markets.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="farm" id="farm" aria-labelledby="farm-h">
+    <div class="wrap">
+      <h2 id="farm-h">How we farm</h2>
+      <div class="ways">
+        <div class="way">
+          <h3>No sprays, no chemical fertilizer</h3>
+          <p>We don't use any sprays or chemicals on our fields or pastures. What we do use is manure from our own livestock and the occasional application of lime.</p>
+        </div>
+        <div class="way">
+          <h3>Humane and ethical</h3>
+          <p>We work to encourage pollinators, beneficial insects and biodiversity on the farm, and we till as little as we can with soil conservation in mind.</p>
+        </div>
+        <div class="way">
+          <h3>Processed close to home</h3>
+          <p>All of the meat we grow is processed at a provincially inspected facility within minutes of our farm.</p>
+        </div>
+      </div>
+      <blockquote>
+        <p>We believe in regenerative practices and are not a fully regenerative farm but are working toward that goal. We believe in transparency and educating people on how we do things. We are passionate and proud small farmers.</p>
+        <cite>Betty Jordan</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="family" id="family" aria-labelledby="family-h">
+    <div class="wrap">
+      <div>
+        <h2 id="family-h">The family</h2>
+        <p>Betty Jordan and her husband have run the farm on Gaspereau Mountain since 1995, and it has been operated by the family since 1911. Their son Tyler is the fourth generation to work it.</p>
+        <p>"It is not starting so much as it is continuing," says Betty. "We both grew up on farms and love growing good food and raising animals."</p>
+        <blockquote>
+          <p>I like to feed people and I want to keep as much money in our community as possible. Also, I hate big box stores.</p>
+          <cite>Betty Jordan</cite>
+        </blockquote>
+      </div>
+      <img src="assets/calves.webp" alt="Two red and white calves lying in deep clover on the farm" width="800" height="600" loading="lazy">
+    </div>
+  </section>
+
+  <section class="said" aria-labelledby="said-h">
+    <div class="wrap">
+      <h2 id="said-h">What customers say</h2>
+      <div class="quotes">
+        <blockquote>
+          <p>Our one-stop shop for pastured meats in NS. Other farms specialize in one or two meats, Jordan's does beef, pork, chicken, and eggs with superior quality.</p>
+          <cite>Christopher, Google review</cite>
+        </blockquote>
+        <blockquote>
+          <p>Great eggs and they are our goto chicken provider.</p>
+          <cite>Bruce, Facebook review, 2024</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit on-dark" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div>
+        <h2 id="visit-h">Get in touch</h2>
+        <ul class="lines">
+          <li><small>Call or text</small><a href="tel:+19023000248">902-300-0248</a></li>
+          <li><small>Farm phone</small><a href="tel:+19025422046">902-542-2046</a></li>
+          <li><small>Email</small><a class="email" href="mailto:jordansnaturalacres@gmail.com">jordansnaturalacres@gmail.com</a></li>
+          <li><small>The farm</small>
+            <address>2439 Davidson St.<br>Gaspereau Mountain, outside Wolfville<br>Kings County, Nova Scotia</address>
+            <a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&amp;query=Jordan%27s+Natural+Acres%2C+2439+Davidson+St%2C+Nova+Scotia" rel="noopener">Get directions</a>
+          </li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Send us a message</h3>
+        <p>Ask about delivery, a bulk order, or anything else.</p>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-contact">Email or phone</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email">
+        <label for="f-msg">Your message</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Jordan's Natural Acres.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div><b>Jordan's Natural Acres</b>2439 Davidson St., Gaspereau Mountain, Nova Scotia</div>
+    <div class="foot-links">
+      <a href="tel:+19023000248">902-300-0248</a>
+      <a href="mailto:jordansnaturalacres@gmail.com">Email us</a>
+      <a href="https://www.facebook.com/JordansNaturalAcres/" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#101812;
+    --gd-ribbon-fg:#F4F6EC;
+    --gd-ribbon-accent:#CFE3A8;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(244,246,236,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Jordan's Natural Acres by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
