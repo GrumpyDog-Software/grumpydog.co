@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steadman Road Market Garden - website concept</title>
+<meta name="description" content="Website concept for Steadman Road Market Garden near Kentville, Nova Scotia: microgreens, hydroponic lettuce and basil all year, vegetables in season, and Sauced in the Valley vinaigrettes.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#7E2328">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Steadman Road Market Garden - website concept">
+<meta property="og:description" content="A preview of a first website for Steadman Road Market Garden near Kentville, Nova Scotia. Prepared by Grumpy Dog Software.">
+<meta property="og:image" content="https://grumpydog.co/demo/steadman-road-market-garden/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#7E2328;
+  --gold:#E0B45C;
+  --leaf:#1F5A27;
+  --magenta:#A3195B;
+  --ink:#1C1A17;
+  --ink-soft:#55504A;
+  --paper:#FFFFFF;
+  --paper-deep:#F6F3EA;
+  --rule:rgba(28,26,23,.2);
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Work Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(1.25rem,5vw,3.5rem);
+  --wide:72rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.6vw,4.125rem);letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem,4.6vw,3.25rem);letter-spacing:-.015em}
+h3{font-size:clamp(1.5rem,2.6vw,1.875rem);line-height:1.15}
+p{margin:0}
+a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:.08em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+.on-dark a:focus-visible,.on-dark button:focus-visible,.on-dark input:focus-visible,.on-dark textarea:focus-visible{outline-color:#fff}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3rem;padding:.7rem 1.4rem;
+  font:600 1rem/1.2 var(--body);text-decoration:none;border-radius:.25rem;border:2px solid var(--maroon);
+  background:var(--maroon);color:#fff;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--maroon)}
+.btn--line{background:transparent;color:var(--maroon)}
+.btn--line:hover{background:var(--maroon);color:#fff}
+.btn--gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn--gold:hover{background:transparent;color:#fff;border-color:#fff}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+
+/* header: the wordmark borrows their roadside sign */
+.top{position:relative;border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;padding-block:.75rem}
+.brand{margin-right:auto;flex:none;text-decoration:none;background:var(--maroon);color:var(--gold);padding:.55rem .9rem;
+  font:600 .8125rem/1.25 var(--display);letter-spacing:.16em;text-transform:uppercase;text-align:center;border:3px solid #5b4630}
+.brand span{display:block}
+.nav{display:flex;align-items:center;gap:clamp(1rem,2.2vw,1.75rem)}
+.nav a{font-weight:600;font-size:.9375rem;text-decoration:none;padding-block:.5rem;border-bottom:2px solid transparent;white-space:nowrap}
+.nav a:hover{border-bottom-color:var(--maroon)}
+.top .btn{min-height:2.75rem;padding:.55rem 1.1rem;font-size:.9375rem;white-space:nowrap}
+.menu-btn{display:none}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding-block:clamp(2.5rem,6vw,5rem)}
+.hero .lede{font-size:1.25rem;line-height:1.5;margin-top:1.4rem;max-width:30rem}
+.hero .promise{margin-top:1.1rem;font-weight:600;color:var(--leaf)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-pic img{width:100%;aspect-ratio:1/1;object-fit:cover}
+
+/* find us */
+.find{background:var(--maroon);color:#fff;padding-block:clamp(3.5rem,7vw,5.5rem)}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(2rem,4vw,3rem);border-top:3px solid var(--gold)}
+.way{padding:1.6rem 1.9rem 0 0}
+.way + .way{border-left:1px solid rgba(255,255,255,.35);padding-left:1.9rem}
+.way .when{font-weight:600;color:var(--gold)}
+.way h3{margin-top:.3rem}
+.way p{margin-top:.7rem}
+.way .more{font-weight:600}
+.way .more a{display:inline-block;padding-block:.5rem}
+.jars{margin-top:clamp(2rem,4vw,3rem);padding:1.25rem 1.5rem;background:rgba(0,0,0,.2);border-left:4px solid var(--gold);max-width:44rem;font-size:1.125rem}
+
+/* grow */
+.grow{padding-block:clamp(4rem,8vw,6.5rem)}
+.grow-intro{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem 3rem}
+.grow-intro p{max-width:28rem;font-weight:600;color:var(--leaf)}
+.micro{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;margin-top:clamp(2.5rem,5vw,4rem)}
+.micro p{margin-top:1rem;max-width:32rem}
+.kinds{margin:1.75rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.kinds li{font-weight:600;font-size:.9375rem;padding:.4rem .85rem;border:1.5px solid var(--ink);border-radius:999px}
+.kinds li.new{border-color:var(--magenta);color:var(--magenta)}
+.micro small{display:block;margin-top:1rem;font-size:.9375rem;color:var(--ink-soft)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.tiles figure{margin:0;position:relative}
+.tiles img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.tiles figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;font-weight:600;font-size:.875rem;padding:.3rem .65rem}
+.more-crops{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);margin-top:clamp(3rem,6vw,5rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--rule)}
+.crop{display:grid;grid-template-columns:9.5rem 1fr;gap:1.25rem;align-items:start}
+.crop img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.crop p{margin-top:.6rem}
+
+/* sauced */
+.sauced{background:var(--paper-deep);padding-block:clamp(4rem,8vw,6.5rem)}
+.sauced .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.sauced img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.sauced .tag{font:500 italic 1.5rem/1.2 var(--display);color:var(--maroon)}
+.sauced h2{margin-top:.4rem}
+.sauced p{margin-top:1.1rem;max-width:32rem}
+.flavours{margin:1.5rem 0 0;padding:0;list-style:none;border-top:2px solid var(--ink);max-width:32rem}
+.flavours li{font:500 1.5rem/1.2 var(--display);padding:.7rem 0;border-bottom:1px solid var(--rule)}
+
+/* story */
+.story{padding-block:clamp(4rem,8vw,6.5rem)}
+.story .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.story figure{margin:0}
+.story figure img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.story figcaption{font-size:.9375rem;color:var(--ink-soft);margin-top:.6rem}
+.story p{margin-top:1.1rem;max-width:36rem}
+.story blockquote{margin:1.75rem 0 0;padding-left:1.25rem;border-left:4px solid var(--maroon);max-width:36rem}
+.story blockquote p{margin:0;font:500 clamp(1.375rem,2.4vw,1.75rem)/1.3 var(--display)}
+.story cite{display:block;font-style:normal;font-size:.9375rem;color:var(--ink-soft);margin-top:.8rem}
+.said{margin-top:2rem;font-size:1rem;color:var(--ink-soft)}
+.said b{color:var(--ink);font-weight:600}
+
+/* contact */
+.visit{background:var(--leaf);color:#fff;padding-block:clamp(4rem,8vw,6rem)}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem)}
+.lines{margin:2rem 0 0;padding:0;list-style:none;display:grid;gap:1.4rem}
+.lines small{display:block;font-size:.9375rem;opacity:.85}
+.lines a:not(.btn){font:600 clamp(1.25rem,2.2vw,1.625rem)/1.25 var(--body);text-decoration:none;display:inline-block;padding-block:.5rem;overflow-wrap:anywhere}
+.lines a:not(.btn):hover{text-decoration:underline}
+.lines a.sm{font-size:1.0625rem;margin-right:1.25rem;text-decoration:underline;padding-block:.7rem}
+.lines address{font-style:normal;font-size:1.125rem;line-height:1.45;margin-top:.2rem}
+.lines .btn{margin-top:1rem}
+form{background:var(--paper);color:var(--ink);padding:clamp(1.5rem,3vw,2.25rem)}
+form h3{margin-bottom:.4rem}
+form > p{margin-bottom:1.1rem;color:var(--ink-soft)}
+label{display:block;font-weight:600;font-size:.9375rem;margin:1rem 0 .35rem}
+input,textarea{width:100%;font:inherit;color:inherit;background:#fff;border:1.5px solid var(--ink);border-radius:.25rem;padding:.7rem .85rem}
+textarea{min-height:7.5rem;resize:vertical}
+form .btn{margin-top:1.25rem;width:100%}
+.form-note{margin-top:1rem;padding:.9rem 1rem;background:var(--paper-deep);border-left:4px solid var(--leaf);font-size:.9375rem}
+.form-note[hidden]{display:none}
+
+.foot{background:var(--ink);color:#fff;padding-block:2rem;font-size:.9375rem}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:.75rem 3rem;justify-content:space-between;align-items:center}
+.foot a{display:inline-block;padding-block:.5rem;margin-left:1.25rem}
+
+@media (max-width:62rem){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:#fff;border-bottom:3px solid var(--ink);
+    flex-direction:column;align-items:stretch;gap:0;padding:.5rem var(--gutter) 1.25rem}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:1.0625rem}
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:.5rem .8rem;font:600 1rem/1 var(--body);
+    background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:.25rem;cursor:pointer}
+  .menu-btn svg{width:1.1rem;height:1.1rem}
+  .micro,.sauced .wrap,.story .wrap,.visit .wrap{grid-template-columns:1fr}
+  .story figure{max-width:26rem}
+}
+@media (max-width:46rem){
+  body{font-size:1rem}
+  .top .wrap{gap:.6rem}
+  .brand{font-size:.6875rem;padding:.4rem .6rem;letter-spacing:.12em}
+  .top .call span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .top .call{padding-inline:.75rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .lede{font-size:1.125rem}
+  .hero-actions,.hero-actions .btn{width:100%}
+  .hero-pic{margin-inline:calc(var(--gutter)*-1)}
+  .hero-pic img{aspect-ratio:4/3}
+  .ways{grid-template-columns:1fr;border-top:0}
+  .way,.way + .way{border-left:0;border-top:3px solid var(--gold);padding:1.4rem 0 1.9rem}
+  .more-crops{grid-template-columns:1fr}
+  .crop{grid-template-columns:6.5rem 1fr}
+  .foot a{margin-left:0;margin-right:1.25rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Steadman Road Market Garden, home"><span>Steadman Road</span><span>Market Garden</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#find">Where to find us</a>
+      <a href="#grow">What we grow</a>
+      <a href="#sauced">Vinaigrettes</a>
+      <a href="#story">Our story</a>
+      <a href="#visit">Contact</a>
+    </nav>
+    <a class="btn call" href="tel:+19023003777" aria-label="Call 902-300-3777">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      <span>902-300-3777</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>Microgreens, lettuce and basil, grown all year near Kentville.</h1>
+        <p class="lede">We help you add a sparkle of fresh flavour to everything you make, with vegetables from the field in season.</p>
+        <p class="promise">No chemical pesticides, herbicides or fertilizers.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#find">Where to find us</a>
+          <a class="btn btn--line" href="#grow">What we grow</a>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <img src="assets/mixed-microgreens.webp" alt="A tumble of fresh microgreens: green radish and broccoli leaves, white stems and magenta amaranth" width="1100" height="1100" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="find on-dark" id="find" aria-labelledby="find-h">
+    <div class="wrap">
+      <h2 id="find-h">Where to find us</h2>
+      <div class="ways">
+        <article class="way">
+          <p class="when">Every Saturday, all year</p>
+          <h3>Wolfville Farmers' Market</h3>
+          <p>8:30 am to 1 pm<br>24 Elm Avenue, Wolfville</p>
+          <p class="more"><a href="https://www.wolfvillefarmersmarket.ca/saturday-market" rel="noopener">Wolfville Farmers' Market website</a></p>
+        </article>
+        <article class="way">
+          <p class="when">Monday to Friday</p>
+          <h3>Our farm stand</h3>
+          <p>9 am to 6 pm<br>297 Steadman Road, Keddys Corner</p>
+          <p class="more"><a href="https://www.google.com/maps/search/?api=1&amp;query=Steadman+Road+Market+Garden%2C+297+Steadman+Road%2C+Nova+Scotia" rel="noopener">Directions to the farm stand</a></p>
+        </article>
+        <article class="way">
+          <p class="when">Order online</p>
+          <h3>WFM2Go</h3>
+          <p>Order through the Wolfville Farmers' Market online store and pick up on Wednesday.</p>
+          <p class="more"><a href="https://wfm2go.localfoodmarketplace.com/Producer/2024306c-56bc-4b0c-9abb-a1cb566a9d19" rel="noopener">Our page on WFM2Go</a></p>
+        </article>
+      </div>
+      <p class="jars">Please bring your jars or containers and we'll fill them up. We have reusable jars for sale too.</p>
+    </div>
+  </section>
+
+  <section class="grow" id="grow" aria-labelledby="grow-h">
+    <div class="wrap">
+      <div class="grow-intro">
+        <h2 id="grow-h">What we grow</h2>
+        <p>Microgreens and hydroponics in our indoor grow room. Everything else outside in soil.</p>
+      </div>
+
+      <div class="micro">
+        <div>
+          <h3>Microgreens, all year</h3>
+          <p>Throw them on almost everything. Dehydrate them for smoothies, or freeze them like you do herbs. Customers especially love the broccoli.</p>
+          <ul class="kinds" aria-label="Microgreens we grow">
+            <li>Pea</li><li>Broccoli</li><li>Radish</li><li>Arugula</li><li>Fava bean</li><li>Purple kohlrabi</li>
+            <li>Red amaranth</li><li>Red Russian kale</li><li>Mustard</li><li>Curry cress</li><li>Cilantro</li><li>Corn</li>
+            <li class="new">New: broccoli raab</li><li class="new">On trial: Kamut wheatgrass</li>
+          </ul>
+          <small>What is cut each week changes. Message us if you are after one kind.</small>
+        </div>
+        <div class="tiles">
+          <figure><img src="assets/red-amaranth.webp" alt="Bright pink red amaranth microgreens" width="720" height="720" loading="lazy"><figcaption>Red amaranth</figcaption></figure>
+          <figure><img src="assets/corn-shoots.webp" alt="Pale yellow corn shoot microgreens" width="720" height="720" loading="lazy"><figcaption>Corn shoots</figcaption></figure>
+          <figure><img src="assets/radish-and-amaranth.webp" alt="Purple-stemmed radish microgreens beside magenta amaranth" width="720" height="720" loading="lazy"><figcaption>Radish and amaranth</figcaption></figure>
+          <figure><img src="assets/wheatgrass.webp" alt="A tray of tall green Kamut wheatgrass" width="720" height="720" loading="lazy"><figcaption>Kamut wheatgrass</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="more-crops">
+        <article class="crop">
+          <img src="assets/hydroponic-basil.webp" alt="A hydroponic basil plant with large glossy leaves, lettuce behind" width="720" height="720" loading="lazy">
+          <div>
+            <h3>Hydroponic lettuce and basil</h3>
+            <p>Harvested year-round. Fresh winter basil is back.</p>
+          </div>
+        </article>
+        <article class="crop">
+          <img src="assets/tomatoes.webp" alt="Red, orange and yellow cherry tomatoes" width="720" height="720" loading="lazy">
+          <div>
+            <h3>Vegetables in season</h3>
+            <p>A variety of market vegetables from the field, and Music garlic.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sauced" id="sauced" aria-labelledby="sauced-h">
+    <div class="wrap">
+      <img src="assets/vinaigrettes.webp" alt="Tiers of Sauced in the Valley vinaigrette bottles on the market table" width="1100" height="1100" loading="lazy">
+      <div>
+        <p class="tag">Life is better sauced.</p>
+        <h2 id="sauced-h">Sauced in the Valley</h2>
+        <p>Our own vinaigrettes, crafted from the harvest and made with freeze-dried fresh ingredients. Find them on our market table and at the farm stand, on their own or in a gift pack with freeze-dried microgreens.</p>
+        <ul class="flavours" aria-label="Flavours">
+          <li>Garlic Scape and Herb</li>
+          <li>Strawberry Red Wine</li>
+          <li>Herbed Apple</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story" aria-labelledby="story-h">
+    <div class="wrap">
+      <figure>
+        <img src="assets/road-sign.webp" alt="The maroon and gold Steadman Road Market Garden sign beside a tree-lined country road" width="820" height="820" loading="lazy">
+        <figcaption>Look for the sign on Steadman Road.</figcaption>
+      </figure>
+      <div>
+        <h2 id="story-h">From mail carrier to market gardener</h2>
+        <p>Petrina Flynn went from being a mail carrier in Cambridge, Ontario, to a microgreen farmer outside of Kentville. She and partner Craig Robertson had planned to retire to Atlantic Canada someday. Then they decided to just go, and made the move in August 2022.</p>
+        <p>The market garden launched in 2023. Petrina sources seed from Canadian companies, including several in Atlantic Canada.</p>
+        <blockquote>
+          <p>I wasn't planning on doing microgreens or hydroponics. We were only going to do field vegetables but we learned that the greens were very popular and could be grown year-round.</p>
+          <cite>Petrina Flynn, in Saltscapes magazine, July 2026</cite>
+        </blockquote>
+        <p class="said"><b>"Excellent fresh clean greens!"</b> Michelle, Facebook review, June 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit on-dark" id="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div>
+        <h2 id="visit-h">Get in touch</h2>
+        <ul class="lines">
+          <li><small>Phone</small><a href="tel:+19023003777">902-300-3777</a></li>
+          <li><small>Email</small><a href="mailto:steadmanmarket@gmail.com">steadmanmarket@gmail.com</a></li>
+          <li><small>Farm stand</small>
+            <address>297 Steadman Road<br>Keddys Corner, Nova Scotia B4N 3V7</address>
+            <a class="btn btn--gold" href="https://www.google.com/maps/search/?api=1&amp;query=Steadman+Road+Market+Garden%2C+297+Steadman+Road%2C+Nova+Scotia" rel="noopener">Get directions</a>
+          </li>
+          <li><small>See what is fresh this week</small>
+            <a class="sm" href="https://www.facebook.com/people/Steadman-Road-Market-Garden/61555718241298/" rel="noopener">Facebook</a>
+            <a class="sm" href="https://www.instagram.com/steadmanroadmarketgarden/" rel="noopener">Instagram</a>
+          </li>
+        </ul>
+      </div>
+      <form id="msg" novalidate>
+        <h3>Send us a message</h3>
+        <p>Ask what is fresh this week, or about an order.</p>
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name">
+        <label for="f-contact">Email or phone</label>
+        <input id="f-contact" name="contact" type="text" autocomplete="email">
+        <label for="f-msg">Your message</label>
+        <textarea id="f-msg" name="message"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note" id="msg-note" role="status" hidden>This is a preview, so nothing was sent. On the live site this would go straight to Steadman Road Market Garden.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div>Steadman Road Market Garden, 297 Steadman Road, Keddys Corner, Nova Scotia</div>
+    <div>
+      <a href="tel:+19023003777">902-300-3777</a>
+      <a href="mailto:steadmanmarket@gmail.com">Email us</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function close(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){close();btn.focus()}});
+  document.getElementById('msg').addEventListener('submit',function(e){
+    e.preventDefault();var n=document.getElementById('msg-note');n.hidden=false;n.scrollIntoView({block:'nearest'});
+  });
+})();
+</script>
+
+<style>
+  .gd-ribbon{
+    --gd-ribbon-bg:#1C1A17;
+    --gd-ribbon-fg:#FFFFFF;
+    --gd-ribbon-accent:#E0B45C;
+    position:fixed;left:0;right:0;bottom:0;z-index:9999;
+    display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;
+    padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));
+    background:var(--gd-ribbon-bg);color:var(--gd-ribbon-fg);
+    border-top:1px solid rgba(255,255,255,.25);
+    font:500 .8125rem/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    text-align:center;
+  }
+  .gd-ribbon a{color:var(--gd-ribbon-accent);text-decoration:underline;text-underline-offset:2px}
+  .gd-ribbon a:focus-visible,.gd-ribbon button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+  .gd-ribbon button{
+    background:none;border:1px solid currentColor;border-radius:999px;color:inherit;
+    font:inherit;padding:.15rem .7rem;cursor:pointer;opacity:.8;min-height:28px
+  }
+  .gd-ribbon button:hover{opacity:1}
+  body{padding-bottom:3.25rem}
+  @media (max-width:30rem){body{padding-bottom:4.75rem}}
+  @media print{.gd-ribbon{display:none}body{padding-bottom:0}}
+</style>
+<aside class="gd-ribbon" data-gd-demo-ribbon aria-label="About this preview">
+  <span>Website concept prepared for Steadman Road Market Garden by
+    <a href="https://grumpydog.co/" rel="noopener">Grumpy Dog Software</a>.
+    This is a preview, not the live site.</span>
+  <button type="button" onclick="this.parentElement.remove();document.body.style.paddingBottom=0">Hide</button>
+</aside>
+</body>
+</html>
