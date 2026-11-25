@@ -52,7 +52,7 @@ window.op('init',{clientId:'d24e21f9-e855-4a0b-a871-df06644d686e',trackScreenVie
     var h=a.getAttribute('href');
     if(/^mailto:/i.test(h))window.op('track','mailto_click',{address:h.slice(7).split('?')[0]});
     else if(/^tel:/i.test(h))window.op('track','phone_click',{number:h.slice(4)});
-    else if(/[?&]topic=discovery-call/.test(h))window.op('track','booking_start',{from:location.pathname+location.hash});
+    else if(/[?&]topic=discovery-call/.test(h)){var p={from:location.pathname+location.hash};if(a.dataset.source)p.source=a.dataset.source;window.op('track','booking_start',p)}
   },true);
 })();
 </script>
@@ -63,7 +63,7 @@ window.op('init',{clientId:'d24e21f9-e855-4a0b-a871-df06644d686e',trackScreenVie
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://grumpydog.co/#organization",
       "name": "Grumpy Dog Software",
       "url": "https://grumpydog.co/",
@@ -75,10 +75,16 @@ window.op('init',{clientId:'d24e21f9-e855-4a0b-a871-df06644d686e',trackScreenVie
         "@type": "Person",
         "name": "Celina"
       },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Nova Scotia"
-      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Nova Scotia" },
+        { "@type": "Place", "name": "Windsor, Nova Scotia" },
+        { "@type": "Place", "name": "Wolfville, Nova Scotia" },
+        { "@type": "Place", "name": "Kentville, Nova Scotia" },
+        { "@type": "Place", "name": "Berwick, Nova Scotia" },
+        { "@type": "Place", "name": "Middleton, Nova Scotia" },
+        { "@type": "Place", "name": "Annapolis Royal, Nova Scotia" },
+        { "@type": "Place", "name": "Digby, Nova Scotia" }
+      ],
       "knowsAbout": [
         "Website design and development",
         "Mobile app development",
@@ -409,6 +415,11 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .consult-cta .rate strong{font-family:var(--display);font-weight:400;color:var(--navy);font-size:1.15rem}
 .section-dark .consult-cta .rate{color:rgba(255,255,255,0.62)}
 .section-dark .consult-cta .rate strong{color:#fff}
+.local-copy{max-width:40rem;margin:0 auto}
+.local-copy p{font-size:1.08rem;line-height:1.75;color:var(--ink-soft);margin-bottom:1.3rem}
+.local-links{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin:2rem 0 0;padding:0;list-style:none}
+.local-links a{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+.local-links a:hover{color:var(--gold)}
 
 /* contact */
 .contact-section{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
@@ -1102,6 +1113,31 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 </div>
 <!-- @endpart -->
 
+<!-- @part valley -->
+<div class="page" id="page-valley">
+  <div class="page-hero">
+    <svg class="contours" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40,300 C240,240 420,360 720,300 C1020,240 1200,340 1480,280" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1.3"/>
+      <path d="M-40,350 C260,290 460,400 740,345 C1040,290 1220,380 1480,330" fill="none" stroke="rgba(212,160,60,0.15)" stroke-width="1.3" stroke-dasharray="6 7"/>
+    </svg>
+    <div class="ph-inner"><div class="eyebrow">Windsor to Digby</div><h1>Websites and tech help for small businesses in the Annapolis Valley</h1></div>
+  </div>
+  <section class="section section-paper on-light"><div class="section-inner">
+    <div class="local-copy">
+      <p>Grumpy Dog Software is a female-owned software studio in the Annapolis Valley. We build websites, apps and custom tools for farms, trades, shops, restaurants, markets, inns and makers from Windsor and Wolfville to Kentville, Berwick, Middleton, Annapolis Royal and Digby, and we look after the hosting so your site keeps working.</p>
+      <p>If your website is out of date, missing, or tied to a tool that is shutting down, we can move your menu, hours, bookings or store to a site you own. Most projects start with a free 30-minute call where we look at what you have today and what it would take to fix.</p>
+      <p>Book a free call or send us a note, and Celina will get back to you.</p>
+      <ul class="local-links">
+        <li><a href="/services">What we do</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/work">Our work</a></li>
+      </ul>
+      <div class="consult-cta"><a class="btn btn-gold" data-source="valley-landing" href="/contact?topic=discovery-call&amp;utm_source=grumpydog&amp;utm_medium=valley-landing&amp;utm_campaign=2026-11#contact-form">Book a free call</a></div>
+    </div>
+  </div></section>
+</div>
+<!-- @endpart -->
+
 <!-- @part notfound -->
 <div class="page" id="page-notfound">
   <div class="page-hero">
@@ -1133,6 +1169,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <li><a href="#work">Our Work</a></li>
         <li><a href="#staff">Our Staff</a></li>
         <li><a href="#contact">Get in Touch</a></li>
+        <li><a href="/web-design-annapolis-valley">Annapolis Valley</a></li>
       </ul>
     </div>
     <div>

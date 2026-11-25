@@ -55,6 +55,12 @@ PAGES = {
         title="Contact Grumpy Dog Software",
         description="Talk with Grumpy Dog Software about your website, app, custom tool, hosting, or technology project.",
         priority="0.9"),
+    "web-design-annapolis-valley.html": dict(
+        path="/web-design-annapolis-valley", key="valley", nav=None, parts=["valley"],
+        title="Web Design and Tech Help in the Annapolis Valley, Nova Scotia | Grumpy Dog Software",
+        description=("Websites, apps and plain-English tech help for farms, shops, restaurants, inns and makers "
+                     "across the Annapolis Valley, from Windsor to Digby."),
+        priority="0.8"),
     "404.html": dict(
         path="/404", key="notfound", nav=None, parts=["notfound"], robots="noindex, follow", sitemap=False,
         title="Page Not Found — Grumpy Dog Software",

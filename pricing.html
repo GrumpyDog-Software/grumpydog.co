@@ -50,7 +50,7 @@ window.op('init',{clientId:'d24e21f9-e855-4a0b-a871-df06644d686e',trackScreenVie
     var h=a.getAttribute('href');
     if(/^mailto:/i.test(h))window.op('track','mailto_click',{address:h.slice(7).split('?')[0]});
     else if(/^tel:/i.test(h))window.op('track','phone_click',{number:h.slice(4)});
-    else if(/[?&]topic=discovery-call/.test(h))window.op('track','booking_start',{from:location.pathname+location.hash});
+    else if(/[?&]topic=discovery-call/.test(h)){var p={from:location.pathname+location.hash};if(a.dataset.source)p.source=a.dataset.source;window.op('track','booking_start',p)}
   },true);
 })();
 </script>
@@ -328,6 +328,11 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
 .consult-cta .rate strong{font-family:var(--display);font-weight:400;color:var(--navy);font-size:1.15rem}
 .section-dark .consult-cta .rate{color:rgba(255,255,255,0.62)}
 .section-dark .consult-cta .rate strong{color:#fff}
+.local-copy{max-width:40rem;margin:0 auto}
+.local-copy p{font-size:1.08rem;line-height:1.75;color:var(--ink-soft);margin-bottom:1.3rem}
+.local-links{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin:2rem 0 0;padding:0;list-style:none}
+.local-links a{color:var(--navy);font-weight:600;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+.local-links a:hover{color:var(--gold)}
 
 /* contact */
 .contact-section{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start}
@@ -549,6 +554,7 @@ h1,h2,h3,h4{font-family:var(--display);line-height:1.12;letter-spacing:-0.015em;
         <li><a href="/work">Our Work</a></li>
         <li><a href="/about">Our Staff</a></li>
         <li><a href="/contact">Get in Touch</a></li>
+        <li><a href="/web-design-annapolis-valley">Annapolis Valley</a></li>
       </ul>
     </div>
     <div>
