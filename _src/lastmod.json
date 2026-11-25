@@ -1,30 +1,34 @@
 {
   "404.html": {
-    "date": "2026-11-19",
-    "hash": "fef3b8a552b5b876"
+    "date": "2026-11-25",
+    "hash": "3ddc00d4fa0730bd"
   },
   "about.html": {
-    "date": "2026-11-19",
-    "hash": "4a053b9a7c2bb3f7"
+    "date": "2026-11-25",
+    "hash": "2bf0e33acc8848f8"
   },
   "contact.html": {
-    "date": "2026-11-19",
-    "hash": "664da24a6d5c8ac5"
+    "date": "2026-11-25",
+    "hash": "83f42a82706634de"
   },
   "index.html": {
-    "date": "2026-11-19",
-    "hash": "71a7fce602f0e14a"
+    "date": "2026-11-25",
+    "hash": "7820185dfc57dca8"
   },
   "pricing.html": {
-    "date": "2026-11-19",
-    "hash": "5af3ba6473480dd3"
+    "date": "2026-11-25",
+    "hash": "ff7763826e04f6a4"
   },
   "services.html": {
-    "date": "2026-11-19",
-    "hash": "2e8bc344f247977b"
+    "date": "2026-11-25",
+    "hash": "05f671fc6bce5f77"
+  },
+  "web-design-annapolis-valley.html": {
+    "date": "2026-11-25",
+    "hash": "f0be43add026cebc"
   },
   "work.html": {
-    "date": "2026-11-19",
-    "hash": "9d3595c39264efe6"
+    "date": "2026-11-25",
+    "hash": "beabccc505586f95"
   }
 }
