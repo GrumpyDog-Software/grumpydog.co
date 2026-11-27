@@ -61,6 +61,12 @@ PAGES = {
         description=("Websites, apps and plain-English tech help for farms, shops, restaurants, inns and makers "
                      "across the Annapolis Valley, from Windsor to Digby."),
         priority="0.8"),
+    "website-checkup.html": dict(
+        path="/website-checkup", key="checkup", nav=None, parts=["checkup"], scripts=["script-common", "script-checkup"],
+        title="Free Website Checkup for Annapolis Valley Businesses | Grumpy Dog Software",
+        description=("Send your website address and get a short, simple note from Celina on what works and the one fix "
+                     "that would help most. Free, no sales call."),
+        priority="0.7"),
     "404.html": dict(
         path="/404", key="notfound", nav=None, parts=["notfound"], robots="noindex, follow", sitemap=False,
         title="Page Not Found — Grumpy Dog Software",
